@@ -1,0 +1,42 @@
+# Gradle and build outputs
+.gradle/
+**/.gradle/
+build/
+**/build/
+out/
+**/out/
+
+# IntelliJ IDEA
+.idea/**/workspace.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries/
+.idea/**/shelf/
+*.iml
+*.ipr
+*.iws
+
+# Kotlin / JVM generated files
+*.class
+*.jar
+!backend/gradle/wrapper/gradle-wrapper.jar
+hs_err_pid*
+replay_pid*
+
+# Test and coverage reports
+reports/
+**/reports/
+test-results/
+**/test-results/
+*.exec
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
