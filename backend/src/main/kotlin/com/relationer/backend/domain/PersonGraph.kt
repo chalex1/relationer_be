@@ -15,7 +15,7 @@ data class PersonGraph(
         if (persons.none { it === personB }) errors += "personB is not in persons"
 
         persons.forEach { person ->
-            sequenceOf(person.children, person.godchildren, person.spouses)
+            sequenceOf(person.children, person.godchildren, person.adoptedChildren, person.spouses)
                 .flatten()
                 .filterNot { referenced -> persons.any { it === referenced } }
                 .forEach { errors += "Person ${it.id} referenced by ${person.id} is not in persons" }

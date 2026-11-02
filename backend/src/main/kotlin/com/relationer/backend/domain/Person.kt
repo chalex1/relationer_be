@@ -5,5 +5,6 @@ class Person(
     val name: String? = null,
     val children: MutableList<Person> = mutableListOf(),
     val godchildren: MutableList<Person> = mutableListOf(),
+    val adoptedChildren: MutableList<Person> = mutableListOf(),
     val spouses: MutableList<Person> = mutableListOf(),
 )
