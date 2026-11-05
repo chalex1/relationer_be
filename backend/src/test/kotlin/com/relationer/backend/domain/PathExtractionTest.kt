@@ -76,6 +76,19 @@ class PathExtractionTest {
     }
 
     @Test
+    fun `mutual spouse references produce one marriage path`() {
+        val a = Person("A")
+        val b = Person("B")
+        a.spouses += b
+        b.spouses += a
+
+        val paths = extractor.extract(graphOf(a, b, a, b))
+
+        assertEquals(1, paths.size)
+        assertEquals("M", encoder.encode(paths.single()))
+    }
+
+    @Test
     fun `T08 returns multiple paths between one pair`() {
         val a = Person("A")
         val p = Person("P")
