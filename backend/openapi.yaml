@@ -1,0 +1,188 @@
+openapi: 3.0.3
+info:
+  title: Relationer Reference Search API
+  version: 1.0.0
+  description: |
+    Поиск справочных случаев по полному графу пользователя.
+    Backend извлекает и кодирует все простые пути между personA и personB.
+    Каждый найденный случай возвращается отдельно; общий вердикт не вычисляется.
+tags:
+  - name: References
+    description: Поиск справочных случаев родства
+paths:
+  /api/v1/references/search:
+    post:
+      tags: [References]
+      operationId: searchReferences
+      summary: Найти справочные случаи для выбранной пары людей
+      description: |
+        ID людей должны быть уникальны в пределах запроса. Все from, to, personA
+        и personB должны ссылаться на людей из persons. personA и personB различны.
+        Порядок людей и связей не влияет на поиск. Связи задаются явно,
+        транзитивные связи не добавляются. Коды путей вычисляет только backend.
+        Разные конкретные пути сохраняются, даже если их коды одинаковы.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              godparentAndMother:
+                summary: Крестный и мать крестника
+                value:
+                  persons:
+                    - {id: godparent, name: Николай}
+                    - {id: mother, name: Анна}
+                    - {id: child}
+                  relations:
+                    - {type: SPIRITUAL, from: godparent, to: child}
+                    - {type: BIOLOGICAL, from: mother, to: child}
+                  personA: godparent
+                  personB: mother
+      responses:
+        '200':
+          description: Поиск выполнен. При отсутствии совпадений matches пуст.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              examples:
+                found:
+                  summary: Совпадение из текущего справочника
+                  value:
+                    matches:
+                      - referenceId: spiritual-forbidden-02
+                        verdict: FORBIDDEN
+                        description: 'Восприемник и родная мать крестника: запрещённый брак по историческому источнику'
+                        userPathCode: 'G><B'
+                        referencePathCode: 'G><B'
+                        source:
+                          document: 'О брачном праве. Сборник статей о различных видах родства (Москва, 1900), Приложения, глава I, § 2'
+                          page: 121
+                          example: Изображение 2
+                          conclusion: В историческом источнике запрещён брак восприемника с матерью крестника
+                noMatches:
+                  value: {matches: []}
+        '400':
+          description: Невалидный JSON, поля запроса или граф.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: 'Unknown person id: missing'
+components:
+  schemas:
+    SearchRequest:
+      type: object
+      required: [persons, relations, personA, personB]
+      properties:
+        persons:
+          type: array
+          minItems: 2
+          items:
+            $ref: '#/components/schemas/PersonDto'
+        relations:
+          type: array
+          description: Может быть пустым, если связи пока не установлены.
+          items:
+            $ref: '#/components/schemas/RelationDto'
+        personA:
+          type: string
+          minLength: 1
+          pattern: '.*\S.*'
+          description: ID первого человека из persons.
+        personB:
+          type: string
+          minLength: 1
+          pattern: '.*\S.*'
+          description: ID второго человека из persons; отличается от personA.
+    PersonDto:
+      type: object
+      required: [id]
+      properties:
+        id:
+          type: string
+          minLength: 1
+          pattern: '.*\S.*'
+        name:
+          type: string
+          nullable: true
+    RelationDto:
+      type: object
+      required: [type, from, to]
+      properties:
+        type:
+          $ref: '#/components/schemas/RelationType'
+        from:
+          type: string
+          minLength: 1
+          pattern: '.*\S.*'
+          description: ID родителя, крестного, усыновителя либо одного из супругов.
+        to:
+          type: string
+          minLength: 1
+          pattern: '.*\S.*'
+          description: ID ребёнка, крестника, усыновлённого либо второго супруга.
+    RelationType:
+      type: string
+      description: Брак симметричен; остальные связи направлены от from к to.
+      enum: [BIOLOGICAL, MARRIAGE, SPIRITUAL, ADOPTION]
+    SearchResponse:
+      type: object
+      required: [matches]
+      properties:
+        matches:
+          type: array
+          description: Все совпадения, включая случаи с противоречащими вердиктами.
+          items:
+            $ref: '#/components/schemas/ReferenceMatchDto'
+    ReferenceMatchDto:
+      type: object
+      required: [referenceId, verdict, description, userPathCode, referencePathCode, source]
+      properties:
+        referenceId:
+          type: string
+        verdict:
+          $ref: '#/components/schemas/VerdictDto'
+        description:
+          type: string
+          nullable: true
+        userPathCode:
+          type: string
+          minLength: 1
+        referencePathCode:
+          type: string
+          minLength: 1
+        source:
+          $ref: '#/components/schemas/SourceDto'
+    VerdictDto:
+      type: string
+      description: Вердикт справочного случая, не вычисляемый поиском.
+      enum: [FORBIDDEN, UNDETERMINED, ALLOWED]
+    SourceDto:
+      type: object
+      required: [document, page, example, conclusion]
+      description: Все поля присутствуют; неизвестные сведения имеют значение null.
+      properties:
+        document:
+          type: string
+          nullable: true
+        page:
+          type: integer
+          format: int32
+          nullable: true
+        example:
+          type: string
+          nullable: true
+        conclusion:
+          type: string
+          nullable: true
+    ErrorResponse:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+          description: Понятная причина ошибки без stack trace и внутренних деталей.

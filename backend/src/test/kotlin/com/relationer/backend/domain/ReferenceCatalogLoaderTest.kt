@@ -13,8 +13,10 @@ class ReferenceCatalogLoaderTest {
     private val loader = ReferenceCatalogLoader()
 
     @Test
-    fun `production catalog is empty until PDF cases are entered`() {
-        assertTrue(loader.load().isEmpty())
+    fun `production catalog contains eleven prepared reference cases`() {
+        val references = loader.load()
+        assertEquals((1..5).map { "blood-0$it" } + (1..3).map { "affinity-allowed-0$it" } + (1..3).map { "spiritual-forbidden-0$it" }, references.map { it.id })
+        assertTrue(references.all { it.graph.validate().isEmpty() })
     }
 
     @Test

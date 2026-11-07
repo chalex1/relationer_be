@@ -14,6 +14,47 @@ class PathMatcherTest {
     private val matcher = PathMatcher()
 
     @ParameterizedTest
+    @CsvSource("<BB>", "<BB>B>", "<BB>B>B>", "<B<BB>B>", "<BB>B>B>B>")
+    fun `five blood reference paths obey verdict direction and length`(reference: String) {
+        for (user in listOf(reference, reversePath(reference))) {
+            assertTrue(matcher.matches(user, reference, Verdict.FORBIDDEN))
+            assertTrue(matcher.matches(user, reference, Verdict.ALLOWED))
+        }
+        val longer = reference + "M"
+        assertFalse(matcher.matches(longer, reference, Verdict.FORBIDDEN))
+        assertFalse(matcher.matches(reversePath(longer), reference, Verdict.FORBIDDEN))
+        assertTrue(matcher.matches(longer, reference, Verdict.ALLOWED))
+        assertTrue(matcher.matches(reversePath(longer), reference, Verdict.ALLOWED))
+        assertTrue(matcher.matches("<BB>", reference, Verdict.FORBIDDEN))
+        assertEquals(reference == "<BB>", matcher.matches("<BB>", reference, Verdict.ALLOWED))
+    }
+
+    @Test
+    fun `distant cousins do not match forbidden siblings in either direction`() {
+        val user = "<B<B<B<BB>B>B>B>"
+        assertFalse(matcher.matches(user, "<BB>", Verdict.FORBIDDEN))
+        assertFalse(matcher.matches(reversePath(user), "<BB>", Verdict.FORBIDDEN))
+    }
+
+    @Test
+    fun `string inclusion agrees with whole token inclusion across token boundaries`() {
+        val inverses = mapOf("B>" to "<B", "<B" to "B>", "G>" to "<G", "<G" to "G>",
+            "U>" to "<U", "<U" to "U>", "M" to "M")
+        val sequences = inverses.keys.map { listOf(it) } +
+            inverses.keys.flatMap { first -> inverses.keys.map { second -> listOf(first, second) } }
+        fun containsTokens(container: List<String>, fragment: List<String>): Boolean =
+            container.windowed(fragment.size).any { it == fragment }
+
+        for (user in sequences) for (reference in sequences) for (verdict in Verdict.entries) {
+            val (container, fragment) = if (verdict == Verdict.ALLOWED) user to reference else reference to user
+            val reversed = fragment.reversed().map { inverses.getValue(it) }
+            val expected = containsTokens(container, fragment) || containsTokens(container, reversed)
+            assertEquals(expected, matcher.matches(user.joinToString(""), reference.joinToString(""), verdict),
+                "user=$user reference=$reference verdict=$verdict")
+        }
+    }
+
+    @ParameterizedTest
     @CsvSource("B>, <B", "<B, B>", "G>, <G", "<G, G>", "U>, <U", "<U, U>", "M, M")
     fun `reverses all seven tokens`(path: String, expected: String) {
         assertEquals(expected, reversePath(path))
