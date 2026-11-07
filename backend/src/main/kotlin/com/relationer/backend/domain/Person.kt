@@ -1,5 +1,11 @@
 package com.relationer.backend.domain
 
+/**
+ * Один человек в графе родства.
+ *
+ * Содержит идентификатор, имя и связи с другими людьми:
+ * дети, супруги, крестники и усыновлённые.
+ */
 class Person(
     val id: String,
     val name: String? = null,

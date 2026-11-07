@@ -1,5 +1,11 @@
 package com.relationer.backend.domain
 
+/**
+ * Граф родственных связей между людьми.
+ *
+ * Объединяет участников графа и определяет двух выбранных
+ * людей (A и B), между которыми выполняется поиск путей.
+ */
 data class PersonGraph(
     val persons: List<Person>,
     val personA: Person,

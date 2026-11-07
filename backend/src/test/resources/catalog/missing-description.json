@@ -1,0 +1,54 @@
+[
+  {
+    "id": "test-allowed",
+    "source": {
+      "document": "СИНТЕТИЧЕСКИЕ ТЕСТОВЫЕ ДАННЫЕ",
+      "page": 1,
+      "example": "fixture-1",
+      "conclusion": "Только проверка загрузчика"
+    },
+    "verdict": "ALLOWED",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Тест A"
+      },
+      {
+        "id": "b"
+      },
+      {
+        "id": "c"
+      },
+      {
+        "id": "d"
+      },
+      {
+        "id": "e"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "b"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "b",
+        "to": "c"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "c",
+        "to": "d"
+      },
+      {
+        "type": "ADOPTION",
+        "from": "d",
+        "to": "e"
+      }
+    ],
+    "personA": "a",
+    "personB": "b"
+  }
+]

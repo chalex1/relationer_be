@@ -1,5 +1,14 @@
 package com.relationer.backend.domain
 
+/**
+ * Поиск совпадений пользовательского графа со справочником.
+ *
+ * Извлекает и кодирует пути между A и B, сопоставляет их
+ * со справочными путями и возвращает найденные случаи.
+ *
+ * Не вычисляет общий вердикт: противоречащие результаты
+ * возвращаются отдельно.
+ */
 class ReferenceSearch(
     private val extractor: PathExtractor = PathExtractor(),
     private val encoder: PathEncoder = PathEncoder(),
