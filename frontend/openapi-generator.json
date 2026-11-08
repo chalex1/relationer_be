@@ -1,0 +1,13 @@
+{
+  "version": "7.17.0",
+  "sha256": "25d6bd8273dd2be99979d544b62ea43f0ce1975f1aa582678b5093d1e7fcfce8",
+  "generatorName": "typescript-fetch",
+  "inputSpec": "../backend/openapi.yaml",
+  "outputDir": "src/api/generated",
+  "additionalProperties": {
+    "enumPropertyNaming": "UPPERCASE",
+    "modelPropertyNaming": "original",
+    "disallowAdditionalPropertiesIfNotPresent": false,
+    "hideGenerationTimestamp": true
+  }
+}

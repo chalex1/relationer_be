@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Generated OpenAPI client
+src/api/generated/
+
+# Tool caches and local runtime
+.cache/
+.vite/
+.sites-runtime/
+vite.config.*.timestamp-*
+
+# Test reports, coverage and generated screenshots
+playwright-report/
+blob-report/
+playwright/.cache/
+test-results/
+coverage/
+.nyc_output/
+artifacts/

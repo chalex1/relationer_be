@@ -46,7 +46,7 @@ class ReferenceSearch(
     private fun encodePaths(graph: PersonGraph, context: String): List<Pair<PersonPath, String>> {
         val errors = graph.validate()
         require(errors.isEmpty()) { "$context is invalid: ${errors.joinToString("; ")}" }
-        return extractor.extract(graph).map { path ->
+        return extractor.extractForSearch(graph).map { path ->
             val code = encoder.encode(path)
             require(code.isNotEmpty()) { "$context contains an empty path; select two different persons" }
             path to code

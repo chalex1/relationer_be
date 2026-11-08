@@ -17,6 +17,7 @@ out/
 *.iws
 
 # Kotlin / JVM generated files
+.kotlin/
 *.class
 *.jar
 !backend/gradle/wrapper/gradle-wrapper.jar
@@ -29,6 +30,9 @@ reports/
 test-results/
 **/test-results/
 *.exec
+
+# Local runtime logs
+*.log
 
 # Local configuration and secrets
 .env

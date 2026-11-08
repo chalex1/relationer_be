@@ -4,6 +4,25 @@ import java.util.Collections
 import java.util.IdentityHashMap
 
 class PathExtractor {
+    /** Keeps raw graph paths available while excluding redundant co-parent detours from search. */
+    fun extractForSearch(graph: PersonGraph): List<PersonPath> =
+        extract(graph).filterNot(::hasRedundantParentMarriage)
+
+    private fun hasRedundantParentMarriage(path: PersonPath): Boolean =
+        path.transitions.windowed(3).withIndex().any { (index, transitions) ->
+            if (transitions != listOf(
+                    PathTransition.BIOLOGICAL_CHILD_TO_PARENT,
+                    PathTransition.MARRIAGE,
+                    PathTransition.BIOLOGICAL_PARENT_TO_CHILD,
+                )) return@any false
+
+            val childA = path.persons[index]
+            val parentA = path.persons[index + 1]
+            val parentB = path.persons[index + 2]
+            val childB = path.persons[index + 3]
+            parentA.children.any { it === childB } && parentB.children.any { it === childA }
+        }
+
     fun extract(graph: PersonGraph): List<PersonPath> {
         if (graph.personA === graph.personB) {
             return listOf(PersonPath(listOf(graph.personA), emptyList()))
