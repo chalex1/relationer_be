@@ -5,6 +5,8 @@ import type { Node, Edge, NodeChange } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
 import PersonNode from './components/PersonNode.vue'
+import SearchResults from './components/SearchResults.vue'
+import { useReferenceSearch } from './composables/useReferenceSearch'
 import { RelationType } from './api/generated/models/RelationType'
 import { createEditor, addRelative, connectPeople, renamePerson, removePerson, removeRelation, movePerson,
   relativeActions, resetEditor, isProtected, personRelations, relationFor } from './domain/editor'
@@ -15,6 +17,7 @@ const editor = reactive(createEditor())
 const selectedId = ref<string | null>(editor.graph.personA)
 const selectedEdgeId = ref<string | null>(null)
 const nameDraft = ref('Персона A')
+const searchDialog = ref<HTMLDialogElement>()
 const relativeDialog = ref<HTMLDialogElement>()
 const renameDialog = ref<HTMLDialogElement>()
 const renameInput = ref<HTMLInputElement>()
@@ -59,8 +62,12 @@ const edges = computed<Edge[]>(() => editor.graph.relations.map(r => ({
   labelBgStyle: { fill: '#fafbf8' }, labelBgPadding: [6, 4], labelBgBorderRadius: 4,
   markerEnd: r.type === RelationType.MARRIAGE ? undefined : { type: MarkerType.ArrowClosed, color: typePresentation[r.type].color, width: 16, height: 16 },
 })))
-// The request is prepared locally. No API method or fetch is called in the editor.
 const preparedRequest = computed(() => toSearchRequest(editor))
+const { state: searchState, search } = useReferenceSearch(preparedRequest)
+function findMatches() {
+  searchDialog.value?.showModal()
+  void search()
+}
 const connectionPreview = computed(() => selectedId.value && targetId.value ? relationFor(selectedId.value, targetId.value, connectionRole.value) : null)
 function personName(id: string) { return editor.graph.persons.find(p => p.id === id)?.name || 'Без имени' }
 function relationshipText(r: EditorRelation) {
@@ -190,6 +197,10 @@ function changes(changes: NodeChange[]) {
           <button class="button fit-button" @click="showGraph()"><span aria-hidden="true">⛶</span> Показать весь граф</button>
           <details ref="graphMenu" class="graph-menu"><summary class="icon-button" aria-label="Меню графа">⋯</summary><div class="graph-menu-content"><button class="button secondary" @click="requestReset">Сбросить граф</button><p class="muted">Черновик хранится до обновления страницы.</p></div></details>
         </div>
+        <div class="search-toolbar">
+          <button class="button primary" :disabled="searchState.status === 'loading'" @click="findMatches">{{ searchState.status === 'loading' ? 'Ищем совпадения…' : 'Найти совпадения' }}</button>
+          <button class="button secondary" @click="searchDialog?.showModal()">{{ searchState.status === 'success' ? `Результаты (${searchState.response.matches.length})` : 'Участники и результаты' }}</button>
+        </div>
         <div class="graph-canvas">
           <VueFlow :nodes="nodes" :edges="edges" :apply-default="false" :nodes-connectable="false" :edges-updatable="false" :delete-key-code="null" :min-zoom="0.05" :max-zoom="2" :fit-view-on-init="true" :zoom-on-pinch="true" :zoom-on-double-click="false" :pan-on-drag="true" :prevent-scrolling="true" @nodes-change="changes" @node-click="({ node }) => selectPerson(node.id)" @edge-click="({ edge }) => { selectedEdgeId = edge.id; selectedId = null; sheetCollapsed = false }">
             <Background :gap="22" :size="1" pattern-color="#d6ddd4" />
@@ -203,6 +214,16 @@ function changes(changes: NodeChange[]) {
       </section>
     </main>
     <div v-if="notice" class="toast" :class="{ error: isError }" role="status"><span>{{ isError ? '!' : '✓' }}</span>{{ notice }}<button class="icon-button" aria-label="Закрыть уведомление" @click="notice = ''">×</button></div>
+    <dialog ref="searchDialog" class="modal search-modal" aria-labelledby="search-title">
+      <div class="modal-top"><span class="eyebrow">СПРАВОЧНИК РОДСТВА</span><button class="icon-button" aria-label="Закрыть поиск" @click="searchDialog?.close()">×</button></div>
+      <h2 id="search-title">Поиск совпадений</h2>
+      <div class="search-participants">
+        <div><label for="search-person-a">Участник A</label><select id="search-person-a" v-model="editor.graph.personA"><option v-for="p in editor.graph.persons" :key="p.id" :value="p.id">{{ p.name || 'Без имени' }}</option></select></div>
+        <div><label for="search-person-b">Участник B</label><select id="search-person-b" v-model="editor.graph.personB"><option v-for="p in editor.graph.persons" :key="p.id" :value="p.id">{{ p.name || 'Без имени' }}</option></select></div>
+      </div>
+      <button class="button primary search-submit" :disabled="searchState.status === 'loading'" @click="search">{{ searchState.status === 'loading' ? 'Ищем совпадения…' : 'Повторить поиск' }}</button>
+      <SearchResults :state="searchState" />
+    </dialog>
     <dialog ref="relativeDialog" class="modal role-modal" aria-labelledby="relative-title">
       <div class="modal-top"><span class="eyebrow">ДОБАВИТЬ К {{ selectedPerson?.name }}</span><button class="icon-button" aria-label="Закрыть" @click="relativeDialog?.close()">×</button></div>
       <h2 id="relative-title">Кого добавим?</h2><p>Выберите роль. Связь появится автоматически.</p>
