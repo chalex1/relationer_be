@@ -1,0 +1,35 @@
+{
+  "persons": [
+    {
+      "id": "a"
+    },
+    {
+      "id": "b"
+    },
+    {
+      "id": "p"
+    },
+    {
+      "id": "q"
+    }
+  ],
+  "relations": [
+    {
+      "type": "BIOLOGICAL",
+      "from": "p",
+      "to": "a"
+    },
+    {
+      "type": "MARRIAGE",
+      "from": "p",
+      "to": "q"
+    },
+    {
+      "type": "BIOLOGICAL",
+      "from": "q",
+      "to": "b"
+    }
+  ],
+  "personA": "a",
+  "personB": "b"
+}

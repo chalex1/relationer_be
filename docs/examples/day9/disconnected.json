@@ -1,0 +1,13 @@
+{
+  "persons": [
+    {
+      "id": "a"
+    },
+    {
+      "id": "b"
+    }
+  ],
+  "relations": [],
+  "personA": "a",
+  "personB": "b"
+}

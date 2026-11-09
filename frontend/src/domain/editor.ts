@@ -2,6 +2,7 @@ import { RelationType } from '../api/generated/models/RelationType'
 import type { PersonDto } from '../api/generated/models/PersonDto'
 import type { RelationDto } from '../api/generated/models/RelationDto'
 import type { SearchRequest } from '../api/generated/models/SearchRequest'
+import { createGraphId } from './ids'
 
 export interface Point { x: number; y: number }
 export type EditorRelation = RelationDto & { id: string }
@@ -21,7 +22,6 @@ export const relativeActions = [
   { id: 'adopted-child', label: 'Приёмного ребёнка', role: 'Приёмный ребёнок', name: 'Приёмный ребёнок', type: RelationType.ADOPTION, relativeIsFrom: false, dx: 250, dy: 170, icon: '↓' },
 ] as const
 export type RelativeAction = typeof relativeActions[number]['id']
-const uuid = (): string => crypto.randomUUID()
 
 export function createEditor(): EditorState {
   return {
@@ -46,7 +46,10 @@ export function relationFor(anchor: string, relative: string, action: RelativeAc
   const details = actionDetails(action)
   return { type: details.type, from: details.relativeIsFrom ? relative : anchor, to: details.relativeIsFrom ? anchor : relative }
 }
-export function connectPeople(state: EditorState, anchor: string, relative: string, action: RelativeAction, idFactory = uuid): EditorRelation {
+function objectId(state: EditorState, prefix: string, idFactory?: () => string): string {
+  return idFactory ? `${prefix}-${idFactory()}` : createGraphId(state, prefix)
+}
+export function connectPeople(state: EditorState, anchor: string, relative: string, action: RelativeAction, idFactory?: () => string): EditorRelation {
   person(state, anchor); person(state, relative)
   if (anchor === relative) throw new Error('Выберите другого человека.')
   const relation = relationFor(anchor, relative, action)
@@ -55,17 +58,17 @@ export function connectPeople(state: EditorState, anchor: string, relative: stri
     (r.type === RelationType.MARRIAGE && r.from === relation.to && r.to === relation.from)
   ))
   if (duplicate) throw new Error('Такая связь уже есть в графе.')
-  const id = `relation-${idFactory()}`
-  if (state.graph.relations.some(r => r.id === id)) throw new Error('Не удалось создать уникальную связь. Попробуйте ещё раз.')
+  const id = objectId(state, 'relation', idFactory)
+  if (state.graph.persons.some(p => p.id === id) || state.graph.relations.some(r => r.id === id)) throw new Error('Не удалось создать уникальную связь. Попробуйте ещё раз.')
   const result = { ...relation, id }
   state.graph.relations.push(result)
   return result
 }
-export function addRelative(state: EditorState, anchor: string, action: RelativeAction, idFactory = uuid): string {
+export function addRelative(state: EditorState, anchor: string, action: RelativeAction, idFactory?: () => string): string {
   person(state, anchor)
   const details = actionDetails(action)
-  const id = `person-${idFactory()}`
-  if (state.graph.persons.some(p => p.id === id)) throw new Error('Не удалось создать уникальный ID. Попробуйте ещё раз.')
+  const id = objectId(state, 'person', idFactory)
+  if (state.graph.persons.some(p => p.id === id) || state.graph.relations.some(r => r.id === id)) throw new Error('Не удалось создать уникальный ID. Попробуйте ещё раз.')
   const base = state.positions[anchor] ?? { x: 0, y: 0 }
   const position = { x: base.x + details.dx, y: base.y + details.dy }
   while (Object.values(state.positions).some(p => Math.abs(p.x - position.x) < 220 && Math.abs(p.y - position.y) < 110)) position.x += 240

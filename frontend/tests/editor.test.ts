@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { RelationType } from '../src/api/generated/models/RelationType'
 import { SearchRequestToJSON } from '../src/api/generated/models/SearchRequest'
 import { createEditor, addRelative, connectPeople, movePerson, removePerson, removeRelation, renamePerson,
@@ -6,6 +6,7 @@ import { createEditor, addRelative, connectPeople, movePerson, removePerson, rem
 import type { RelativeAction } from '../src/domain/editor'
 
 const ids = () => { let n = 0; return () => String(++n) }
+afterEach(() => vi.unstubAllGlobals())
 describe('editor domain', () => {
   it('starts with stable unique A/B, names, coordinates and no relations', () => {
     const state = createEditor()
@@ -14,6 +15,22 @@ describe('editor domain', () => {
     expect(state.graph.relations).toEqual([])
     expect(createEditor()).toEqual(state)
     expect(state.positions[state.graph.personA]).not.toEqual(state.positions[state.graph.personB])
+  })
+
+  it('generates graph IDs without browser crypto and skips IDs already loaded in the graph', () => {
+    vi.stubGlobal('crypto', undefined)
+    const state = createEditor()
+    state.graph.persons.push({ id: 'person-1', name: 'Загруженная персона' })
+    state.graph.relations.push({ id: 'relation-2', type: RelationType.MARRIAGE, from: state.graph.personA, to: state.graph.personB })
+
+    const personId = addRelative(state, state.graph.personA, 'parent')
+    const relationId = state.graph.relations.at(-1)?.id
+
+    expect(personId).not.toBe('person-1')
+    expect(relationId).not.toBe('relation-2')
+    expect(new Set(state.graph.persons.map(person => person.id)).size).toBe(state.graph.persons.length)
+    expect(new Set(state.graph.relations.map(relation => relation.id)).size).toBe(state.graph.relations.length)
+    expect(state.graph.persons.some(person => person.id === relationId)).toBe(false)
   })
 
   it.each<[RelativeAction, string, boolean]>([

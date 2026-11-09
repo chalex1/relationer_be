@@ -1,0 +1,9 @@
+.git
+.idea
+.cache
+**/node_modules
+**/build
+**/dist
+**/.gradle
+frontend/.env*
+*.log

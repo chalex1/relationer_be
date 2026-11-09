@@ -1,0 +1,22 @@
+services:
+  backend:
+    image: relationer_be_backend:latest
+    restart: unless-stopped
+
+  caddy:
+    image: relationer_be_caddy:latest
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:-:80}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
