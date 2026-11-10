@@ -12,6 +12,8 @@ data class ReferencePattern(
     val verdict: Verdict,
     val source: ReferenceSource,
     val description: String? = null,
+    val categories: Set<RelationCategory> = emptySet(),
+    val tags: Set<String> = emptySet(),
 )
 
 /**
@@ -40,4 +42,8 @@ data class ReferenceSource(
     val conclusion: String?,
     val document: String? = null,
     val example: String? = null,
+    val image: String? = null,
 )
+
+/** Independent relationship facets; an empty set means not yet classified. */
+enum class RelationCategory { BLOOD, AFFINITY, SPIRITUAL, ADOPTION }

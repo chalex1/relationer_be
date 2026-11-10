@@ -1,0 +1,66 @@
+[
+  {
+    "id": "test-allowed",
+    "description": "СИНТЕТИЧЕСКИЙ ТЕСТ: связи, не канонический пример",
+    "source": {
+      "document": "СИНТЕТИЧЕСКИЕ ТЕСТОВЫЕ ДАННЫЕ",
+      "page": 1,
+      "example": "fixture-1",
+      "conclusion": "Только проверка загрузчика",
+      "image": "/images/test.png"
+    },
+    "verdict": "ALLOWED",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Тест A"
+      },
+      {
+        "id": "b"
+      },
+      {
+        "id": "c"
+      },
+      {
+        "id": "d"
+      },
+      {
+        "id": "e"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "b"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "b",
+        "to": "c"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "c",
+        "to": "d"
+      },
+      {
+        "type": "ADOPTION",
+        "from": "d",
+        "to": "e"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [
+      " Родство ",
+      "родство",
+      "ИСТОЧНИК"
+    ]
+  }
+]

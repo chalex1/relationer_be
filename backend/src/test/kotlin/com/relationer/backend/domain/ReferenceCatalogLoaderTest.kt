@@ -51,7 +51,7 @@ class ReferenceCatalogLoaderTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["id", "description", "source", "verdict", "persons", "relations", "personA", "personB"])
+    @ValueSource(strings = ["id", "source", "verdict", "persons", "relations", "personA", "personB"])
     fun `missing mandatory fields identify record and reason`(field: String) {
         val error = assertFailsWith<IllegalArgumentException> { loader.load("catalog/missing-$field.json") }
         assertTrue(error.message.orEmpty().contains(if (field == "id") "entry[0]" else "test-allowed"))
@@ -81,6 +81,26 @@ class ReferenceCatalogLoaderTest {
     fun `invalid or missing resources have readable errors`(fixture: String) {
         val error = assertFailsWith<IllegalArgumentException> { loader.load("catalog/$fixture.json") }
         assertTrue(error.message.orEmpty().contains(fixture))
+    }
+
+    @Test
+    fun `new metadata is optional and tags and categories are sets`() {
+        val legacy = loader.load("catalog/missing-description.json").single()
+        assertEquals(null, legacy.description)
+        assertTrue(legacy.categories.isEmpty())
+        assertTrue(legacy.tags.isEmpty())
+        assertEquals(null, legacy.source.image)
+        val reference = loader.load("catalog/metadata.json").single()
+        assertEquals(setOf(RelationCategory.BLOOD, RelationCategory.SPIRITUAL), reference.categories)
+        assertEquals(setOf("родство", "источник"), reference.tags)
+        assertEquals("/images/test.png", reference.source.image)
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["unknown-category", "invalid-categories", "invalid-tags"])
+    fun `invalid classification fails with reference context`(fixture: String) {
+        val error = assertFailsWith<IllegalArgumentException> { loader.load("catalog/$fixture.json") }
+        assertTrue(error.message.orEmpty().startsWith("Reference test-allowed:"))
     }
 
     @Test

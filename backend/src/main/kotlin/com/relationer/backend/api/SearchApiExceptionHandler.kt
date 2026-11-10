@@ -23,6 +23,10 @@ class SearchApiExceptionHandler : ResponseEntityExceptionHandler() {
     fun invalidConstraints(): ResponseEntity<ErrorResponse> =
         ResponseEntity.badRequest().body(ErrorResponse("Request fields failed validation"))
 
+    override fun handleErrorResponseException(
+        ex: org.springframework.web.ErrorResponseException, headers: HttpHeaders, status: HttpStatusCode, request: WebRequest,
+    ): ResponseEntity<Any> = ResponseEntity.status(status).body(ErrorResponse(ex.body.detail ?: "Request failed"))
+
     override fun handleHttpMessageNotReadable(
         ex: HttpMessageNotReadableException, headers: HttpHeaders, status: HttpStatusCode, request: WebRequest,
     ): ResponseEntity<Any> = ResponseEntity.badRequest().body(ErrorResponse("Invalid JSON or request fields"))

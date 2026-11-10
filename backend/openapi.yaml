@@ -10,6 +10,44 @@ tags:
   - name: References
     description: Поиск справочных случаев родства
 paths:
+  /api/v1/references:
+    get:
+      tags: [References]
+      operationId: listReferences
+      summary: List the complete reference catalog metadata
+      responses:
+        '200':
+          description: All references in catalog order. Empty categories mean manual classification is needed.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReferenceSummaryDto'
+  /api/v1/references/{id}:
+    get:
+      tags: [References]
+      operationId: getReference
+      summary: Get a complete reference including graph and participants
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Complete reference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferenceDetailDto'
+        '404':
+          description: Unknown reference ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /api/v1/references/search:
     post:
       tags: [References]
@@ -179,6 +217,46 @@ components:
         conclusion:
           type: string
           nullable: true
+        image:
+          type: string
+          nullable: true
+          description: Optional URL or path to a source image.
+    RelationCategory:
+      type: string
+      enum: [BLOOD, AFFINITY, SPIRITUAL, ADOPTION]
+    ReferenceSummaryDto:
+      type: object
+      required: [id, categories, tags, verdict, source, hasImage]
+      properties:
+        id:
+          type: string
+        categories:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/RelationCategory'
+        tags:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+        verdict:
+          $ref: '#/components/schemas/VerdictDto'
+        description:
+          type: string
+          nullable: true
+        source:
+          $ref: '#/components/schemas/SourceDto'
+        hasImage:
+          type: boolean
+    ReferenceDetailDto:
+      type: object
+      required: [metadata, graph]
+      properties:
+        metadata:
+          $ref: '#/components/schemas/ReferenceSummaryDto'
+        graph:
+          $ref: '#/components/schemas/SearchRequest'
     ErrorResponse:
       type: object
       required: [message]

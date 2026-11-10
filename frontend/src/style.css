@@ -132,9 +132,9 @@ h1 { font-size: 23px; font-weight: 550; margin: 10px 0 0; line-height: 1.3; over
 .search-results { overflow-wrap: anywhere; }
 .search-results .search-error { color: #963d36; }
 .search-results .conflict-note { padding: 12px; border-radius: 8px; background: #fff4d5; color: #755719; }
-.verdict-group { --verdict-color: #963d36; --verdict-bg: #fcece9; margin-top: 20px; }
-.verdict-group.undetermined { --verdict-color: #785a16; --verdict-bg: #fff4cf; }
-.verdict-group.allowed { --verdict-color: #2f6640; --verdict-bg: #e7f4e9; }
+.verdict-group, .catalog-verdict { --verdict-color: #963d36; --verdict-bg: #fcece9; margin-top: 20px; }
+.verdict-group.undetermined, .catalog-verdict.undetermined { --verdict-color: #785a16; --verdict-bg: #fff4cf; }
+.verdict-group.allowed, .catalog-verdict.allowed { --verdict-color: #2f6640; --verdict-bg: #e7f4e9; }
 .verdict-group h3 { font-size: 15px; color: var(--verdict-color); }
 .match-card { border: 1px solid #e1e7dc; border-left: 4px solid var(--verdict-color); border-radius: 10px; padding: 14px; margin: 10px 0; }
 .match-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 12px; font-size: 13px; }
@@ -189,3 +189,47 @@ h1 { font-size: 23px; font-weight: 550; margin: 10px 0 0; line-height: 1.3; over
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+.catalog-shell { max-width: 1600px; margin: auto; padding: 0 24px 40px; }
+.catalog-shell .app-header { flex-wrap: wrap; height: auto; min-height: 76px; padding: 12px 0; }
+.catalog-filters { display: flex; gap: 20px; flex-wrap: wrap; background: white; border-radius: 12px; padding: 20px; margin: 24px 0; }
+.catalog-filters label { display: flex; gap: 8px; align-items: center; }
+.catalog-filters > label { align-items: stretch; flex-direction: column; }
+.catalog-filters input[type=search], .catalog-filters select { padding: 10px; border: 1px solid #cbd5c8; border-radius: 6px; }
+.catalog-filters fieldset { display: flex; flex-wrap: wrap; gap: 12px; border: 1px solid #dfe4d9; border-radius: 6px; }
+.reference-feed { display: flex; flex-direction: column; gap: 28px; }
+.reference-card { min-width: 0; padding: 24px; background: white; border: 1px solid #dfe4d9; border-radius: 16px; }
+.reference-card header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.reference-card h2 { margin: 0 0 10px; overflow-wrap: anywhere; }
+.reference-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.reference-badges span { padding: 5px 9px; background: #edf2e9; border-radius: 16px; }
+.reference-card p { line-height: 1.6; overflow-wrap: anywhere; }
+.reference-visuals { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+.reference-visuals.has-image { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.reference-graph { min-width: 0; }
+.reference-canvas { width: 100%; background: #fafbf8; margin-top: 12px; border: 1px solid #e0e6dc; border-radius: 12px; }
+.reference-visuals figure { margin: 0; min-width: 0; }
+.reference-visuals img { width: 100%; height: auto; object-fit: contain; }
+.missing-image, .reference-card footer { color: #687863; }
+.graph-dialog { width: 96vw; max-width: none; height: 94dvh; max-height: none; border: 1px solid #cbd5c8; border-radius: 12px; padding: 16px; }
+.graph-dialog::backdrop { background: #263d3170; }
+.expanded-canvas { height: calc(100% - 60px); margin-top: 12px; }
+.feed-sentinel { height: 1px; }
+@media (max-width: 760px) {
+  .catalog-shell { padding: 0 12px 24px; }
+  .reference-card { padding: 14px; }
+  .reference-visuals.has-image { grid-template-columns: minmax(0, 1fr); }
+  .catalog-filters { padding: 12px; }
+}
+
+/* Catalogue-only dimensions match compactNode in domain/catalogLayout.ts. */
+.person-node.is-compact { width: 132px; }
+.is-compact .person-card { height: 52px; min-height: 52px; gap: 7px; padding: 8px; border-radius: 8px; }
+.is-compact .person-avatar { width: 26px; height: 26px; border-radius: 7px; font-size: 13px; }
+.is-compact .person-name { font-size: 12px; }
+.is-compact .person-caption { font-size: 9px; margin-top: 3px; }
+.catalog-verdict { margin: 0; font-weight: 600; padding: 6px 10px; }
+
+.reference-graph-tools { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.reference-zoom { display: flex; gap: 4px; }
+.reference-zoom .button { min-width: 36px; min-height: 36px; padding: 6px; font-size: 17px; }

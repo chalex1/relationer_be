@@ -36,7 +36,11 @@
       }
     ],
     "personA": "a",
-    "personB": "b"
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": []
   },
   {
     "id": "blood-02",
@@ -84,7 +88,11 @@
       }
     ],
     "personA": "a",
-    "personB": "b"
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": []
   },
   {
     "id": "blood-03",
@@ -136,7 +144,11 @@
       }
     ],
     "personA": "a",
-    "personB": "b"
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": []
   },
   {
     "id": "blood-04",
@@ -193,7 +205,11 @@
       }
     ],
     "personA": "a",
-    "personB": "b"
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": []
   },
   {
     "id": "blood-05",
@@ -253,7 +269,11 @@
       }
     ],
     "personA": "a",
-    "personB": "b"
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": []
   },
   {
     "id": "affinity-allowed-01",
@@ -336,7 +356,12 @@
       }
     ],
     "personA": "petr",
-    "personB": "elena"
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": []
   },
   {
     "id": "affinity-allowed-02",
@@ -426,7 +451,12 @@
       }
     ],
     "personA": "petr",
-    "personB": "anna"
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": []
   },
   {
     "id": "affinity-allowed-03",
@@ -509,7 +539,12 @@
       }
     ],
     "personA": "petr",
-    "personB": "anna"
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": []
   },
   {
     "id": "spiritual-forbidden-01",
@@ -539,7 +574,11 @@
       }
     ],
     "personA": "godparent",
-    "personB": "goddaughter"
+    "personB": "goddaughter",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": []
   },
   {
     "id": "spiritual-forbidden-02",
@@ -578,7 +617,12 @@
       }
     ],
     "personA": "godparent",
-    "personB": "mother"
+    "personB": "mother",
+    "categories": [
+      "BLOOD",
+      "SPIRITUAL"
+    ],
+    "tags": []
   },
   {
     "id": "spiritual-forbidden-03",
@@ -617,6 +661,10 @@
       }
     ],
     "personA": "godson",
-    "personB": "goddaughter"
+    "personB": "goddaughter",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": []
   }
 ]

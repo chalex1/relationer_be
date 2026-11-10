@@ -37,7 +37,7 @@ class ReferenceCatalogLoader {
     }
 
     private fun parse(entry: JsonNode, id: String): ReferencePattern {
-        val description = entry.text("description")
+        val description = entry.optionalText("description")
         val verdictText = entry.text("verdict")
         val verdict = Verdict.entries.find { it.name == verdictText }
         requireNotNull(verdict) { "Unknown verdict: $verdictText" }
@@ -77,9 +77,22 @@ class ReferenceCatalogLoader {
         require(graph.personA !== graph.personB) { "Invalid graph: personA and personB must be different" }
         return ReferencePattern(
             id, graph, verdict,
-            ReferenceSource(page, source.optionalText("conclusion"), document, source.optionalText("example")),
+            ReferenceSource(page, source.optionalText("conclusion"), document, source.optionalText("example"), source.optionalText("image")),
             description,
+            entry.strings("categories").map { value ->
+                requireNotNull(RelationCategory.entries.find { it.name == value }) { "Unknown category: $value" }
+            }.toSet(),
+            entry.strings("tags").map { java.text.Normalizer.normalize(it.trim().lowercase(java.util.Locale.ROOT), java.text.Normalizer.Form.NFC) }.toSet(),
         )
+    }
+
+    private fun JsonNode.strings(field: String): Set<String> {
+        val value = get(field) ?: return emptySet()
+        require(value.isArray) { "$field must be an array" }
+        return value.map {
+            require(it.isTextual && it.asText().isNotBlank()) { "$field must contain non-blank strings" }
+            it.asText()
+        }.toSet()
     }
 
     private fun JsonNode.text(field: String): String {

@@ -1,0 +1,16 @@
+import { expect, test } from '@playwright/test'
+test.skip(process.env.RUN_BACKEND_INTEGRATION !== '1', 'Requires a running backend')
+test('real API catalog shows all eleven references and filters mixed cases', async ({ page }) => {
+  await page.goto('/references')
+  await expect(page.locator('.reference-card')).toHaveCount(10)
+  await expect(page.locator('.reference-card').first()).toContainText('blood-01')
+  await expect(page.locator('.reference-card').first().locator('.role-a')).toHaveCount(1)
+  await expect(page.locator('.reference-card').first().locator('.role-b')).toHaveCount(1)
+  await page.locator('.feed-sentinel').scrollIntoViewIfNeeded()
+  await expect(page.locator('.reference-card')).toHaveCount(11)
+  await expect(page.getByText('Конец списка.', { exact: true })).toBeVisible()
+  await page.getByLabel('Свойство', { exact: true }).check()
+  await expect(page.locator('.reference-card')).toHaveCount(3)
+  await page.getByLabel('Вердикт', { exact: true }).selectOption('ALLOWED')
+  await expect(page.locator('.reference-card')).toHaveCount(3)
+})

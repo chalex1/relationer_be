@@ -10,3 +10,10 @@ const api = new ReferencesApi(new Configuration({
 export function searchReferences(searchRequest: SearchRequest, signal: AbortSignal) {
   return api.searchReferences({ searchRequest }, { signal })
 }
+
+export function listReferences(signal: AbortSignal) {
+  return api.listReferences({ signal })
+}
+export function getReference(id: string, signal: AbortSignal) {
+  return api.getReference({ id }, { signal })
+}

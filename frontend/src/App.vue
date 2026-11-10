@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
-import { VueFlow, MarkerType, useVueFlow } from '@vue-flow/core'
+import { MarkerType, useVueFlow } from '@vue-flow/core'
 import type { Node, Edge, NodeChange } from '@vue-flow/core'
-import { Background } from '@vue-flow/background'
-import { Controls } from '@vue-flow/controls'
-import PersonNode from './components/PersonNode.vue'
+import GraphCanvas from './components/GraphCanvas.vue'
+import { typePresentation } from './domain/graphPresentation'
 import SearchResults from './components/SearchResults.vue'
 import { useReferenceSearch } from './composables/useReferenceSearch'
 import { RelationType } from './api/generated/models/RelationType'
@@ -40,12 +39,6 @@ const related = computed(() => selectedId.value ? personRelations(editor, select
 const others = computed(() => editor.graph.persons.filter(p => p.id !== selectedId.value))
 const pendingName = computed(() => editor.graph.persons.find(p => p.id === pendingDelete.value)?.name)
 const pendingLinks = computed(() => pendingDelete.value ? personRelations(editor, pendingDelete.value).length : 0)
-const typePresentation = {
-  [RelationType.BIOLOGICAL]: { label: 'Родитель → ребёнок', short: 'родитель', color: '#58765f', dash: undefined },
-  [RelationType.MARRIAGE]: { label: 'Супруги', short: 'брак', color: '#b08a5b', dash: undefined },
-  [RelationType.SPIRITUAL]: { label: 'Крёстный → крестник', short: 'крещение', color: '#6485ab', dash: '6 4' },
-  [RelationType.ADOPTION]: { label: 'Приёмный родитель → ребёнок', short: 'усыновление', color: '#9b7da9', dash: '3 4' },
-}
 const nodes = computed<Node[]>(() => editor.graph.persons.map(p => ({
   id: p.id, type: 'person', position: { ...editor.positions[p.id] }, deletable: false,
   selected: p.id === selectedId.value,
@@ -155,6 +148,7 @@ function changes(changes: NodeChange[]) {
     <header class="app-header">
       <a href="#" class="brand" aria-label="Relationer — конструктор родства"><img src="/favicon.svg" alt="" />relationer<span>.</span></a>
       <span class="header-section">Конструктор родства</span>
+      <a href="/references">Каталог эталонов</a>
       <span class="local-badge">Черновик в этой вкладке</span>
     </header>
     <main class="workspace">
@@ -202,11 +196,7 @@ function changes(changes: NodeChange[]) {
           <button class="button secondary" @click="searchDialog?.showModal()">{{ searchState.status === 'success' ? `Результаты (${searchState.response.matches.length})` : 'Участники и результаты' }}</button>
         </div>
         <div class="graph-canvas">
-          <VueFlow :nodes="nodes" :edges="edges" :apply-default="false" :nodes-connectable="false" :edges-updatable="false" :delete-key-code="null" :min-zoom="0.05" :max-zoom="2" :fit-view-on-init="true" :zoom-on-pinch="true" :zoom-on-double-click="false" :pan-on-drag="true" :prevent-scrolling="true" @nodes-change="changes" @node-click="({ node }) => selectPerson(node.id)" @edge-click="({ edge }) => { selectedEdgeId = edge.id; selectedId = null; sheetCollapsed = false }">
-            <Background :gap="22" :size="1" pattern-color="#d6ddd4" />
-            <Controls :show-interactive="false" :show-fit-view="false" position="bottom-left" />
-            <template #node-person="props"><PersonNode :id="props.id" :data="props.data" @select="selectPerson" /></template>
-          </VueFlow>
+          <GraphCanvas :nodes="nodes" :edges="edges" :apply-default="false" :nodes-connectable="false" :edges-updatable="false" :delete-key-code="null" :min-zoom="0.05" :max-zoom="2" :fit-view-on-init="true" :zoom-on-pinch="true" :zoom-on-double-click="false" :pan-on-drag="true" :prevent-scrolling="true" @nodes-change="changes" @node-click="({ node }: { node: Node }) => selectPerson(node.id)" @edge-click="({ edge }: { edge: Edge }) => { selectedEdgeId = edge.id; selectedId = null; sheetCollapsed = false }" @select="selectPerson" />
           <div class="participants" aria-label="Участники поиска"><button :aria-label="`Выбрать участника A: ${personName(editor.graph.personA)}`" :class="{ active: selectedId === editor.graph.personA }" @click="selectPerson(editor.graph.personA)"><span class="mini-avatar a">A</span><span>{{ personName(editor.graph.personA) }}</span></button><button :aria-label="`Выбрать участника B: ${personName(editor.graph.personB)}`" :class="{ active: selectedId === editor.graph.personB }" @click="selectPerson(editor.graph.personB)"><span class="mini-avatar b">B</span><span>{{ personName(editor.graph.personB) }}</span></button></div>
           <p v-if="!editor.graph.relations.length" class="canvas-welcome">Выберите человека, чтобы начать</p>
         </div>
