@@ -1,13 +1,46 @@
 [
   {
-    "id": "test-multi", "title": "СИНТЕТИЧЕСКИЙ ТЕСТ: несколько источников",
-    "description": "Только тест совместимости источников", "reviewStatus": "REVIEWED",
+    "id": "test-multi",
+    "title": "СИНТЕТИЧЕСКИЙ ТЕСТ: несколько источников",
+    "description": "Только тест совместимости источников",
+    "reviewStatus": "REVIEWED",
     "sources": [
-      {"id": "first", "title": "Тестовый источник 1", "page": 1, "verdict": "FORBIDDEN", "conclusion": "Первый вывод"},
-      {"id": "second", "title": "Тестовый источник 2", "page": 2, "verdict": "ALLOWED", "conclusion": "Иной вывод"}
+      {
+        "id": "first",
+        "title": "Тестовый источник 1",
+        "page": 1,
+        "verdict": "FORBIDDEN",
+        "conclusion": "Первый вывод"
+      },
+      {
+        "id": "second",
+        "title": "Тестовый источник 2",
+        "page": 2,
+        "verdict": "ALLOWED",
+        "conclusion": "Иной вывод",
+        "conclusionConfirmed": true
+      }
     ],
-    "persons": [{"id": "a"}, {"id": "b"}],
-    "relations": [{"type": "ADOPTED", "from": "a", "to": "b"}],
-    "personA": "a", "personB": "b", "categories": ["ADOPTION"], "tags": []
+    "persons": [
+      {
+        "id": "a"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "ADOPTED",
+        "from": "a",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION"
+    ],
+    "tags": []
   }
 ]

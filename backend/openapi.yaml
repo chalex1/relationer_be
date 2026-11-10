@@ -267,6 +267,10 @@ components:
       type: object
       required: [id, title, verdict]
       properties:
+        conclusionConfirmed:
+          type: boolean
+          default: false
+          description: Explicit manual confirmation of this conclusion, independent of historical verdict and graph review. Missing means unconfirmed.
         id: {type: string}
         title: {type: string}
         page: {type: integer, format: int32, nullable: true}

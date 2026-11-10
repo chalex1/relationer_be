@@ -29,6 +29,8 @@ test('real catalogue A: common parent matches blood-01 through blood-05', async 
   expect(result.matches.filter(m => ['blood-01','blood-02','blood-03','blood-04','blood-05','affinity-allowed-01','affinity-allowed-02','affinity-allowed-03','spiritual-forbidden-01','spiritual-forbidden-02','spiritual-forbidden-03'].includes(m.referenceId)).map(m => m.referenceId)).toEqual(['blood-01', 'blood-02', 'blood-03', 'blood-04', 'blood-05'])
   expect(result.matches.every(m => m.userPathCode === '<BB>')).toBe(true)
   expect(result.matches.some(m => m.referenceId === 'blood-06')).toBe(true)
+  await expect(page.locator('.match-card')).toHaveCount(Math.min(3, result.matches.length))
+  if (result.matches.length > 3) await page.getByRole('button', { name: `Смотреть остальные варианты (${result.matches.length - 3})`, exact: true }).click()
   await expect(page.locator('.match-card')).toHaveCount(result.matches.length)
   await expect(page.locator('.match-card').first()).toContainText('blood-01')
   await mkdir('artifacts', { recursive: true })

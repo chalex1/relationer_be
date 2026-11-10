@@ -8,6 +8,8 @@ out/
 
 # Local tool caches
 .cache/
+__pycache__/
+*.pyc
 
 # Import bundles; extracted catalog resources are versioned separately
 /relationer-*.zip

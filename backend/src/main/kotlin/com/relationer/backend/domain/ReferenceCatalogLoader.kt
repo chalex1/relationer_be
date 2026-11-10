@@ -46,7 +46,7 @@ class ReferenceCatalogLoader {
         val pattern: ReferencePattern
         if (sourcesNode == null) {
             pattern = parse(entry, id)
-            sources = listOf(CatalogSource("legacy-primary", pattern.source.document!!, pattern.verdict, pattern.source))
+            sources = listOf(CatalogSource("legacy-primary", pattern.source.document!!, pattern.verdict, pattern.source, entry.get("source").confirmedConclusion()))
         } else {
             require(sourcesNode.isArray && sourcesNode.size() > 0) { "sources must be a non-empty array" }
             val sourceIds = mutableSetOf<String>()
@@ -60,7 +60,7 @@ class ReferenceCatalogLoader {
                 normalized.set<JsonNode>("source", legacySource)
                 normalized.put("verdict", source.text("verdict"))
                 val projection = parse(normalized, id)
-                projection to CatalogSource(sourceId, source.text("title"), projection.verdict, projection.source)
+                projection to CatalogSource(sourceId, source.text("title"), projection.verdict, projection.source, source.confirmedConclusion())
             }
             pattern = parsed.first().first
             sources = parsed.map { it.second }
@@ -69,6 +69,15 @@ class ReferenceCatalogLoader {
             requireNotNull(GraphReviewStatus.entries.find { it.name == value }) { "Unknown reviewStatus: $value" }
         } ?: GraphReviewStatus.DRAFT
         return ReferenceCatalogEntry(pattern, entry.optionalText("title") ?: pattern.description?.take(120) ?: id, status, sources)
+    }
+
+    private fun JsonNode.confirmedConclusion(): Boolean {
+        val flag = get("conclusionConfirmed") ?: return false
+        require(flag.isBoolean) { "conclusionConfirmed must be a boolean" }
+        if (flag.booleanValue()) require(!optionalText("conclusion").isNullOrBlank()) {
+            "conclusionConfirmed requires a non-blank conclusion"
+        }
+        return flag.booleanValue()
     }
 
     private fun parse(entry: JsonNode, id: String): ReferencePattern {

@@ -10,4 +10,11 @@ data class ReferenceCatalogEntry(
 
 enum class GraphReviewStatus { DRAFT, REVIEWED, NEEDS_CORRECTION }
 
-data class CatalogSource(val id: String, val title: String, val verdict: Verdict, val reference: ReferenceSource)
+data class CatalogSource(
+    val id: String,
+    val title: String,
+    val verdict: Verdict,
+    val reference: ReferenceSource,
+    // Explicit manual confirmation of the conclusion, independent of graph review and historical verdict.
+    val conclusionConfirmed: Boolean = false,
+)

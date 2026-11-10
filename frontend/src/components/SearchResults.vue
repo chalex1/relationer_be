@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { VerdictDto } from '../api/generated/models/VerdictDto'
+import { computed, ref, useId, watch } from 'vue'
 import type { SearchState } from '../composables/useReferenceSearch'
+import { partitionMatches } from '../domain/searchRanking'
+import SearchMatchCard from './SearchMatchCard.vue'
 const props = defineProps<{ state: SearchState }>()
-const verdicts = [
-  { value: VerdictDto.FORBIDDEN, label: 'Запрещено', className: 'forbidden' },
-  { value: VerdictDto.UNDETERMINED, label: 'Не определено', className: 'undetermined' },
-  { value: VerdictDto.ALLOWED, label: 'Разрешено', className: 'allowed' },
-]
-const groups = computed(() => verdicts.map(verdict => ({ ...verdict,
-  matches: props.state.status === 'success' ? props.state.response.matches.filter(m => m.verdict === verdict.value) : [],
-})))
-const contradictory = computed(() => groups.value[0].matches.length > 0 && groups.value[2].matches.length > 0)
+const expanded = ref(false)
+const remainingId = useId()
+const result = computed(() => partitionMatches(props.state.status === 'success' ? props.state.response.matches : []))
+watch(() => props.state, () => { expanded.value = false })
 </script>
 
 <template>
@@ -23,27 +19,21 @@ const contradictory = computed(() => groups.value[0].matches.length > 0 && group
       <p v-if="state.response.catalogWarning" role="alert">{{ state.response.catalogWarning }}</p>
       <p v-if="!state.response.matches.length" role="status">Совпадений в справочнике не найдено. Это не означает разрешения.</p>
       <template v-else>
-        <p role="status">Найдено совпадений: {{ state.response.matches.length }}. Каждый случай показан отдельно; общий вердикт не вычисляется.</p>
-        <p class="muted">Показаны выводы исторических источников, включая черновые графы. Это не подтверждённое заключение приложения.</p>
-        <p v-if="contradictory" class="conflict-note">Справочник вернул и разрешённые, и запрещённые случаи. Рассмотрите основания каждого совпадения.</p>
-        <section v-for="group in groups.filter(g => g.matches.length)" :key="group.value" class="verdict-group" :class="group.className" :aria-label="group.label">
-          <h3>{{ group.label }} <span>({{ group.matches.length }})</span></h3>
-          <article v-for="(match, index) in group.matches" :key="index" class="match-card">
-            <div class="match-heading"><strong>{{ match.referenceId }}</strong><span class="verdict-badge">{{ group.label }}</span></div>
-            <p v-if="match.title"><strong>{{ match.title }}</strong></p>
-            <p v-if="match.reviewStatus">Статус графа: {{ match.reviewStatus }}. Проверка графа не подтверждает вердикт источника.</p>
-            <p v-if="match.description">{{ match.description }}</p>
-            <dl class="path-codes"><div><dt>Ваш путь</dt><dd><code>{{ match.userPathCode }}</code></dd></div><div><dt>Путь в справочнике</dt><dd><code>{{ match.referencePathCode }}</code></dd></div></dl>
-            <div v-if="match.sources?.length" class="match-source">
-              <p v-for="source in match.sources" :key="source.id">{{ source.title }} · стр. {{ source.page }} · Вердикт источника: {{ verdicts.find(v => v.value === source.verdict)?.label }}<br />{{ source.conclusion }}</p>
-            </div>
-            <div v-else-if="match.source.document || match.source.page != null || match.source.example || match.source.conclusion" class="match-source">
-              <p v-if="match.source.document || match.source.page != null"><strong>Источник:</strong> {{ match.source.document }}<span v-if="match.source.page != null"> · стр. {{ match.source.page }}</span></p>
-              <p v-if="match.source.example">{{ match.source.example }}</p>
-              <p v-if="match.source.conclusion">{{ match.source.conclusion }}</p>
-            </div>
-          </article>
-        </section>
+        <p role="status">Найдено совпадений: {{ state.response.matches.length }}. Показано: {{ expanded ? state.response.matches.length : result.primary.length }}. Общий вердикт не вычисляется.</p>
+        <p class="muted">Показаны выводы исторических источников. Сначала подтверждённые заключения, затем точные совпадения пути и проверенные графы. Исторический вердикт не определяет достоверность.</p>
+        <p class="muted">Точное совпадение пути не доказывает равенства полных графов. Проверка графа не подтверждает заключение источника.</p>
+        <p v-if="!state.response.matches.some(m => m.sources?.some(s => s.conclusionConfirmed && s.conclusion?.trim()))" class="muted">Подтверждённых заключений среди совпадений пока нет. Ниже показаны наиболее подходящие варианты с явными отметками проверки.</p>
+        <p v-if="result.primaryConflict" class="conflict-note">Справочник вернул и разрешённые, и запрещённые случаи. Рассмотрите основания каждого совпадения.</p>
+        <div class="primary-matches" aria-label="Основные совпадения">
+          <SearchMatchCard v-for="entry in result.primary" :key="entry.occurrence" :entry="entry" />
+        </div>
+        <div v-if="result.remaining.length" class="other-matches-controls">
+          <button type="button" class="button secondary" :aria-expanded="expanded" :aria-controls="remainingId" @click="expanded = !expanded">{{ expanded ? 'Скрыть остальные варианты' : `Смотреть остальные варианты (${result.remaining.length})` }}</button>
+          <p v-if="result.remainingConflict" class="conflict-note remaining-conflict" role="status">Среди остальных вариантов есть выводы источников, противоречащие показанным или друг другу.</p>
+        </div>
+        <div :id="remainingId" :hidden="!expanded" class="remaining-matches" aria-label="Остальные совпадения">
+          <SearchMatchCard v-for="entry in expanded ? result.remaining : []" :key="entry.occurrence" :entry="entry" />
+        </div>
       </template>
     </template>
   </section>

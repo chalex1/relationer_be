@@ -79,6 +79,7 @@ class ReferenceCatalogService(private val catalog: ReferenceCatalog) {
         val sources = entry.sources.map { source -> CatalogSourceDto(
             id = source.id, title = source.title, verdict = VerdictDto.valueOf(source.verdict.name),
             page = source.reference.page, conclusion = source.reference.conclusion, example = source.reference.example,
+            conclusionConfirmed = source.conclusionConfirmed,
             image = source.reference.image?.let { imageUrl(entry, source.id) },
         ) }
         val primary = sources.first()
