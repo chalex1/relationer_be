@@ -11,8 +11,8 @@ export function searchReferences(searchRequest: SearchRequest, signal: AbortSign
   return api.searchReferences({ searchRequest }, { signal })
 }
 
-export function listReferences(signal: AbortSignal) {
-  return api.listReferences({ signal })
+export function listReferences(signal: AbortSignal, catalog?: 'production' | 'draft') {
+  return api.listReferences({ catalog }, { signal })
 }
 export function getReference(id: string, signal: AbortSignal) {
   return api.getReference({ id }, { signal })

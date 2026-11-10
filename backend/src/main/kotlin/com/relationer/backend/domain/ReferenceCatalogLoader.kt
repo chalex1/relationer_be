@@ -3,6 +3,7 @@ package com.relationer.backend.domain
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.node.ObjectNode
 
 /**
  * Загружает справочные случаи из JSON-ресурса classpath.
@@ -12,7 +13,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 class ReferenceCatalogLoader {
     private val mapper = ObjectMapper().enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
 
-    fun load(resourcePath: String = "references.json"): List<ReferencePattern> {
+    fun load(resourcePath: String = "reference-catalog/references.json"): List<ReferencePattern> =
+        loadEntries(resourcePath).map { it.pattern }
+
+    fun loadEntries(resourcePath: String = "reference-catalog/references.json"): List<ReferenceCatalogEntry> {
         val stream = javaClass.getResourceAsStream("/${resourcePath.removePrefix("/")}")
         requireNotNull(stream) { "Catalog resource not found: $resourcePath" }
         val root = stream.use {
@@ -29,11 +33,42 @@ class ReferenceCatalogLoader {
             try {
                 val id = entry.text("id")
                 require(ids.add(id)) { "Duplicate reference id: $id" }
-                parse(entry, id)
+                catalogEntry(entry, id)
             } catch (e: IllegalArgumentException) {
                 throw IllegalArgumentException("Reference $label: ${e.message}", e)
             }
         }
+    }
+
+    private fun catalogEntry(entry: JsonNode, id: String): ReferenceCatalogEntry {
+        val sourcesNode = entry.get("sources")
+        val sources: List<CatalogSource>
+        val pattern: ReferencePattern
+        if (sourcesNode == null) {
+            pattern = parse(entry, id)
+            sources = listOf(CatalogSource("legacy-primary", pattern.source.document!!, pattern.verdict, pattern.source))
+        } else {
+            require(sourcesNode.isArray && sourcesNode.size() > 0) { "sources must be a non-empty array" }
+            val sourceIds = mutableSetOf<String>()
+            val parsed = sourcesNode.map { source ->
+                require(source.isObject) { "sources must contain objects" }
+                val sourceId = source.text("id")
+                require(sourceIds.add(sourceId)) { "Duplicate source id: $sourceId" }
+                val normalized = (entry as ObjectNode).deepCopy()
+                val legacySource = source.deepCopy<ObjectNode>()
+                legacySource.put("document", source.text("title"))
+                normalized.set<JsonNode>("source", legacySource)
+                normalized.put("verdict", source.text("verdict"))
+                val projection = parse(normalized, id)
+                projection to CatalogSource(sourceId, source.text("title"), projection.verdict, projection.source)
+            }
+            pattern = parsed.first().first
+            sources = parsed.map { it.second }
+        }
+        val status = entry.optionalText("reviewStatus")?.let { value ->
+            requireNotNull(GraphReviewStatus.entries.find { it.name == value }) { "Unknown reviewStatus: $value" }
+        } ?: GraphReviewStatus.DRAFT
+        return ReferenceCatalogEntry(pattern, entry.optionalText("title") ?: pattern.description?.take(120) ?: id, status, sources)
     }
 
     private fun parse(entry: JsonNode, id: String): ReferencePattern {
@@ -67,7 +102,7 @@ class ReferenceCatalogLoader {
                 "BIOLOGICAL" -> from.children += to
                 "MARRIAGE" -> from.spouses += to
                 "SPIRITUAL" -> from.godchildren += to
-                "ADOPTION" -> from.adoptedChildren += to
+                "ADOPTION", "ADOPTED" -> from.adoptedChildren += to
                 else -> throw IllegalArgumentException("Unknown relation type: $type")
             }
         }

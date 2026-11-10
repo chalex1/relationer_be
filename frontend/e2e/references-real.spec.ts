@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { mkdir } from 'node:fs/promises'
 test.skip(process.env.RUN_BACKEND_INTEGRATION !== '1', 'Requires a running backend')
 test('real API catalog shows all eleven references and filters mixed cases', async ({ page }) => {
   await page.goto('/references')
@@ -13,4 +14,31 @@ test('real API catalog shows all eleven references and filters mixed cases', asy
   await expect(page.locator('.reference-card')).toHaveCount(3)
   await page.getByLabel('Вердикт', { exact: true }).selectOption('ALLOWED')
   await expect(page.locator('.reference-card')).toHaveCount(3)
+})
+
+test('real draft catalog has 94 cases, backend images, review and mobile adoption graphs', async ({ page }) => {
+  await page.goto('/references')
+  await page.getByLabel('На проверке', { exact: true }).check()
+  await expect(page.locator('.review-counts')).toContainText('Всего: 94')
+  await expect(page.locator('.reference-card')).toHaveCount(10)
+  await page.getByLabel('Поиск по ID, названию, описанию и источникам').fill('adoption-forbidden-08')
+  const card = page.getByRole('article', { name: 'adoption-forbidden-08', exact: true })
+  await expect(page.locator('.reference-card')).toHaveCount(1)
+  const image = card.getByAltText('Схема из PDF: adoption-forbidden-08', { exact: true })
+  await image.scrollIntoViewIfNeeded()
+  await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true)
+  await expect(image).toHaveAttribute('src', /^\/api\/v1\/references\/adoption-forbidden-08\/image\?sourceId=/)
+  await expect(card.locator('.vue-flow__node')).not.toHaveCount(0)
+  await card.getByRole('combobox', { name: 'Статус проверки', exact: true }).selectOption('REVIEWED')
+  await expect(page.locator('.review-counts')).toContainText('Одобрены: 1')
+  await expect(card.locator('.catalog-verdict')).toHaveText('Запрещено')
+  await mkdir('artifacts/catalog', { recursive: true })
+  await card.screenshot({ path: 'artifacts/catalog/draft-adoption-desktop.png' })
+  await page.setViewportSize({ width: 390, height: 844 })
+  await card.screenshot({ path: 'artifacts/catalog/draft-adoption-mobile.png' })
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  await page.reload(); await page.getByLabel('На проверке', { exact: true }).check()
+  await page.getByRole('combobox', { name: 'Статус проверки (фильтр)', exact: true }).selectOption('REVIEWED')
+  await expect(page.locator('.reference-card')).toHaveCount(1)
+  await expect(card.getByRole('combobox', { name: 'Статус проверки', exact: true })).toHaveValue('REVIEWED')
 })

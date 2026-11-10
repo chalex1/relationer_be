@@ -1,11 +1,12 @@
+import { catalogFixture } from '../tests/catalogFixture'
 import { expect, test } from '@playwright/test'
 import { mkdir, readFile } from 'node:fs/promises'
 import type { Page } from '@playwright/test'
 async function mock(page: Page, id: string, verdicts?: string[]) {
-  const records = JSON.parse(await readFile('../backend/src/main/resources/references.json', 'utf8'))
+  const records = catalogFixture()
   const reference = records.find((r: { id: string }) => r.id === id)
   const entries = (verdicts || [reference.verdict]).map((verdict, i) => ({ ...reference, id: verdicts ? `${id}-${i}` : id, verdict, hasImage: false }))
-  await page.route('**/api/v1/references', route => route.fulfill({ json: entries }))
+  await page.route(/\/api\/v1\/references(?:\?.*)?$/, route => route.fulfill({ json: entries }))
   await page.route('**/api/v1/references/*', route => {
     const metadata = entries.find(r => route.request().url().endsWith(r.id))!
     return route.fulfill({ json: { metadata, graph: { persons: reference.persons, relations: reference.relations, personA: reference.personA, personB: reference.personB } } })

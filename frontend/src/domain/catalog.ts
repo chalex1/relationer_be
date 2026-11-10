@@ -11,7 +11,8 @@ export interface CatalogFilters { query: string; categories: RelationCategory[];
 export function filterCatalog(entries: ReferenceSummaryDto[], filters: CatalogFilters) {
   const query = filters.query.trim().toLocaleLowerCase()
   return entries.filter(entry =>
-    (!query || [entry.id, entry.description, entry.source.document, entry.source.example].some(v => v?.toLocaleLowerCase().includes(query))) &&
+    (!query || [entry.id, entry.title, entry.description, ...entry.tags, entry.source.document, entry.source.example,
+      ...(entry.sources ?? []).flatMap(s => [s.title, s.example, s.conclusion])].some(v => v?.toLocaleLowerCase().includes(query))) &&
     (!filters.categories.length || filters.categories.some(c => entry.categories.has(c))) &&
     (!filters.tags.length || filters.tags.every(t => entry.tags.has(t))) &&
     (!filters.verdict || entry.verdict === filters.verdict))

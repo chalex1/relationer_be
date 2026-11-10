@@ -40,12 +40,13 @@ class ReferenceSearchHttpTest {
         "spiritual-forbidden-03, <GG>, spiritual-forbidden-03",
     )
     fun `real catalog cases return expected matches verdicts codes and sources`(id: String, code: String, expected: String) {
-        val catalog = ReferenceCatalogLoader().load()
+        val catalog = ReferenceCatalog().entries
         val reference = catalog.single { it.id == id }
         val body = success(request(reference.graph))
         val matches = body["matches"]
-        assertEquals(expected.split(';'), matches.map { it["referenceId"].asText() })
-        assertEquals(setOf("matches"), body.fieldNames().asSequence().toSet())
+        assertEquals(expected.split(';'), matches.filter { match -> ReferenceCatalogLoader().load().any { it.id == match["referenceId"].asText() } }.map { it["referenceId"].asText() })
+        assertEquals(setOf("matches", "catalogWarning"), body.fieldNames().asSequence().toSet())
+        assertTrue(body["catalogWarning"].isNull)
         for (match in matches) {
             val source = catalog.single { it.id == match["referenceId"].asText() }
             assertEquals(source.verdict.name, match["verdict"].asText())
@@ -55,6 +56,7 @@ class ReferenceSearchHttpTest {
             assertEquals(source.source.page, match["source"]["page"].intValue())
             assertEquals(source.source.example, match["source"]["example"].asText())
             assertEquals(source.source.conclusion, match["source"]["conclusion"].asText())
+            assertTrue(match["source"]["image"].asText().startsWith("/api/v1/references/${source.id}/image?sourceId=source-1900&v="))
         }
         assertEquals(code, matches.single { it["referenceId"].asText() == id }["referencePathCode"].asText())
     }
@@ -63,7 +65,7 @@ class ReferenceSearchHttpTest {
     fun `reverse selection preserves case but reverses directed user path`() {
         val request = spiritualMother()
         request.put("personA", "mother").put("personB", "godparent")
-        val match = success(request)["matches"].single()
+        val match = success(request)["matches"].single { it["referenceId"].asText() == "spiritual-forbidden-02" }
         assertEquals("spiritual-forbidden-02", match["referenceId"].asText())
         assertEquals("B><G", match["userPathCode"].asText())
         assertEquals("G><B", match["referencePathCode"].asText())
@@ -76,7 +78,7 @@ class ReferenceSearchHttpTest {
         val relation = request["relations"][index] as ObjectNode
         val from = relation["from"].asText()
         relation.put("from", relation["to"].asText()).put("to", from)
-        assertTrue(success(request)["matches"].isEmpty)
+        assertTrue(productionMatches(success(request)).isEmpty())
     }
 
     @Test
@@ -104,7 +106,7 @@ class ReferenceSearchHttpTest {
                 {"type":"BIOLOGICAL","from":"v","to":"w"},
                 {"type":"BIOLOGICAL","from":"w","to":"b"}],
             "personA":"a","personB":"b"} """)
-        assertTrue(success(graph)["matches"].isEmpty)
+        assertTrue(productionMatches(success(graph)).isEmpty())
     }
 
     @Test
@@ -115,7 +117,7 @@ class ReferenceSearchHttpTest {
         request.withArray("relations").addObject().put("type", "SPIRITUAL")
             .put("from", graph.personB.id).put("to", "extra")
         request.put("personB", "extra")
-        val match = success(request)["matches"].single()
+        val match = success(request)["matches"].single { it["referenceId"].asText() == "affinity-allowed-03" }
         assertEquals("affinity-allowed-03", match["referenceId"].asText())
         assertEquals("ALLOWED", match["verdict"].asText())
         assertEquals("M<BB>B>G>", match["userPathCode"].asText())
@@ -135,8 +137,8 @@ class ReferenceSearchHttpTest {
                 {"type":"BIOLOGICAL","from":"s","to":"c"},
                 {"type":"BIOLOGICAL","from":"c","to":"b"}],
             "personA":"a","personB":"b"} """)
-        val matches = success(request)["matches"]
-        assertEquals(7, matches.size())
+        val matches = productionMatches(success(request))
+        assertEquals(7, matches.size)
         assertEquals(5, matches.count { it["verdict"].asText() == "FORBIDDEN" })
         assertEquals(2, matches.count { it["verdict"].asText() == "ALLOWED" })
         assertEquals(setOf("<BB>", "M<BB>B>B>"), matches.map { it["userPathCode"].asText() }.toSet())
@@ -152,8 +154,8 @@ class ReferenceSearchHttpTest {
                 {"type":"BIOLOGICAL","from":"q","to":"a"},
                 {"type":"BIOLOGICAL","from":"q","to":"b"}],
             "personA":"a","personB":"b"} """)
-        val matches = success(request)["matches"]
-        assertEquals(10, matches.size())
+        val matches = productionMatches(success(request))
+        assertEquals(10, matches.size)
         assertTrue(matches.all { it["userPathCode"].asText() == "<BB>" })
         assertTrue(matches.groupBy { it["referenceId"].asText() }.values.all { it.size == 2 })
     }
@@ -162,14 +164,14 @@ class ReferenceSearchHttpTest {
     fun `disconnected people return an empty array`() {
         val request = spiritualMother()
         request.set<JsonNode>("relations", json.createArrayNode())
-        assertEquals(json.readTree("""{"matches":[]}"""), success(request))
+        assertTrue(success(request)["matches"].isEmpty)
     }
 
     @Test
     fun `adoption is accepted and is not confused with blood or spiritual relations`() {
         val request = spiritualMother()
         (request["relations"][0] as ObjectNode).put("type", "ADOPTION")
-        assertTrue(success(request)["matches"].isEmpty)
+        assertTrue(productionMatches(success(request)).isEmpty())
     }
 
     @Test
@@ -219,6 +221,11 @@ class ReferenceSearchHttpTest {
     @ValueSource(strings = ["{broken", "null", "[]", ""])
     fun `invalid JSON and bodies return contract error`(body: String) {
         bad(body)
+    }
+
+    private fun productionMatches(response: JsonNode): List<JsonNode> {
+        val ids = ReferenceCatalogLoader().load().map { it.id }.toSet()
+        return response["matches"].filter { it["referenceId"].asText() in ids }
     }
 
     private fun spiritualMother(): ObjectNode = json.readTree("""{

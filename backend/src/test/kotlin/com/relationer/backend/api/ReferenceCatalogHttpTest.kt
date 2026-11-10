@@ -17,12 +17,13 @@ class ReferenceCatalogHttpTest {
         val response = http.getForEntity("/api/v1/references", String::class.java)
         assertEquals(200, response.statusCode.value())
         val entries = json.readTree(response.body)
-        assertEquals(ReferenceCatalogLoader().load().map { it.id }, entries.map { it["id"].asText() })
+        assertEquals(ReferenceCatalog().entries.map { it.id }, entries.map { it["id"].asText() })
         entries.forEach {
             assertTrue(it["categories"].size() > 0)
             assertEquals(it["categories"].size(), it["categories"].toSet().size)
             assertTrue(it["tags"].isArray)
-            assertFalse(it["hasImage"].asBoolean())
+            assertTrue(it["hasImage"].asBoolean())
+            assertTrue(it["source"]["image"].asText().startsWith("/api/v1/references/${it["id"].asText()}/image?sourceId=source-1900&v="))
             assertFalse(it.has("graph"))
         }
     }
@@ -45,6 +46,7 @@ class ReferenceCatalogHttpTest {
             }
             assertEquals(expected, graph["relations"].map { "${it["type"].asText()}:${it["from"].asText()}:${it["to"].asText()}" })
             val metadata = detail["metadata"]
+            assertTrue(metadata["source"]["image"].asText().startsWith("/api/v1/references/${original.id}/image?sourceId=source-1900&v="))
             assertEquals(original.verdict.name, metadata["verdict"].asText())
             assertEquals(original.description, metadata["description"].asText())
             assertEquals(original.source.document, metadata["source"]["document"].asText())

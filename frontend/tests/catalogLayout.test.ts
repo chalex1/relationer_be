@@ -1,10 +1,11 @@
+import { catalogFixture } from './catalogFixture'
 import { readFileSync } from 'node:fs'
 import { expect, it } from 'vitest'
 import { catalogGraph } from '../src/domain/catalog'
 import { layoutCatalog, compactNode } from '../src/domain/catalogLayout'
 import { RelationType as R } from '../src/api/generated/models/RelationType'
 import type { SearchRequest } from '../src/api/generated/models/SearchRequest'
-const catalog: (SearchRequest & { id: string })[] = JSON.parse(readFileSync('../backend/src/main/resources/references.json', 'utf8'))
+const catalog: (SearchRequest & { id: string })[] = catalogFixture()
 const parent = (from: string, to: string) => ({ from, to, type: R.BIOLOGICAL })
 const marriage = (from: string, to: string) => ({ from, to, type: R.MARRIAGE })
 function graph(ids: string[], relations: SearchRequest['relations']): SearchRequest {

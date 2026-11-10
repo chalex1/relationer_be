@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class ReferenceSearchService(private val mapper: SearchApiMapper, private val referenceCatalog: ReferenceCatalog) {
-    // The singleton is eagerly created at startup; invalid catalog data prevents startup.
+    // The singleton merges both files; unavailable drafts are reported separately.
     private val catalog get() = referenceCatalog.entries
     private val search = ReferenceSearch()
 
-    fun search(request: SearchRequest): SearchResponse =
-        mapper.toResponse(search.search(mapper.toGraph(request), catalog))
+    fun search(request: SearchRequest): SearchResponse {
+        val response = mapper.toResponse(search.search(mapper.toGraph(request), catalog))
+        return if (referenceCatalog.draftFailure == null) response else response.copy(
+            catalogWarning = "Черновой каталог недоступен. Поиск выполнен только по рабочим кейсам.",
+        )
+    }
 }

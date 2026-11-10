@@ -15,6 +15,12 @@ paths:
       tags: [References]
       operationId: listReferences
       summary: List the complete reference catalog metadata
+      parameters:
+        - {name: catalog, in: query, schema: {type: string}, description: 'draft or production; omitted means both'}
+        - {name: category, in: query, schema: {type: string}}
+        - {name: reviewStatus, in: query, schema: {type: string}, description: Graph status only}
+        - {name: search, in: query, schema: {type: string}, description: ID title description tags and source text}
+        - {name: sort, in: query, schema: {type: string}, description: 'id title page or their descending forms -id -title -page'}
       responses:
         '200':
           description: All references in catalog order. Empty categories mean manual classification is needed.
@@ -48,6 +54,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/references/{id}/image:
+    get:
+      tags: [References]
+      operationId: getReferenceImage
+      summary: Read an original image from the backend catalog
+      parameters:
+        - {name: id, in: path, required: true, schema: {type: string}}
+        - {name: sourceId, in: query, schema: {type: string}}
+      responses:
+        '200':
+          description: Original PNG image
+          content:
+            image/png:
+              schema: {type: string, format: binary}
+        '404':
+          description: Unknown case source or missing image
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
   /api/v1/references/search:
     post:
       tags: [References]
@@ -171,6 +196,10 @@ components:
       type: object
       required: [matches]
       properties:
+        catalogWarning:
+          type: string
+          nullable: true
+          description: Present when draft loading failed and search used production cases only
         matches:
           type: array
           description: Все совпадения, включая случаи с противоречащими вердиктами.
@@ -180,6 +209,12 @@ components:
       type: object
       required: [referenceId, verdict, description, userPathCode, referencePathCode, source]
       properties:
+        title: {type: string}
+        catalog: {type: string, description: production or draft}
+        reviewStatus: {$ref: '#/components/schemas/GraphReviewStatusDto'}
+        sources:
+          type: array
+          items: {$ref: '#/components/schemas/CatalogSourceDto'}
         referenceId:
           type: string
         verdict:
@@ -224,10 +259,31 @@ components:
     RelationCategory:
       type: string
       enum: [BLOOD, AFFINITY, SPIRITUAL, ADOPTION]
+    GraphReviewStatusDto:
+      type: string
+      description: Verification of graph accuracy, never confirmation of a source verdict
+      enum: [DRAFT, REVIEWED, NEEDS_CORRECTION]
+    CatalogSourceDto:
+      type: object
+      required: [id, title, verdict]
+      properties:
+        id: {type: string}
+        title: {type: string}
+        page: {type: integer, format: int32, nullable: true}
+        verdict: {$ref: '#/components/schemas/VerdictDto'}
+        conclusion: {type: string, nullable: true}
+        example: {type: string, nullable: true}
+        image: {type: string, nullable: true}
     ReferenceSummaryDto:
       type: object
       required: [id, categories, tags, verdict, source, hasImage]
       properties:
+        title: {type: string}
+        catalog: {type: string, description: production or draft}
+        reviewStatus: {$ref: '#/components/schemas/GraphReviewStatusDto'}
+        sources:
+          type: array
+          items: {$ref: '#/components/schemas/CatalogSourceDto'}
         id:
           type: string
         categories:

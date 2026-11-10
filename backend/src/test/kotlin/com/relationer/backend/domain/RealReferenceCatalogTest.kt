@@ -13,7 +13,7 @@ class RealReferenceCatalogTest {
 
     @Test
     fun `loader preserves production metadata and relationships`() {
-        val stream = javaClass.getResourceAsStream("/references.json")
+        val stream = javaClass.getResourceAsStream("/reference-catalog/references.json")
         assertNotNull(stream)
         val records = stream.use { ObjectMapper().readTree(it) }
         val loaded = loader.load()
@@ -21,11 +21,11 @@ class RealReferenceCatalogTest {
         for (record in records) {
             val reference = loaded.single { it.id == record["id"].asText() }
             assertEquals(record["description"].asText(), reference.description)
-            assertEquals(record["verdict"].asText(), reference.verdict.name)
-            assertEquals(record["source"]["document"].asText(), reference.source.document)
-            assertEquals(record["source"]["page"].intValue(), reference.source.page)
-            assertEquals(record["source"]["example"].asText(), reference.source.example)
-            assertEquals(record["source"]["conclusion"].asText(), reference.source.conclusion)
+            assertEquals(record["sources"][0]["verdict"].asText(), reference.verdict.name)
+            assertEquals(record["sources"][0]["title"].asText(), reference.source.document)
+            assertEquals(record["sources"][0]["page"].intValue(), reference.source.page)
+            assertEquals(record["sources"][0]["example"].asText(), reference.source.example)
+            assertEquals(record["sources"][0]["conclusion"].asText(), reference.source.conclusion)
             val graph = reference.graph
             assertEquals(record["personA"].asText(), graph.personA.id)
             assertEquals(record["personB"].asText(), graph.personB.id)

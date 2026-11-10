@@ -1,0 +1,6670 @@
+[
+  {
+    "id": "blood-01",
+    "description": "Родные брат и сестра: брак запрещён, 2-я степень",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "a",
+        "name": "Георгий"
+      },
+      {
+        "id": "b",
+        "name": "Мария"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "to": "a",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "b",
+        "from": "p"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Родные брат и сестра",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 34,
+        "example": "Изображение 1",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-01.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-02",
+    "description": "Родной дядя и племянница: брак запрещён, 3-я степень",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "a",
+        "name": "Георгий"
+      },
+      {
+        "id": "s",
+        "name": "Иоанн"
+      },
+      {
+        "id": "b",
+        "name": "Мария"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "to": "a",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "s",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "b",
+        "from": "s"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Родной дядя и племянница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 34,
+        "example": "Изображение 2",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-02.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-03",
+    "description": "Двоюродный дед и внучатая племянница: брак запрещён, 4-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "s"
+      },
+      {
+        "id": "n"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "to": "a",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "s",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "n",
+        "from": "s"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "b",
+        "from": "n"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дед и внучатая племянница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 35,
+        "example": "Изображение 3",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-03.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-04",
+    "description": "Двоюродные брат и сестра: брак запрещён, 4-я степень",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "f",
+        "name": "Георгий"
+      },
+      {
+        "id": "m",
+        "name": "Иоанн"
+      },
+      {
+        "id": "a",
+        "name": "Фома"
+      },
+      {
+        "id": "b",
+        "name": "Мария"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "to": "f",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "m",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "a",
+        "from": "f"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "b",
+        "from": "m"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродные брат и сестра",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 35,
+        "example": "Изображение 4",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-04.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-05",
+    "description": "Двоюродный дед и дочь внучатой племянницы: брак запрещён, 5-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "s"
+      },
+      {
+        "id": "n"
+      },
+      {
+        "id": "gn"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "to": "a",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "s",
+        "from": "p"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "n",
+        "from": "s"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "gn",
+        "from": "n"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "to": "b",
+        "from": "gn"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дед и дочь внучатой племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 36,
+        "example": "Изображение 5",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-05.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-01",
+    "description": "Дед и внучатая племянница его жены: незапрещённый брак, 6-я степень свойства (PDF, стр. 61, схема 2)",
+    "persons": [
+      {
+        "id": "ancestor"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "elena"
+      }
+    ],
+    "personA": "petr",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Дед и внучатая племянница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 61,
+        "example": "Изображение 2",
+        "conclusion": "Незапрещенные; исторический источник, при условии отсутствия предшествующего брака, меняющего свойство",
+        "image": "images/affinity-allowed-01.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-02",
+    "description": "Дед и малая племянница жены: незапрещённый брак, 7-я степень свойства (PDF, стр. 62, схема 3)",
+    "persons": [
+      {
+        "id": "ancestor"
+      },
+      {
+        "id": "left"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Дед и малая племянница жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 62,
+        "example": "Изображение 3",
+        "conclusion": "Незапрещенные; исторический источник, при условии отсутствия предшествующего брака, меняющего свойство",
+        "image": "images/affinity-allowed-02.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-03",
+    "description": "Прадед и родная племянница его жены: незапрещённый брак, 6-я степень свойства (PDF, стр. 65, схема 1)",
+    "persons": [
+      {
+        "id": "ancestor"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "foma",
+        "name": "Фома"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "irina"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "georgiy",
+        "to": "foma"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Прадед и родная племянница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 65,
+        "example": "Изображение 1",
+        "conclusion": "Незапрещенные; исторический источник, при условии отсутствия предшествующего брака, меняющего свойство",
+        "image": "images/affinity-allowed-03.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-01",
+    "description": "Восприемник (крёстный отец) и крестница: запрещённый брак по историческому источнику",
+    "persons": [
+      {
+        "id": "godparent",
+        "name": "Восприемник"
+      },
+      {
+        "id": "goddaughter",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "godparent",
+        "to": "goddaughter"
+      }
+    ],
+    "personA": "godparent",
+    "personB": "goddaughter",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": [],
+    "title": "Восприемник (крёстный отец) и крестница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), Приложения, глава I, § 1",
+        "verdict": "FORBIDDEN",
+        "page": 120,
+        "example": "Изображение 1",
+        "conclusion": "В историческом источнике запрещён брак восприемника и крестницы",
+        "image": "images/spiritual-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-02",
+    "description": "Восприемник и родная мать крестника: запрещённый брак по историческому источнику",
+    "persons": [
+      {
+        "id": "godparent",
+        "name": "Восприемник"
+      },
+      {
+        "id": "mother",
+        "name": "Мать крестника"
+      },
+      {
+        "id": "godchild",
+        "name": "Крестник"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "godparent",
+        "to": "godchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "mother",
+        "to": "godchild"
+      }
+    ],
+    "personA": "godparent",
+    "personB": "mother",
+    "categories": [
+      "BLOOD",
+      "SPIRITUAL"
+    ],
+    "tags": [],
+    "title": "Восприемник и родная мать крестника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), Приложения, глава I, § 2",
+        "verdict": "FORBIDDEN",
+        "page": 121,
+        "example": "Изображение 2",
+        "conclusion": "В историческом источнике запрещён брак восприемника с матерью крестника",
+        "image": "images/spiritual-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-03",
+    "description": "Два крестника одного восприемника: запрещённый брак по историческому источнику",
+    "persons": [
+      {
+        "id": "godparent",
+        "name": "Восприемник"
+      },
+      {
+        "id": "godson",
+        "name": "Крестник"
+      },
+      {
+        "id": "goddaughter",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "godparent",
+        "to": "godson"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "godparent",
+        "to": "goddaughter"
+      }
+    ],
+    "personA": "godson",
+    "personB": "goddaughter",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": [],
+    "title": "Два крестника одного восприемника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), Приложения, глава I, § 3",
+        "verdict": "FORBIDDEN",
+        "page": 121,
+        "example": "Изображение 3",
+        "conclusion": "В историческом источнике запрещён брак духовных брата и сестры, воспринятых одним восприемником",
+        "image": "images/spiritual-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-06",
+    "description": "Двоюродный дядя и двоюродная племянница: запрещённый брак, 5-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "x",
+        "name": "Георгий"
+      },
+      {
+        "id": "a",
+        "name": "Фома"
+      },
+      {
+        "id": "y",
+        "name": "Иоанн"
+      },
+      {
+        "id": "z",
+        "name": "Мария"
+      },
+      {
+        "id": "b",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дядя и двоюродная племянница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 36,
+        "example": "Изображение 6",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-06.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-07",
+    "description": "Двоюродный дядя и дочь двоюродной племянницы: запрещённый брак, 6-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "x"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "y"
+      },
+      {
+        "id": "z"
+      },
+      {
+        "id": "w"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дядя и дочь двоюродной племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 37,
+        "example": "Изображение 7",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-07.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-08",
+    "description": "Двоюродный дед и внучка внучатой племянницы: запрещённый брак, 6-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "x"
+      },
+      {
+        "id": "y"
+      },
+      {
+        "id": "z"
+      },
+      {
+        "id": "w"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дед и внучка внучатой племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 37,
+        "example": "Изображение 8",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-08.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-09",
+    "description": "Родной дядя и правнучка племянницы: запрещённый брак, 7-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "x"
+      },
+      {
+        "id": "y"
+      },
+      {
+        "id": "z"
+      },
+      {
+        "id": "w"
+      },
+      {
+        "id": "v"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "v"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "v",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Родной дядя и правнучка племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 38,
+        "example": "Изображение 9",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-09.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-10",
+    "description": "Троюродные брат и сестра: запрещённый брак, 6-я степень",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "x",
+        "name": "Георгий"
+      },
+      {
+        "id": "y",
+        "name": "Фома"
+      },
+      {
+        "id": "a",
+        "name": "Димитрий"
+      },
+      {
+        "id": "z",
+        "name": "Иоанн"
+      },
+      {
+        "id": "w",
+        "name": "Мария"
+      },
+      {
+        "id": "b",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Троюродные брат и сестра",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 38,
+        "example": "Изображение 10",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-10.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-11",
+    "description": "Двоюродный дядя и внучка двоюродной племянницы: запрещённый брак, 7-я степень",
+    "persons": [
+      {
+        "id": "p"
+      },
+      {
+        "id": "x"
+      },
+      {
+        "id": "a"
+      },
+      {
+        "id": "y"
+      },
+      {
+        "id": "z"
+      },
+      {
+        "id": "w"
+      },
+      {
+        "id": "v"
+      },
+      {
+        "id": "b"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "v"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "v",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Двоюродный дядя и внучка двоюродной племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 39,
+        "example": "Изображение 11",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-11.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-12",
+    "description": "Троюродный брат и дочь троюродной сестры: запрещённый брак, 7-я степень",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "x",
+        "name": "Георгий"
+      },
+      {
+        "id": "y",
+        "name": "Фома"
+      },
+      {
+        "id": "a",
+        "name": "Димитрий"
+      },
+      {
+        "id": "z",
+        "name": "Иоанн"
+      },
+      {
+        "id": "w",
+        "name": "Мария"
+      },
+      {
+        "id": "v",
+        "name": "Анна"
+      },
+      {
+        "id": "b",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "x"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "x",
+        "to": "y"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "y",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "z"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "z",
+        "to": "w"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "w",
+        "to": "v"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "v",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Троюродный брат и дочь троюродной сестры",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "FORBIDDEN",
+        "page": 39,
+        "example": "Изображение 12",
+        "conclusion": "Запрещенные",
+        "image": "images/blood-12.png"
+      }
+    ]
+  },
+  {
+    "id": "blood-13",
+    "description": "Четвероюродные брат и сестра: восьмая степень кровного родства; в главе I отнесено к бракам за пределами запрета седьмой степени",
+    "persons": [
+      {
+        "id": "p",
+        "name": "Пётр"
+      },
+      {
+        "id": "g",
+        "name": "Георгий"
+      },
+      {
+        "id": "i",
+        "name": "Иоанн"
+      },
+      {
+        "id": "f",
+        "name": "Фома"
+      },
+      {
+        "id": "m",
+        "name": "Мария"
+      },
+      {
+        "id": "d",
+        "name": "Димитрий"
+      },
+      {
+        "id": "a",
+        "name": "Алексей"
+      },
+      {
+        "id": "b",
+        "name": "Феодора"
+      },
+      {
+        "id": "n",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "g"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "i"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "g",
+        "to": "f"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "f",
+        "to": "d"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "d",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "i",
+        "to": "m"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "m",
+        "to": "n"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "n",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Четвероюродные брат и сестра",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава I",
+        "verdict": "ALLOWED",
+        "page": 41,
+        "example": "Схема четвероюродных брата и сестры",
+        "conclusion": "В главе I указано, что кровные браки, превышающие седьмую степень, разрешаются; на странице 41 приведена восьмая степень. Исторический контекст.",
+        "image": "images/blood-13.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-01",
+    "description": "Мужчина и дочь его жены от другого брака: 1-я степень свойства (исторический запрет)",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      }
+    ],
+    "personA": "petr",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и дочь его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава III",
+        "verdict": "FORBIDDEN",
+        "page": 46,
+        "example": "Изображение 1",
+        "conclusion": "Глава III, раздел «Запрещенные», схема 1. На рисунке показана линия потомков жены от другого мужа; Пётр не указан биологическим отцом.",
+        "image": "images/affinity-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-02",
+    "description": "Мужчина и внучка его жены от другого брака: 2-я степень свойства (исторический запрет)",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и внучка его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава III",
+        "verdict": "FORBIDDEN",
+        "page": 46,
+        "example": "Изображение 2",
+        "conclusion": "Глава III, раздел «Запрещенные», схема 2. На рисунке показана линия потомков жены от другого мужа; Пётр не указан биологическим отцом.",
+        "image": "images/affinity-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-03",
+    "description": "Мужчина и правнучка его жены от другого брака: 3-я степень свойства (исторический запрет)",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "anastasia",
+        "name": "Анастасия"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "anastasia"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anastasia",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и правнучка его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава III",
+        "verdict": "FORBIDDEN",
+        "page": 47,
+        "example": "Изображение 3",
+        "conclusion": "Глава III, раздел «Запрещенные», схема 3. На рисунке показана линия потомков жены от другого мужа; Пётр не указан биологическим отцом.",
+        "image": "images/affinity-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-04",
+    "description": "Мужчина и праправнучка его жены от другого брака: 4-я степень свойства (исторический запрет)",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "anastasia",
+        "name": "Анастасия"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "anastasia"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anastasia",
+        "to": "elena"
+      }
+    ],
+    "personA": "petr",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и праправнучка его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава III",
+        "verdict": "FORBIDDEN",
+        "page": 47,
+        "example": "Изображение 4",
+        "conclusion": "Глава III, раздел «Запрещенные», схема 4. На рисунке показана линия потомков жены от другого мужа; Пётр не указан биологическим отцом.",
+        "image": "images/affinity-forbidden-04.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-05",
+    "description": "сын и дочь мачехи (сводные брат и сестра)",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "feodora"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын и дочь мачехи (сводные брат и сестра)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 49,
+        "example": "Изображение 2",
+        "conclusion": "Глава IV, «Запрещенные», схема 1. Отец и сын с одной стороны, мать и потомки с другой; дети от разных браков.",
+        "image": "images/affinity-forbidden-05.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-06",
+    "description": "сын и внучка мачехи",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "feodora"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын и внучка мачехи",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 49,
+        "example": "Изображение 3",
+        "conclusion": "Глава IV, «Запрещенные», схема 2. Отец и сын с одной стороны, мать и потомки с другой; дети от разных браков.",
+        "image": "images/affinity-forbidden-06.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-07",
+    "description": "сын и правнучка мачехи",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "feodora"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "irina"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын и правнучка мачехи",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 50,
+        "example": "Изображение 4",
+        "conclusion": "Глава IV, «Запрещенные», схема 3. Отец и сын с одной стороны, мать и потомки с другой; дети от разных браков.",
+        "image": "images/affinity-forbidden-07.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-08",
+    "description": "сын и праправнучка мачехи",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "feodora"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "elena"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын и праправнучка мачехи",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 50,
+        "example": "Изображение 5",
+        "conclusion": "Глава IV, «Запрещенные», схема 4. Отец и сын с одной стороны, мать и потомки с другой; дети от разных браков.",
+        "image": "images/affinity-forbidden-08.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-09",
+    "description": "сын мужа и сестра его жены",
+    "persons": [
+      {
+        "id": "root",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын мужа и сестра его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 51,
+        "example": "Изображение 6",
+        "conclusion": "Глава IV, «Запрещенные», схема 5. Мария и Феодора — родные сёстры, Иоанна — сын Петра; биологическая связь Петра с Марией не предполагается.",
+        "image": "images/affinity-forbidden-09.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-10",
+    "description": "сын мужа и племянница его жены",
+    "persons": [
+      {
+        "id": "root",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын мужа и племянница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 51,
+        "example": "Изображение 7",
+        "conclusion": "Глава IV, «Запрещенные», схема 6. Мария и Феодора — родные сёстры, Иоанна — сын Петра; биологическая связь Петра с Марией не предполагается.",
+        "image": "images/affinity-forbidden-10.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-11",
+    "description": "сын мужа и внучатая племянница его жены",
+    "persons": [
+      {
+        "id": "root",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын мужа и внучатая племянница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 52,
+        "example": "Изображение 8",
+        "conclusion": "Глава IV, «Запрещенные», схема 7. Мария и Феодора — родные сёстры, Иоанна — сын Петра; биологическая связь Петра с Марией не предполагается.",
+        "image": "images/affinity-forbidden-11.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-12",
+    "description": "сын мужа и двоюродная сестра его жены",
+    "persons": [
+      {
+        "id": "root",
+        "name": "Общий предок"
+      },
+      {
+        "id": "left",
+        "name": "Родитель Марии"
+      },
+      {
+        "id": "right",
+        "name": "Родитель Анны"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "anna"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "сын мужа и двоюродная сестра его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 52,
+        "example": "Изображение 9",
+        "conclusion": "Глава IV, «Запрещенные», схема 8. Мария и Анна — двоюродные сёстры; Пётр женат на Марии, Иоанна — его сын.",
+        "image": "images/affinity-forbidden-12.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-13",
+    "description": "Сын мужа и троюродная сестра его жены; источник запрещает второй брак из-за смешения родов",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "l1"
+      },
+      {
+        "id": "r1"
+      },
+      {
+        "id": "l2"
+      },
+      {
+        "id": "r2"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "l1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "r1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "l1",
+        "to": "l2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r1",
+        "to": "r2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "l2",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r2",
+        "to": "elena"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Сын мужа и троюродная сестра его жены; источник запрещает второй брак из-за смешения родов",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 53,
+        "example": "Изображение 9",
+        "conclusion": "Под заголовком «Запрещенные», схема 9; текст отмечает 7-ю степень, но запрет второго брака при смешении родов",
+        "image": "images/affinity-forbidden-13.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-04",
+    "description": "Отец женат на двоюродной тётке, сын может жениться на её племяннице (шестая степень)",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "l"
+      },
+      {
+        "id": "r"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "l"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "r"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "l",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "irina"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      }
+    ],
+    "personA": "ioanna",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отец женат на двоюродной тётке, сын может жениться на её племяннице (шестая степень)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 54,
+        "example": "Изображение 1",
+        "conclusion": "Раздел «Незапрещенные», схема 1; порядок браков существенен",
+        "image": "images/affinity-allowed-04.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-05",
+    "description": "Отец женат на великой тётке, сын может жениться на дочери её великой племянницы",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "right1"
+      },
+      {
+        "id": "right2"
+      },
+      {
+        "id": "aunt",
+        "name": "Великая тётка"
+      },
+      {
+        "id": "niece",
+        "name": "Великая племянница"
+      },
+      {
+        "id": "daughter",
+        "name": "Её дочь"
+      },
+      {
+        "id": "father",
+        "name": "Отец"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "aunt"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right1",
+        "to": "right2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right2",
+        "to": "niece"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "niece",
+        "to": "daughter"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "aunt"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "son"
+      }
+    ],
+    "personA": "son",
+    "personB": "daughter",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отец женат на великой тётке, сын может жениться на дочери её великой племянницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 55,
+        "example": "Изображение 2",
+        "conclusion": "Раздел «Незапрещенные», схема 2; шесть степеней, роды не смешиваются",
+        "image": "images/affinity-allowed-05.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-06",
+    "description": "Отец женат на бабке в четвёртом колене, сын может жениться на внучке в четвёртом колене",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Отец"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      },
+      {
+        "id": "grandmother",
+        "name": "Бабка в 4-м колене"
+      },
+      {
+        "id": "r1"
+      },
+      {
+        "id": "granddaughter",
+        "name": "Внучка"
+      },
+      {
+        "id": "r2"
+      },
+      {
+        "id": "r3"
+      },
+      {
+        "id": "descendant",
+        "name": "Внучка в 4-м колене"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "grandmother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "son"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandmother",
+        "to": "r1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r1",
+        "to": "granddaughter"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "granddaughter",
+        "to": "r2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r2",
+        "to": "r3"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r3",
+        "to": "descendant"
+      }
+    ],
+    "personA": "son",
+    "personB": "descendant",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отец женат на бабке в четвёртом колене, сын может жениться на внучке в четвёртом колене",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 56,
+        "example": "Изображение 3",
+        "conclusion": "Раздел «Незапрещенные», схема 3; шесть степеней, важен порядок браков",
+        "image": "images/affinity-allowed-06.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-14",
+    "description": "Внук мужа и внучка его жены от другого брака",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      }
+    ],
+    "personA": "georgiy",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук мужа и внучка его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 57,
+        "example": "Изображение 1",
+        "conclusion": "Раздел «Запрещенные», схема 1; четыре/пять степеней свойства",
+        "image": "images/affinity-forbidden-14.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-15",
+    "description": "Внук мужа и правнучка его жены от другого брака",
+    "persons": [
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "elena"
+      }
+    ],
+    "personA": "georgiy",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук мужа и правнучка его жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 57,
+        "example": "Изображение 2",
+        "conclusion": "Раздел «Запрещенные», схема 2; четыре/пять степеней свойства",
+        "image": "images/affinity-forbidden-15.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-16",
+    "description": "Внук мужа и родная сестра его жены",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      }
+    ],
+    "personA": "georgiy",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук мужа и родная сестра его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 58,
+        "example": "Изображение 3",
+        "conclusion": "Раздел «Запрещенные», схема 3; исторический запрет",
+        "image": "images/affinity-forbidden-16.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-17",
+    "description": "Внук мужа и племянница его жены",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      }
+    ],
+    "personA": "georgiy",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук мужа и племянница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 58,
+        "example": "Изображение 4",
+        "conclusion": "Раздел «Запрещенные», схема 4; исторический запрет",
+        "image": "images/affinity-forbidden-17.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-18",
+    "description": "Внук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "left"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      }
+    ],
+    "personA": "georgiy",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 59,
+        "example": "Изображение 5",
+        "conclusion": "Под заголовком запрещённых: имена смешиваются; требует проверки трактовки двух браков",
+        "image": "images/affinity-forbidden-18.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-allowed-07",
+    "description": "Внук и праправнучка супругов из разных родов — не запрещено, 6-я степень свойства",
+    "persons": [
+      {
+        "id": "grandfather",
+        "name": "Дед"
+      },
+      {
+        "id": "greatgrandmother",
+        "name": "Праправрабабка"
+      },
+      {
+        "id": "leftchild"
+      },
+      {
+        "id": "grandson",
+        "name": "Внук"
+      },
+      {
+        "id": "right1"
+      },
+      {
+        "id": "right2"
+      },
+      {
+        "id": "greatgranddaughter",
+        "name": "Праправнучка"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "grandfather",
+        "to": "greatgrandmother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandfather",
+        "to": "leftchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "leftchild",
+        "to": "grandson"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "greatgrandmother",
+        "to": "right1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right1",
+        "to": "right2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right2",
+        "to": "greatgranddaughter"
+      }
+    ],
+    "personA": "grandson",
+    "personB": "greatgranddaughter",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук и праправнучка супругов из разных родов — не запрещено, 6-я степень свойства",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "ALLOWED",
+        "page": 60,
+        "example": "Изображение 1",
+        "conclusion": "Незапрещенные; порядок браков влияет на вывод. Возможна неполнота поколений в схеме — ручная проверка обязательна",
+        "image": "images/affinity-allowed-07.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-19",
+    "description": "Правнук мужа и родная сестра его жены — запрещено, 5-я степень свойства",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "foma",
+        "name": "Фома"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "irina"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "georgiy",
+        "to": "foma"
+      }
+    ],
+    "personA": "foma",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Правнук мужа и родная сестра его жены — запрещено, 5-я степень свойства",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 63,
+        "example": "Изображение 1",
+        "conclusion": "Запрещенные, схема 1; степень пятая, имена не смешиваются",
+        "image": "images/affinity-forbidden-19.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-20",
+    "description": "Правнук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "left"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "ioanna",
+        "name": "Иоанна"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "foma",
+        "name": "Фома"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "petr",
+        "to": "ioanna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioanna",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "georgiy",
+        "to": "foma"
+      }
+    ],
+    "personA": "foma",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Правнук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 64,
+        "example": "Изображение 2",
+        "conclusion": "Запрещенные, схема 2; степень шестая, имена смешиваются",
+        "image": "images/affinity-forbidden-20.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-21",
+    "description": "Праправнук мужа и родная сестра его жены — запрещено, 6-я степень свойства",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "husband",
+        "name": "Прарадед"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "sister",
+        "name": "Сестра жены"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      },
+      {
+        "id": "grandson",
+        "name": "Внук"
+      },
+      {
+        "id": "greatgrandson",
+        "name": "Правнук"
+      },
+      {
+        "id": "gggrandson",
+        "name": "Праправнук"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "sister"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "husband",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "husband",
+        "to": "son"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "son",
+        "to": "grandson"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandson",
+        "to": "greatgrandson"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "greatgrandson",
+        "to": "gggrandson"
+      }
+    ],
+    "personA": "gggrandson",
+    "personB": "sister",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Праправнук мужа и родная сестра его жены — запрещено, 6-я степень свойства",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава IV",
+        "verdict": "FORBIDDEN",
+        "page": 66,
+        "example": "Изображение 1",
+        "conclusion": "Запрещенные, схема 1; степень шестая, имена смешиваются",
+        "image": "images/affinity-forbidden-21.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-22",
+    "description": "Муж и родная сестра его жены (2-я степень свойства)",
+    "persons": [
+      {
+        "id": "parent"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      }
+    ],
+    "personA": "petr",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и родная сестра его жены (2-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 68,
+        "example": "Изображение 1",
+        "conclusion": "Глава V: запрещённые; схема 1",
+        "image": "images/affinity-forbidden-22.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-23",
+    "description": "Муж и родная племянница его жены (3-я степень свойства)",
+    "persons": [
+      {
+        "id": "parent"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      }
+    ],
+    "personA": "petr",
+    "personB": "irina",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и родная племянница его жены (3-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 68,
+        "example": "Изображение 2",
+        "conclusion": "Глава V: запрещённые; схема 2",
+        "image": "images/affinity-forbidden-23.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-24",
+    "description": "Муж и внучатая племянница его жены (4-я степень свойства)",
+    "persons": [
+      {
+        "id": "parent"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "irina",
+        "name": "Ирина"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "irina"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "irina",
+        "to": "anna"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и внучатая племянница его жены (4-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 69,
+        "example": "Изображение 3",
+        "conclusion": "Глава V: запрещённые; схема 3",
+        "image": "images/affinity-forbidden-24.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-25",
+    "description": "Муж и двоюродная сестра его жены (4-я степень свойства)",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "left"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      }
+    ],
+    "personA": "petr",
+    "personB": "feodora",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и двоюродная сестра его жены (4-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 69,
+        "example": "Изображение 4",
+        "conclusion": "Глава V: запрещённые; схема 4",
+        "image": "images/affinity-forbidden-25.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-26",
+    "description": "Муж и дочь двоюродной сестры его жены (5-я степень свойства)",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "left"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "left"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "feodora"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      }
+    ],
+    "personA": "petr",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и дочь двоюродной сестры его жены (5-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 70,
+        "example": "Изображение 5",
+        "conclusion": "Глава V: запрещённые; схема 5",
+        "image": "images/affinity-forbidden-26.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-27",
+    "description": "Муж и дочь великой племянницы его жены (6-я степень свойства)",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "aunt",
+        "name": "Великая тётка"
+      },
+      {
+        "id": "right"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "child"
+      },
+      {
+        "id": "grandchild",
+        "name": "Великая племянница"
+      },
+      {
+        "id": "daughter",
+        "name": "Её дочь"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "aunt"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "right"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right",
+        "to": "child"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "child",
+        "to": "grandchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandchild",
+        "to": "daughter"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "aunt"
+      }
+    ],
+    "personA": "petr",
+    "personB": "daughter",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и дочь великой племянницы его жены (6-я степень свойства)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава V",
+        "verdict": "FORBIDDEN",
+        "page": 70,
+        "example": "Изображение 6",
+        "conclusion": "Глава V: запрещённые; схема 6. Точное родственное наименование проверить",
+        "image": "images/affinity-forbidden-27.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-two-marriages-forbidden-01",
+    "description": "Два родных брата и две родные сестры: второй брак запрещён (4-я степень)",
+    "persons": [
+      {
+        "id": "brotherparent"
+      },
+      {
+        "id": "sisterparent"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "pavel",
+        "name": "Павел"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "petr"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "pavel"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sisterparent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sisterparent",
+        "to": "elena"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      }
+    ],
+    "personA": "pavel",
+    "personB": "elena",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Два родных брата и две родные сестры",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава VI",
+        "verdict": "FORBIDDEN",
+        "page": 73,
+        "example": "Изображение 1",
+        "conclusion": "Раздел «Запрещенные»; схема 1. Второй брак — проверяемый, не добавлен в relations.",
+        "image": "images/affinity-two-marriages-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-two-marriages-forbidden-02",
+    "description": "Брат мужа и племянница жены: второй брак запрещён (5-я степень)",
+    "persons": [
+      {
+        "id": "brotherparent"
+      },
+      {
+        "id": "sisterparent"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "pavel",
+        "name": "Павел"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "elena",
+        "name": "Елена"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "petr"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "pavel"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sisterparent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sisterparent",
+        "to": "elena"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "elena",
+        "to": "anna"
+      }
+    ],
+    "personA": "pavel",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Брат мужа и племянница жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава VI",
+        "verdict": "FORBIDDEN",
+        "page": 74,
+        "example": "Изображение 2",
+        "conclusion": "Раздел «Запрещенные»; схема 2",
+        "image": "images/affinity-two-marriages-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-two-marriages-forbidden-03",
+    "description": "Брат мужа и дочь двоюродной сестры жены: второй брак запрещён (6-я степень)",
+    "persons": [
+      {
+        "id": "root"
+      },
+      {
+        "id": "s1"
+      },
+      {
+        "id": "s2"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "pavel",
+        "name": "Павел"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "feodora",
+        "name": "Феодора"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "brotherparent"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "s1"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "s2"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "s1",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "s2",
+        "to": "feodora"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "feodora",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "petr"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "brotherparent",
+        "to": "pavel"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "maria"
+      }
+    ],
+    "personA": "pavel",
+    "personB": "anna",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Брат мужа и дочь двоюродной сестры жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), глава VI",
+        "verdict": "FORBIDDEN",
+        "page": 77,
+        "example": "Изображение 5",
+        "conclusion": "Раздел «Запрещенные»; схема 5; требует сверки структуры с оригиналом",
+        "image": "images/affinity-two-marriages-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-28",
+    "description": "Сын и жена отца (мачеха): запрещённый брак",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Отец"
+      },
+      {
+        "id": "stepmother",
+        "name": "Жена отца"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "stepmother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "son"
+      }
+    ],
+    "personA": "son",
+    "personB": "stepmother",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Сын и жена отца (мачеха)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 83,
+        "example": "Схема 1 (левая)",
+        "conclusion": "Схема 1 слева, текст: «жену отца своего ... или же мачеху»",
+        "image": "images/affinity-forbidden-28.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-29",
+    "description": "Внук и жена деда: запрещённый брак",
+    "persons": [
+      {
+        "id": "grandfather",
+        "name": "Дед"
+      },
+      {
+        "id": "grandfathers_wife",
+        "name": "Жена деда"
+      },
+      {
+        "id": "father",
+        "name": "Отец"
+      },
+      {
+        "id": "grandson",
+        "name": "Внук"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "grandfather",
+        "to": "grandfathers_wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandfather",
+        "to": "father"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "grandson"
+      }
+    ],
+    "personA": "grandson",
+    "personB": "grandfathers_wife",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Внук и жена деда",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 83,
+        "example": "Схема 1 (правая)",
+        "conclusion": "Схема 1 справа, текст: «или деда своего»",
+        "image": "images/affinity-forbidden-29.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-30",
+    "description": "Муж и тёща: запрещённый брак",
+    "persons": [
+      {
+        "id": "mother",
+        "name": "Тёща"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "husband",
+        "name": "Муж"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "mother",
+        "to": "wife"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "husband",
+        "to": "wife"
+      }
+    ],
+    "personA": "husband",
+    "personB": "mother",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и тёща",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 83,
+        "example": "Схема 2",
+        "conclusion": "Схема 2, текст: «Ни тещу свою»",
+        "image": "images/affinity-forbidden-30.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-31",
+    "description": "Мужчина и жена родного брата: запрещённый брак",
+    "persons": [
+      {
+        "id": "parent",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "brother",
+        "name": "Брат"
+      },
+      {
+        "id": "b",
+        "name": "Жена брата"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "brother"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "brother",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена родного брата",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 84,
+        "example": "Схема 3",
+        "conclusion": "Схема 3, текст: «Ни жену своего родного брата»",
+        "image": "images/affinity-forbidden-31.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-32",
+    "description": "Племянник и жена родного дяди: запрещённый брак",
+    "persons": [
+      {
+        "id": "grandparent",
+        "name": "Дед"
+      },
+      {
+        "id": "father",
+        "name": "Отец мой"
+      },
+      {
+        "id": "uncle",
+        "name": "Дядя"
+      },
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "b",
+        "name": "Жена дяди"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "father"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "uncle"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "uncle",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Племянник и жена родного дяди",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 84,
+        "example": "Схема 4",
+        "conclusion": "Схема 4, текст: «Ни жену своего родного дяди»",
+        "image": "images/affinity-forbidden-32.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-33",
+    "description": "Сын и дочь мачехи от другого брака: запрещённый брак",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Отец"
+      },
+      {
+        "id": "stepmother",
+        "name": "Мачеха"
+      },
+      {
+        "id": "a",
+        "name": "Сын отца"
+      },
+      {
+        "id": "b",
+        "name": "Дочь мачехи"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "stepmother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "stepmother",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Сын и дочь мачехи от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 84,
+        "example": "Схема 5",
+        "conclusion": "Схема 5, текст: «Ни дочь мачехи своей от другого мужа»; биологические родители двух детей различны",
+        "image": "images/affinity-forbidden-33.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-34",
+    "description": "Мужчина и жена сына (невестка): запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "son",
+        "name": "Сын мой"
+      },
+      {
+        "id": "b",
+        "name": "Невестка"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "son"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "son",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена сына (невестка)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 85,
+        "example": "Изображение 1",
+        "conclusion": "Пункт 6: «Ни невестку сына своего»",
+        "image": "images/affinity-forbidden-34.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-35",
+    "description": "Мужчина и жена внука: запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      },
+      {
+        "id": "grandson",
+        "name": "Внук"
+      },
+      {
+        "id": "b",
+        "name": "Жена внука"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "son"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "son",
+        "to": "grandson"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "grandson",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена внука",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 85,
+        "example": "Изображение 2",
+        "conclusion": "Пункт 6: «или внука своего»",
+        "image": "images/affinity-forbidden-35.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-36",
+    "description": "Мужчина и жена правнука: запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "son",
+        "name": "Сын"
+      },
+      {
+        "id": "grandson",
+        "name": "Внук"
+      },
+      {
+        "id": "greatgrandson",
+        "name": "Правнук"
+      },
+      {
+        "id": "b",
+        "name": "Жена правнука"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "son"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "son",
+        "to": "grandson"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandson",
+        "to": "greatgrandson"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "greatgrandson",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена правнука",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 85,
+        "example": "Изображение 3",
+        "conclusion": "Пункт 6: «или правнука»",
+        "image": "images/affinity-forbidden-36.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-37",
+    "description": "Мужчина и падчерица (дочь жены от другого брака): запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "b",
+        "name": "Падчерица"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "wife",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и падчерица (дочь жены от другого брака)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 86,
+        "example": "Изображение 1",
+        "conclusion": "Пункт 7: «Ни падчерицу свою, или дочь ... жены»; биологический отец не изображён",
+        "image": "images/affinity-forbidden-37.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-38",
+    "description": "Мужчина и внучка жены от другого брака: запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "child",
+        "name": "Ребёнок жены"
+      },
+      {
+        "id": "b",
+        "name": "Внучка жены"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "wife",
+        "to": "child"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "child",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и внучка жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 86,
+        "example": "Изображение 2",
+        "conclusion": "Пункт 7: «или внучку ... жены»",
+        "image": "images/affinity-forbidden-38.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-forbidden-39",
+    "description": "Мужчина и правнучка жены от другого брака: запрещённый брак",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "child",
+        "name": "Ребёнок жены"
+      },
+      {
+        "id": "grandchild",
+        "name": "Внук/внучка жены"
+      },
+      {
+        "id": "b",
+        "name": "Правнучка жены"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "wife",
+        "to": "child"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "child",
+        "to": "grandchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandchild",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и правнучка жены от другого брака",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве. Сборник статей о различных видах родства (Москва, 1900), раздел о запрещённых браках",
+        "verdict": "FORBIDDEN",
+        "page": 86,
+        "example": "Изображение 3",
+        "conclusion": "Пункт 7: «или правнучку жены»",
+        "image": "images/affinity-forbidden-39.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-forbidden-01",
+    "description": "Отчим и жена пасынка: исторический запрет, первая степень",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Пётр (отчим)"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "stepson",
+        "name": "Иоанн (пасынок)"
+      },
+      {
+        "id": "b",
+        "name": "Анна (жена пасынка)"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "maria",
+        "to": "stepson"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "stepson",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отчим и жена пасынка",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII: трёхродное родство",
+        "verdict": "FORBIDDEN",
+        "page": 92,
+        "example": "Изображение 1",
+        "conclusion": "В тексте главы VII прямо назван запрещённым брак отчима с женой пасынка.",
+        "image": "images/three-family-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-forbidden-02",
+    "description": "Муж и падчерица родного брата его жены: исторический запрет, третья степень",
+    "persons": [
+      {
+        "id": "ancestor",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "a",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "b",
+        "name": "Ирина"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "georgiy"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "maria"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "georgiy",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "anna",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Муж и падчерица родного брата его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII: трёхродное родство",
+        "verdict": "FORBIDDEN",
+        "page": 93,
+        "example": "Изображение 3",
+        "conclusion": "Пункт 3 главы VII: запрещено.",
+        "image": "images/three-family-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-forbidden-03",
+    "description": "Мужчина и жена родного дяди его жены: исторический запрет, третья степень",
+    "persons": [
+      {
+        "id": "ancestor",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "ioann",
+        "name": "Иоанн"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "a",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "b",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "ioann"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "georgiy"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ioann",
+        "to": "maria"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "maria"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "georgiy",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена родного дяди его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII: трёхродное родство",
+        "verdict": "FORBIDDEN",
+        "page": 94,
+        "example": "Изображение 4",
+        "conclusion": "Пункт 4 главы VII помещён в список запрещённых; сноска отмечает расхождение с некоторыми обычаями.",
+        "image": "images/three-family-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-forbidden-04",
+    "description": "Мужчина и жена родного брата его жены (невестка шурина): исторический запрет, вторая степень",
+    "persons": [
+      {
+        "id": "ancestor",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "a",
+        "name": "Пётр"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "georgiy",
+        "name": "Георгий"
+      },
+      {
+        "id": "b",
+        "name": "Анна"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "ancestor",
+        "to": "georgiy"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "maria"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "georgiy",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Мужчина и жена родного брата его жены (невестка шурина)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII: трёхродное родство",
+        "verdict": "FORBIDDEN",
+        "page": 94,
+        "example": "Изображение 5",
+        "conclusion": "Пункт 5 главы VII: запрещено.",
+        "image": "images/three-family-forbidden-04.png"
+      }
+    ]
+  },
+  {
+    "id": "affinity-inlaws-forbidden-01",
+    "description": "Отец мужа и мать жены: первый вид сватовства, брак запрещён в историческом изложении",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Отец мужа"
+      },
+      {
+        "id": "husband",
+        "name": "Муж"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "b",
+        "name": "Мать жены"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "husband"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "b",
+        "to": "wife"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "husband",
+        "to": "wife"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отец мужа и мать жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VI–VII",
+        "verdict": "FORBIDDEN",
+        "page": 87,
+        "example": "Изображение 1",
+        "conclusion": "Текст на стр. 87: первые сваты не женятся между собой; рисунок 1. Нормативная трактовка требует ревью.",
+        "image": "images/affinity-inlaws-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-allowed-01",
+    "description": "Иван и Соломия, сестра мужа сестры его жены: незапрещённый брак, четвёртая степень трёхродного свойства",
+    "persons": [
+      {
+        "id": "left_parent",
+        "name": "Родитель Марфы и Марии"
+      },
+      {
+        "id": "right_parent",
+        "name": "Родитель Петра и Соломии"
+      },
+      {
+        "id": "a",
+        "name": "Иван"
+      },
+      {
+        "id": "marfa",
+        "name": "Марфа"
+      },
+      {
+        "id": "maria",
+        "name": "Мария"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "b",
+        "name": "Соломия"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "left_parent",
+        "to": "marfa"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "left_parent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right_parent",
+        "to": "petr"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "right_parent",
+        "to": "b"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "marfa"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "maria",
+        "to": "petr"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Иван и Соломия, сестра мужа сестры его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VI–VII",
+        "verdict": "ALLOWED",
+        "page": 98,
+        "example": "Изображение 1",
+        "conclusion": "На стр. 98 явно обозначено «Незапрещенные», п. 1. Автор отмечает исторические разногласия в сноске; проверить на ревью.",
+        "image": "images/three-family-allowed-01.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-allowed-02",
+    "description": "Брат и падчерица дочери его невестки: незапрещённый брак, четвёртая степень трёхродного свойства",
+    "persons": [
+      {
+        "id": "grandparent",
+        "name": "Родитель братьев"
+      },
+      {
+        "id": "a",
+        "name": "Я"
+      },
+      {
+        "id": "brother",
+        "name": "Брат мой"
+      },
+      {
+        "id": "mother",
+        "name": "Мать"
+      },
+      {
+        "id": "daughter",
+        "name": "Дочь"
+      },
+      {
+        "id": "daughter_husband",
+        "name": "Муж дочери"
+      },
+      {
+        "id": "b",
+        "name": "Падчерица дочери"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "brother"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "brother",
+        "to": "mother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "mother",
+        "to": "daughter"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "daughter",
+        "to": "daughter_husband"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "daughter_husband",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Брат и падчерица дочери его невестки",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII",
+        "verdict": "ALLOWED",
+        "page": 100,
+        "example": "Изображение 4",
+        "conclusion": "Стр. 100, п. 4: «женятся на матери и падчерице ее дочери, потому что 4 степени». Кандидат на ревью.",
+        "image": "images/three-family-allowed-02.png"
+      }
+    ]
+  },
+  {
+    "id": "three-family-allowed-03",
+    "description": "Отец Фомы и Марфа, сестра Анны (жены Петра): незапрещённый брак, пятая степень трёхродного свойства",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Отец Фомы"
+      },
+      {
+        "id": "foma",
+        "name": "Фома"
+      },
+      {
+        "id": "sibling_parent",
+        "name": "Родитель Марьи и Петра"
+      },
+      {
+        "id": "maria",
+        "name": "Марья"
+      },
+      {
+        "id": "petr",
+        "name": "Пётр"
+      },
+      {
+        "id": "other_parent",
+        "name": "Родитель Анны и Марфы"
+      },
+      {
+        "id": "anna",
+        "name": "Анна"
+      },
+      {
+        "id": "b",
+        "name": "Марфа"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "a",
+        "to": "foma"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sibling_parent",
+        "to": "maria"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "sibling_parent",
+        "to": "petr"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "other_parent",
+        "to": "anna"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "other_parent",
+        "to": "b"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "foma",
+        "to": "maria"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "petr",
+        "to": "anna"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Отец Фомы и Марфа, сестра Анны (жены Петра)",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VII",
+        "verdict": "ALLOWED",
+        "page": 101,
+        "example": "Изображение 6",
+        "conclusion": "Стр. 101, п. 6: «Отец женится на свояченице шурина своего сына»; «Степень пятый, бывает». Брак A–B предполагаемый, не добавлен как существующая связь.",
+        "image": "images/three-family-allowed-03.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-04",
+    "description": "Крестник и крестница одного восприемника",
+    "persons": [
+      {
+        "id": "g",
+        "name": "Восприемник"
+      },
+      {
+        "id": "a",
+        "name": "Крестник"
+      },
+      {
+        "id": "b",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "a"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": [],
+    "title": "Крестник и крестница одного восприемника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "FORBIDDEN",
+        "page": 110,
+        "example": "Крестник и крестница одного восприемника",
+        "conclusion": "Запрещённые, пункт 1; источник называет их духовными братом и сестрой второй степени.",
+        "image": "images/spiritual-forbidden-04.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-05",
+    "description": "Крестник и жена его духовного брата",
+    "persons": [
+      {
+        "id": "g",
+        "name": "Восприемник"
+      },
+      {
+        "id": "a",
+        "name": "Крестник"
+      },
+      {
+        "id": "brother",
+        "name": "Духовный брат"
+      },
+      {
+        "id": "b",
+        "name": "Жена духовного брата"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "a"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "brother"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "brother",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Крестник и жена его духовного брата",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "FORBIDDEN",
+        "page": 111,
+        "example": "Крестник и жена его духовного брата",
+        "conclusion": "Запрещённые, пункт 2; брак духовного брата с женой уже существует, целевой брак A–B не добавлен.",
+        "image": "images/spiritual-forbidden-05.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-06",
+    "description": "Крестник мужа и крестница его жены",
+    "persons": [
+      {
+        "id": "husband",
+        "name": "Муж"
+      },
+      {
+        "id": "wife",
+        "name": "Жена"
+      },
+      {
+        "id": "a",
+        "name": "Крестник мужа"
+      },
+      {
+        "id": "b",
+        "name": "Крестница жены"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "husband",
+        "to": "wife"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "husband",
+        "to": "a"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "wife",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Крестник мужа и крестница его жены",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "FORBIDDEN",
+        "page": 111,
+        "example": "Крестник мужа и крестница его жены",
+        "conclusion": "Запрещённые, пункт 3; источник приравнивает крещение двумя супругами к общему восприемнику.",
+        "image": "images/spiritual-forbidden-06.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-allowed-01",
+    "description": "Кум и родная сестра другого кума",
+    "persons": [
+      {
+        "id": "root",
+        "name": "Общий родитель"
+      },
+      {
+        "id": "a",
+        "name": "Восприемник (кум)"
+      },
+      {
+        "id": "parent",
+        "name": "Кум, родитель крестника"
+      },
+      {
+        "id": "b",
+        "name": "Сестра кума"
+      },
+      {
+        "id": "child",
+        "name": "Крестник"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "parent"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "root",
+        "to": "b"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "child"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "a",
+        "to": "child"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Кум и родная сестра другого кума",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "ALLOWED",
+        "page": 108,
+        "example": "Кум и родная сестра другого кума",
+        "conclusion": "Незапрещённые, пункт 1; изображён кум (восприемник), родной брат или сестра другого кума (родителя крестника).",
+        "image": "images/spiritual-allowed-01.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-allowed-02",
+    "description": "Родной сын восприемника и родная сестра крестника",
+    "persons": [
+      {
+        "id": "g",
+        "name": "Восприемник"
+      },
+      {
+        "id": "a",
+        "name": "Сын восприемника"
+      },
+      {
+        "id": "p",
+        "name": "Родитель крестника"
+      },
+      {
+        "id": "godchild",
+        "name": "Крестник"
+      },
+      {
+        "id": "b",
+        "name": "Сестра крестника"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "g",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "godchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "b"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "godchild"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Родной сын восприемника и родная сестра крестника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "ALLOWED",
+        "page": 109,
+        "example": "Родной сын восприемника и родная сестра крестника",
+        "conclusion": "Незапрещённые, пункт 2; источник оговаривает позицию большинства о боковом духовном родстве.",
+        "image": "images/spiritual-allowed-02.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-allowed-03",
+    "description": "Родной брат восприемника и родная сестра крестника",
+    "persons": [
+      {
+        "id": "r",
+        "name": "Родитель восприемника"
+      },
+      {
+        "id": "g",
+        "name": "Восприемник"
+      },
+      {
+        "id": "a",
+        "name": "Брат восприемника"
+      },
+      {
+        "id": "p",
+        "name": "Родитель крестника"
+      },
+      {
+        "id": "godchild",
+        "name": "Крестник"
+      },
+      {
+        "id": "b",
+        "name": "Сестра крестника"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "r",
+        "to": "g"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "r",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "godchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "p",
+        "to": "b"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "g",
+        "to": "godchild"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Родной брат восприемника и родная сестра крестника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава VIII",
+        "verdict": "ALLOWED",
+        "page": 109,
+        "example": "Родной брат восприемника и родная сестра крестника",
+        "conclusion": "Незапрещённые, пункт 3; обратный вариант в тексте описан отдельно, но не добавлен как самостоятельная схема.",
+        "image": "images/spiritual-allowed-03.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-forbidden-07",
+    "description": "Зять и крестная дочь тестя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Тесть"
+      },
+      {
+        "id": "daughter",
+        "name": "Дочь тестя, жена зятя"
+      },
+      {
+        "id": "a",
+        "name": "Зять"
+      },
+      {
+        "id": "b",
+        "name": "Крестница тестя"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "daughter"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "a",
+        "to": "daughter"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "father",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Зять и крестная дочь тестя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VIII–IX",
+        "verdict": "FORBIDDEN",
+        "page": 112,
+        "example": "Зять и крестная дочь тестя",
+        "conclusion": "Пункт 4: зять не женится на крестной дочери тестя; источник уподобляет её сестре умершей жены.",
+        "image": "images/spiritual-forbidden-07.png"
+      }
+    ]
+  },
+  {
+    "id": "spiritual-undetermined-01",
+    "description": "Крестник тестя и крестница зятя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Тесть"
+      },
+      {
+        "id": "daughter",
+        "name": "Дочь тестя, жена зятя"
+      },
+      {
+        "id": "soninlaw",
+        "name": "Зять"
+      },
+      {
+        "id": "a",
+        "name": "Крестник тестя"
+      },
+      {
+        "id": "b",
+        "name": "Крестница зятя"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "daughter"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "daughter",
+        "to": "soninlaw"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "soninlaw",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Крестник тестя и крестница зятя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VIII–IX",
+        "verdict": "UNDETERMINED",
+        "page": 113,
+        "example": "Крестник тестя и крестница зятя",
+        "conclusion": "Незапрещённые или сомнительные, пункт 1; текст прямо говорит: «этот брак сомнителен и требует исследования».",
+        "image": "images/spiritual-undetermined-01.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-01",
+    "description": "Усыновлённый сын и жена усыновителя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Отец-усыновитель"
+      },
+      {
+        "id": "b",
+        "name": "Жена усыновителя"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый сын"
+      }
+    ],
+    "relations": [
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "b"
+      },
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Усыновлённый сын и жена усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VIII–IX",
+        "verdict": "FORBIDDEN",
+        "page": 115,
+        "example": "Усыновлённый сын и жена усыновителя",
+        "conclusion": "Глава IX: усыновлённый не может жениться на жене названного отца; схема слева.",
+        "image": "images/adoption-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-02",
+    "description": "Усыновитель и жена усыновлённого сына",
+    "persons": [
+      {
+        "id": "a",
+        "name": "Отец-усыновитель"
+      },
+      {
+        "id": "son",
+        "name": "Усыновлённый сын"
+      },
+      {
+        "id": "b",
+        "name": "Жена усыновлённого сына"
+      }
+    ],
+    "relations": [
+      {
+        "type": "ADOPTED",
+        "from": "a",
+        "to": "son"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "son",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "AFFINITY"
+    ],
+    "tags": [],
+    "title": "Усыновитель и жена усыновлённого сына",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VIII–IX",
+        "verdict": "FORBIDDEN",
+        "page": 115,
+        "example": "Усыновитель и жена усыновлённого сына",
+        "conclusion": "Глава IX: названный отец не может жениться на жене усыновлённого; схема справа.",
+        "image": "images/adoption-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-03",
+    "description": "Внук и названная дочь его деда",
+    "persons": [
+      {
+        "id": "grandfather",
+        "name": "Дед"
+      },
+      {
+        "id": "parent",
+        "name": "Родитель внука"
+      },
+      {
+        "id": "a",
+        "name": "Внук"
+      },
+      {
+        "id": "b",
+        "name": "Названная дочь деда"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandfather",
+        "to": "parent"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "parent",
+        "to": "a"
+      },
+      {
+        "type": "ADOPTED",
+        "from": "grandfather",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Внук и названная дочь его деда",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), главы VIII–IX",
+        "verdict": "FORBIDDEN",
+        "page": 118,
+        "example": "Внук и названная дочь его деда",
+        "conclusion": "Текст: внук не может жениться на названной дочери деда, так как она считается сестрой его отца.",
+        "image": "images/adoption-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-04",
+    "description": "Усыновлённый и родная дочь усыновителя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Названный отец"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый"
+      },
+      {
+        "id": "b",
+        "name": "Родная дочь названного отца"
+      }
+    ],
+    "relations": [
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Усыновлённый и родная дочь усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава IX",
+        "verdict": "FORBIDDEN",
+        "page": 116,
+        "example": "Усыновлённый и родная дочь усыновителя",
+        "conclusion": "Текст: усыновлённый не женится на дочери названного отца, поскольку занимает место родного брата.",
+        "image": "images/adoption-forbidden-04.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-05",
+    "description": "Усыновлённый и падчерица усыновителя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Названный отец"
+      },
+      {
+        "id": "wife",
+        "name": "Жена названного отца"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый"
+      },
+      {
+        "id": "b",
+        "name": "Падчерица названного отца"
+      }
+    ],
+    "relations": [
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "MARRIAGE",
+        "from": "father",
+        "to": "wife"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "wife",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "AFFINITY",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Усыновлённый и падчерица усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава IX",
+        "verdict": "FORBIDDEN",
+        "page": 116,
+        "example": "Усыновлённый и падчерица усыновителя",
+        "conclusion": "Текст: усыновлённый не женится на падчерице названного отца; схема справа.",
+        "image": "images/adoption-forbidden-05.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-06",
+    "description": "Усыновлённый и мать усыновителя",
+    "persons": [
+      {
+        "id": "grandmother",
+        "name": "Мать усыновителя"
+      },
+      {
+        "id": "father",
+        "name": "Названный отец"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandmother",
+        "to": "father"
+      },
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      }
+    ],
+    "personA": "a",
+    "personB": "grandmother",
+    "categories": [
+      "ADOPTION",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Усыновлённый и мать усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава IX",
+        "verdict": "FORBIDDEN",
+        "page": 116,
+        "example": "Усыновлённый и мать усыновителя",
+        "conclusion": "Текст: усыновлённый не женится на матери названного отца; схема слева внизу.",
+        "image": "images/adoption-forbidden-06.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-07",
+    "description": "Усыновлённый и родная сестра матери усыновителя",
+    "persons": [
+      {
+        "id": "grandparent",
+        "name": "Родитель матери усыновителя"
+      },
+      {
+        "id": "mother",
+        "name": "Мать названного отца"
+      },
+      {
+        "id": "b",
+        "name": "Сестра матери названного отца"
+      },
+      {
+        "id": "father",
+        "name": "Названный отец"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "mother"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandparent",
+        "to": "b"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "mother",
+        "to": "father"
+      },
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Усыновлённый и родная сестра матери усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава IX",
+        "verdict": "FORBIDDEN",
+        "page": 116,
+        "example": "Усыновлённый и родная сестра матери усыновителя",
+        "conclusion": "Текст: усыновлённый не женится на родной сестре матери названного отца; схема справа внизу.",
+        "image": "images/adoption-forbidden-07.png"
+      }
+    ]
+  },
+  {
+    "id": "adoption-forbidden-08",
+    "description": "Усыновлённый и внучка родного сына усыновителя",
+    "persons": [
+      {
+        "id": "father",
+        "name": "Названный отец"
+      },
+      {
+        "id": "a",
+        "name": "Усыновлённый"
+      },
+      {
+        "id": "son",
+        "name": "Родной сын названного отца"
+      },
+      {
+        "id": "grandchild",
+        "name": "Ребёнок родного сына"
+      },
+      {
+        "id": "b",
+        "name": "Внучка сына названного отца"
+      }
+    ],
+    "relations": [
+      {
+        "type": "ADOPTED",
+        "from": "father",
+        "to": "a"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "father",
+        "to": "son"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "son",
+        "to": "grandchild"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "grandchild",
+        "to": "b"
+      }
+    ],
+    "personA": "a",
+    "personB": "b",
+    "categories": [
+      "ADOPTION",
+      "BLOOD"
+    ],
+    "tags": [],
+    "title": "Усыновлённый и внучка родного сына усыновителя",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), глава IX",
+        "verdict": "FORBIDDEN",
+        "page": 117,
+        "example": "Усыновлённый и внучка родного сына усыновителя",
+        "conclusion": "Текст: усыновлённый не женится на внучке сына названного отца. Промежуточное лицо на схеме не подписано.",
+        "image": "images/adoption-forbidden-08.png"
+      }
+    ]
+  },
+  {
+    "id": "appendix-spiritual-forbidden-01",
+    "description": "Восприемник и его крестница",
+    "persons": [
+      {
+        "id": "s",
+        "name": "Восприемник"
+      },
+      {
+        "id": "g",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "s",
+        "to": "g"
+      }
+    ],
+    "personA": "s",
+    "personB": "g",
+    "categories": [
+      "SPIRITUAL"
+    ],
+    "tags": [
+      "APPENDIX",
+      "HISTORICAL_CANON"
+    ],
+    "title": "Восприемник и его крестница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), приложения, глава I",
+        "verdict": "FORBIDDEN",
+        "page": 120,
+        "example": "Изображение 1",
+        "conclusion": "§ 1: воспрещается брак восприемника со своей крестницей.",
+        "image": "images/appendix-spiritual-forbidden-01.png"
+      }
+    ]
+  },
+  {
+    "id": "appendix-spiritual-forbidden-02",
+    "description": "Восприемник и мать своего крестника",
+    "persons": [
+      {
+        "id": "s",
+        "name": "Восприемник"
+      },
+      {
+        "id": "m",
+        "name": "Мать крестника"
+      },
+      {
+        "id": "g",
+        "name": "Крестник"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "s",
+        "to": "g"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "m",
+        "to": "g"
+      }
+    ],
+    "personA": "s",
+    "personB": "m",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [
+      "APPENDIX",
+      "HISTORICAL_CANON"
+    ],
+    "title": "Восприемник и мать своего крестника",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), приложения, глава I",
+        "verdict": "FORBIDDEN",
+        "page": 121,
+        "example": "Изображение 2",
+        "conclusion": "§ 2: запрещено супружество восприемника с матерью крещённого им ребёнка.",
+        "image": "images/appendix-spiritual-forbidden-02.png"
+      }
+    ]
+  },
+  {
+    "id": "appendix-spiritual-forbidden-03",
+    "description": "Сын восприемника и крестница его отца",
+    "persons": [
+      {
+        "id": "s",
+        "name": "Восприемник"
+      },
+      {
+        "id": "son",
+        "name": "Сын восприемника"
+      },
+      {
+        "id": "g",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "s",
+        "to": "son"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "s",
+        "to": "g"
+      }
+    ],
+    "personA": "son",
+    "personB": "g",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [
+      "APPENDIX",
+      "HISTORICAL_CANON"
+    ],
+    "title": "Сын восприемника и крестница его отца",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), приложения, глава I",
+        "verdict": "FORBIDDEN",
+        "page": 122,
+        "example": "Изображение 4",
+        "conclusion": "§ 4: сын восприемника не вступает в брак с крестницей его отца.",
+        "image": "images/appendix-spiritual-forbidden-03.png"
+      }
+    ]
+  },
+  {
+    "id": "appendix-spiritual-forbidden-04",
+    "description": "Брат восприемника и крестница",
+    "persons": [
+      {
+        "id": "f",
+        "name": "Отец восприемника"
+      },
+      {
+        "id": "bro",
+        "name": "Брат восприемника"
+      },
+      {
+        "id": "s",
+        "name": "Восприемник"
+      },
+      {
+        "id": "g",
+        "name": "Крестница"
+      }
+    ],
+    "relations": [
+      {
+        "type": "BIOLOGICAL",
+        "from": "f",
+        "to": "bro"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "f",
+        "to": "s"
+      },
+      {
+        "type": "SPIRITUAL",
+        "from": "s",
+        "to": "g"
+      }
+    ],
+    "personA": "bro",
+    "personB": "g",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [
+      "APPENDIX",
+      "HISTORICAL_CANON"
+    ],
+    "title": "Брат восприемника и крестница",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), приложения, глава I",
+        "verdict": "FORBIDDEN",
+        "page": 123,
+        "example": "Изображение 6",
+        "conclusion": "§ 5: запрет на брак брата восприемника с духовной дочерью его брата.",
+        "image": "images/appendix-spiritual-forbidden-04.png"
+      }
+    ]
+  },
+  {
+    "id": "appendix-spiritual-forbidden-05",
+    "description": "Восприемник и дочь его крестницы",
+    "persons": [
+      {
+        "id": "s",
+        "name": "Восприемник"
+      },
+      {
+        "id": "g",
+        "name": "Крестница"
+      },
+      {
+        "id": "d",
+        "name": "Дочь крестницы"
+      }
+    ],
+    "relations": [
+      {
+        "type": "SPIRITUAL",
+        "from": "s",
+        "to": "g"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "from": "g",
+        "to": "d"
+      }
+    ],
+    "personA": "s",
+    "personB": "d",
+    "categories": [
+      "SPIRITUAL",
+      "BLOOD"
+    ],
+    "tags": [
+      "APPENDIX",
+      "HISTORICAL_CANON"
+    ],
+    "title": "Восприемник и дочь его крестницы",
+    "reviewStatus": "DRAFT",
+    "sources": [
+      {
+        "id": "source-1900",
+        "title": "О брачном праве (Москва, 1900), приложения, глава I",
+        "verdict": "FORBIDDEN",
+        "page": 124,
+        "example": "Изображение 9",
+        "conclusion": "§ 6: восприемник не может вступить в брак с дочерью своей крестницы.",
+        "image": "images/appendix-spiritual-forbidden-05.png"
+      }
+    ]
+  }
+]

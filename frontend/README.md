@@ -35,6 +35,8 @@ GET деталей и POST поиска. Единственный контрак
   запросы на текущий origin. Подставляется при dev/build, а не runtime-контейнером.
 - `API_PROXY_TARGET`: target dev proxy `/api`, по умолчанию `http://127.0.0.1:8080`.
 
+Каталог и оригинальные PNG находятся на backend, локальных runtime-копий нет.
+Режим ревью, статусы графов и источники описаны в [руководстве](../docs/reference-catalog.md).
 Для каталога и поиска нужен работающий backend. Штатная production-схема —
 Caddy с same-origin `/api`. Раздельные origin требуют отдельной настройки CORS,
 которой в текущем backend нет. `npm run preview` показывает dist, но не заменяет

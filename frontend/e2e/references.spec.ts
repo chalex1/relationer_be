@@ -1,14 +1,15 @@
+import { catalogFixture } from '../tests/catalogFixture'
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { readFileSync } from 'node:fs'
-const original = JSON.parse(readFileSync('../backend/src/main/resources/references.json', 'utf8'))
+const original = catalogFixture()
 const cases = Array.from({ length: 23 }, (_, i) => {
   const record = original[i % original.length]
-  return { metadata: { ...record, id: `case-${i + 1}`, tags: i % 2 ? ['проверка'] : [], hasImage: false },
+  return { metadata: { ...record, sources: undefined, source: { ...record.source, image: undefined }, id: `case-${i + 1}`, tags: i % 2 ? ['проверка'] : [], hasImage: false },
     graph: { persons: record.persons, relations: record.relations, personA: record.personA, personB: record.personB } }
 })
 async function mock(page: Page) {
-  await page.route('**/api/v1/references', route => route.fulfill({ json: cases.map(c => c.metadata) }))
+  await page.route(/\/api\/v1\/references(?:\?.*)?$/, route => route.fulfill({ json: cases.map(c => c.metadata) }))
   await page.route('**/api/v1/references/*', route => route.fulfill({ json: cases.find(c => c.metadata.id === route.request().url().split('/').pop()) }))
 }
 test('ten expanded graphs, A B, missing image, fullscreen and infinite scroll', async ({ page }) => {
@@ -30,13 +31,13 @@ test('global category verdict tag search filters reset the feed', async ({ page 
   await page.getByLabel('Духовное родство', { exact: true }).check(); await expect(page.getByRole('status').first()).toContainText('Найдено: 12')
   await page.getByLabel('Вердикт', { exact: true }).selectOption('ALLOWED'); await expect(page.locator('.reference-card')).toHaveCount(6)
   await page.getByLabel('проверка', { exact: true }).check(); await expect(page.locator('.reference-card')).toHaveCount(3)
-  await page.getByLabel('Поиск по ID, описанию и источнику').fill('case-17'); await expect(page.locator('.reference-card')).toHaveCount(0)
+  await page.getByLabel('Поиск по ID, названию, описанию и источникам').fill('case-17'); await expect(page.locator('.reference-card')).toHaveCount(0)
   await expect(page.getByText('По заданным фильтрам ничего не найдено.')).toBeVisible()
   expect(await page.evaluate(() => window.scrollY)).toBe(0)
 })
 test('mobile PDF image sits below graph and broken images have fallback', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.route('**/api/v1/references', route => route.fulfill({ json: [cases[0]!.metadata, cases[1]!.metadata] }))
+  await page.route(/\/api\/v1\/references(?:\?.*)?$/, route => route.fulfill({ json: [cases[0]!.metadata, cases[1]!.metadata] }))
   await page.route('**/api/v1/references/*', route => {
     const item = route.request().url().endsWith('case-1') ? cases[0]! : cases[1]!
     return route.fulfill({ json: { ...item, metadata: { ...item.metadata, hasImage: true, source: { ...item.metadata.source, image: item.metadata.id === 'case-1' ? '/test-image.svg' : '/missing.png' } } } })
@@ -52,7 +53,7 @@ test('mobile PDF image sits below graph and broken images have fallback', async 
 })
 test('error retries batch without duplicates', async ({ page }) => {
   let failed = false
-  await page.route('**/api/v1/references', route => route.fulfill({ json: [cases[0]!.metadata] }))
+  await page.route(/\/api\/v1\/references(?:\?.*)?$/, route => route.fulfill({ json: [cases[0]!.metadata] }))
   await page.route('**/api/v1/references/*', route => {
     if (!failed) { failed = true; return route.fulfill({ status: 500 }) }
     return route.fulfill({ json: cases[0] })
@@ -60,4 +61,24 @@ test('error retries batch without duplicates', async ({ page }) => {
   await page.goto('/references'); await expect(page.getByRole('alert')).toContainText('Не удалось загрузить кейсы')
   await page.getByRole('button', { name: 'Повторить', exact: true }).click(); await expect(page.locator('.reference-card')).toHaveCount(1)
   await expect(page.getByText('Конец списка.', { exact: true })).toBeVisible()
+})
+
+test('multiple source conclusions stay separate and the original image can be selected', async ({ page }) => {
+  const item = cases[0]!
+  const sources = [
+    { id: 'first', title: 'Источник первый', page: 1, verdict: 'FORBIDDEN', conclusion: 'Первый вывод', image: '/source-one.svg' },
+    { id: 'second', title: 'Источник второй', page: 2, verdict: 'ALLOWED', conclusion: 'Другой вывод', image: '/source-two.svg' },
+  ]
+  const detail = { ...item, metadata: { ...item.metadata, sources, hasImage: true } }
+  await page.route(/\/api\/v1\/references(?:\?.*)?$/, route => route.fulfill({ json: [detail.metadata] }))
+  await page.route('**/api/v1/references/*', route => route.fulfill({ json: detail }))
+  await page.route('**/source-*.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" />' }))
+  await page.goto('/references')
+  const card = page.locator('.reference-card')
+  await expect(card).toContainText('Первый вывод')
+  await expect(card).toContainText('Другой вывод')
+  await expect(card.getByAltText('Схема из PDF: case-1', { exact: true })).toHaveAttribute('src', '/source-one.svg')
+  await card.getByRole('combobox', { name: 'Источник схемы', exact: true }).selectOption('second')
+  await expect(card.getByAltText('Схема из PDF: case-1', { exact: true })).toHaveAttribute('src', '/source-two.svg')
+  await expect(card.locator('.catalog-verdict')).toHaveText('Запрещено')
 })

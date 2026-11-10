@@ -7,7 +7,7 @@ import com.relationer.backend.domain.ReferenceMatch
 import org.springframework.stereotype.Component
 
 @Component
-class SearchApiMapper {
+class SearchApiMapper(private val catalog: ReferenceCatalogService) {
     fun toGraph(request: SearchRequest): PersonGraph {
         val persons = request.persons.map {
             requireNotNull(it) { "persons must not contain null" }
@@ -36,18 +36,18 @@ class SearchApiMapper {
 
     fun toResponse(matches: List<ReferenceMatch>): SearchResponse = SearchResponse(matches.map { match ->
         val reference = match.referencePattern
+        val metadata = catalog.summary(catalog.find(reference.id))
         ReferenceMatchDto(
             referenceId = reference.id,
+            title = metadata.title,
+            catalog = metadata.catalog,
+            reviewStatus = metadata.reviewStatus,
+            sources = metadata.sources,
             verdict = VerdictDto.valueOf(match.verdict.name),
             description = reference.description,
             userPathCode = match.userPathCode,
             referencePathCode = match.referencePathCode,
-            source = SourceDto(
-                document = reference.source.document,
-                page = reference.source.page,
-                example = reference.source.example,
-                conclusion = reference.source.conclusion,
-            ),
+            source = metadata.source,
         )
     })
 }

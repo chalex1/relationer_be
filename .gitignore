@@ -6,6 +6,15 @@ build/
 out/
 **/out/
 
+# Local tool caches
+.cache/
+
+# Import bundles; extracted catalog resources are versioned separately
+/relationer-*.zip
+
+# Local exports of browser review results
+/review-results*.json
+
 # IntelliJ IDEA
 .idea/
 .idea/**/workspace.xml

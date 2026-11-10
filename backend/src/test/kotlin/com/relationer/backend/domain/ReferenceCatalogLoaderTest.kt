@@ -13,6 +13,17 @@ class ReferenceCatalogLoaderTest {
     private val loader = ReferenceCatalogLoader()
 
     @Test
+    fun `graph review and conflicting sources are independent of matching verdict`() {
+        val entry = loader.loadEntries("catalog/multiple-sources.json").single()
+        assertEquals(GraphReviewStatus.REVIEWED, entry.reviewStatus)
+        assertEquals(listOf(Verdict.FORBIDDEN, Verdict.ALLOWED), entry.sources.map { it.verdict })
+        assertEquals(Verdict.FORBIDDEN, entry.pattern.verdict)
+        assertEquals("Тестовый источник 1", entry.pattern.source.document)
+        assertEquals("U>", PathEncoder().encode(PathExtractor().extract(entry.pattern.graph).single()))
+        assertEquals(2, entry.sources.size)
+    }
+
+    @Test
     fun `production catalog contains eleven prepared reference cases`() {
         val references = loader.load()
         assertEquals((1..5).map { "blood-0$it" } + (1..3).map { "affinity-allowed-0$it" } + (1..3).map { "spiritual-forbidden-0$it" }, references.map { it.id })

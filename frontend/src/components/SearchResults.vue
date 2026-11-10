@@ -20,17 +20,24 @@ const contradictory = computed(() => groups.value[0].matches.length > 0 && group
     <p v-else-if="state.status === 'loading'" role="status">Ищем совпадения…</p>
     <p v-else-if="state.status === 'error'" class="search-error" role="alert">{{ state.message }}</p>
     <template v-else>
+      <p v-if="state.response.catalogWarning" role="alert">{{ state.response.catalogWarning }}</p>
       <p v-if="!state.response.matches.length" role="status">Совпадений в справочнике не найдено. Это не означает разрешения.</p>
       <template v-else>
         <p role="status">Найдено совпадений: {{ state.response.matches.length }}. Каждый случай показан отдельно; общий вердикт не вычисляется.</p>
+        <p class="muted">Показаны выводы исторических источников, включая черновые графы. Это не подтверждённое заключение приложения.</p>
         <p v-if="contradictory" class="conflict-note">Справочник вернул и разрешённые, и запрещённые случаи. Рассмотрите основания каждого совпадения.</p>
         <section v-for="group in groups.filter(g => g.matches.length)" :key="group.value" class="verdict-group" :class="group.className" :aria-label="group.label">
           <h3>{{ group.label }} <span>({{ group.matches.length }})</span></h3>
           <article v-for="(match, index) in group.matches" :key="index" class="match-card">
             <div class="match-heading"><strong>{{ match.referenceId }}</strong><span class="verdict-badge">{{ group.label }}</span></div>
+            <p v-if="match.title"><strong>{{ match.title }}</strong></p>
+            <p v-if="match.reviewStatus">Статус графа: {{ match.reviewStatus }}. Проверка графа не подтверждает вердикт источника.</p>
             <p v-if="match.description">{{ match.description }}</p>
             <dl class="path-codes"><div><dt>Ваш путь</dt><dd><code>{{ match.userPathCode }}</code></dd></div><div><dt>Путь в справочнике</dt><dd><code>{{ match.referencePathCode }}</code></dd></div></dl>
-            <div v-if="match.source.document || match.source.page != null || match.source.example || match.source.conclusion" class="match-source">
+            <div v-if="match.sources?.length" class="match-source">
+              <p v-for="source in match.sources" :key="source.id">{{ source.title }} · стр. {{ source.page }} · Вердикт источника: {{ verdicts.find(v => v.value === source.verdict)?.label }}<br />{{ source.conclusion }}</p>
+            </div>
+            <div v-else-if="match.source.document || match.source.page != null || match.source.example || match.source.conclusion" class="match-source">
               <p v-if="match.source.document || match.source.page != null"><strong>Источник:</strong> {{ match.source.document }}<span v-if="match.source.page != null"> · стр. {{ match.source.page }}</span></p>
               <p v-if="match.source.example">{{ match.source.example }}</p>
               <p v-if="match.source.conclusion">{{ match.source.conclusion }}</p>
