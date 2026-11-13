@@ -381,7 +381,6 @@
     "personA": "petr",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -482,7 +481,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -576,7 +574,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -666,7 +663,6 @@
     "personA": "godparent",
     "personB": "mother",
     "categories": [
-      "BLOOD",
       "SPIRITUAL"
     ],
     "tags": [],

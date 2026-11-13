@@ -381,7 +381,6 @@
     "personA": "petr",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -482,7 +481,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -576,7 +574,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -666,7 +663,6 @@
     "personA": "godparent",
     "personB": "mother",
     "categories": [
-      "BLOOD",
       "SPIRITUAL"
     ],
     "tags": [],
@@ -1450,7 +1446,6 @@
     "personA": "petr",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1509,7 +1504,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1577,7 +1571,6 @@
     "personA": "petr",
     "personB": "anastasia",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1654,7 +1647,6 @@
     "personA": "petr",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1713,7 +1705,6 @@
     "personA": "ioanna",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1781,7 +1772,6 @@
     "personA": "ioanna",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1858,7 +1848,6 @@
     "personA": "ioanna",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -1944,7 +1933,6 @@
     "personA": "ioanna",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2012,7 +2000,6 @@
     "personA": "ioanna",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2089,7 +2076,6 @@
     "personA": "ioanna",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2175,7 +2161,6 @@
     "personA": "ioanna",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2261,7 +2246,6 @@
     "personA": "ioanna",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2360,7 +2344,6 @@
     "personA": "ioanna",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2452,7 +2435,6 @@
     "personA": "ioanna",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2544,7 +2526,6 @@
     "personA": "son",
     "personB": "daughter",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2636,7 +2617,6 @@
     "personA": "son",
     "personB": "descendant",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2713,7 +2693,6 @@
     "personA": "georgiy",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2799,7 +2778,6 @@
     "personA": "georgiy",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2875,7 +2853,6 @@
     "personA": "georgiy",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -2960,7 +2937,6 @@
     "personA": "georgiy",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3052,7 +3028,6 @@
     "personA": "georgiy",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3135,7 +3110,6 @@
     "personA": "grandson",
     "personB": "greatgranddaughter",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3220,7 +3194,6 @@
     "personA": "foma",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3240,7 +3213,7 @@
   },
   {
     "id": "affinity-forbidden-20",
-    "description": "Правнук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "description": "Правнук мужа и двоюродная сестра его жены — запрещено, 7-я степень свойства",
     "persons": [
       {
         "id": "root"
@@ -3321,11 +3294,10 @@
     "personA": "foma",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
-    "title": "Правнук мужа и двоюродная сестра его жены — запрещено, 6-я степень свойства",
+    "title": "Правнук мужа и двоюродная сестра его жены — запрещено, 7-я степень свойства",
     "reviewStatus": "DRAFT",
     "sources": [
       {
@@ -3415,7 +3387,6 @@
     "personA": "gggrandson",
     "personB": "sister",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3473,7 +3444,6 @@
     "personA": "petr",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3540,7 +3510,6 @@
     "personA": "petr",
     "personB": "irina",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3616,7 +3585,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3690,7 +3658,6 @@
     "personA": "petr",
     "personB": "feodora",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3773,7 +3740,6 @@
     "personA": "petr",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -3793,7 +3759,7 @@
   },
   {
     "id": "affinity-forbidden-27",
-    "description": "Муж и дочь великой племянницы его жены (6-я степень свойства)",
+    "description": "Муж и дочь великой племянницы его жены (5-я степень свойства)",
     "persons": [
       {
         "id": "root"
@@ -3856,11 +3822,10 @@
     "personA": "petr",
     "personB": "daughter",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
-    "title": "Муж и дочь великой племянницы его жены (6-я степень свойства)",
+    "title": "Муж и дочь великой племянницы его жены (5-я степень свойства)",
     "reviewStatus": "DRAFT",
     "sources": [
       {
@@ -3931,7 +3896,6 @@
     "personA": "pavel",
     "personB": "elena",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4015,7 +3979,6 @@
     "personA": "pavel",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4115,7 +4078,6 @@
     "personA": "pavel",
     "personB": "anna",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4165,7 +4127,6 @@
     "personA": "son",
     "personB": "stepmother",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4224,7 +4185,6 @@
     "personA": "grandson",
     "personB": "grandfathers_wife",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4274,7 +4234,6 @@
     "personA": "husband",
     "personB": "mother",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4333,7 +4292,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4401,7 +4359,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4460,7 +4417,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4510,7 +4466,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4569,7 +4524,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4637,7 +4591,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4687,7 +4640,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4746,7 +4698,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4814,7 +4765,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -4873,10 +4823,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Отчим и жена пасынка",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -4950,10 +4901,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Муж и падчерица родного брата его жены",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5027,10 +4979,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Мужчина и жена родного дяди его жены",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5095,10 +5048,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Мужчина и жена родного брата его жены (невестка шурина)",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5154,7 +5108,6 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -5240,10 +5193,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Иван и Соломия, сестра мужа сестры его жены",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5326,10 +5280,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Брат и падчерица дочери его невестки",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5421,10 +5376,11 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "BLOOD",
       "AFFINITY"
     ],
-    "tags": [],
+    "tags": [
+      "трехродное свойство"
+    ],
     "title": "Отец Фомы и Марфа, сестра Анны (жены Петра)",
     "reviewStatus": "DRAFT",
     "sources": [
@@ -5656,8 +5612,7 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [],
     "title": "Кум и родная сестра другого кума",
@@ -5724,8 +5679,7 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [],
     "title": "Родной сын восприемника и родная сестра крестника",
@@ -5801,8 +5755,7 @@
     "personA": "a",
     "personB": "b",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [],
     "title": "Родной брат восприемника и родная сестра крестника",
@@ -5861,7 +5814,6 @@
     "personB": "b",
     "categories": [
       "SPIRITUAL",
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -5930,7 +5882,6 @@
     "personB": "b",
     "categories": [
       "SPIRITUAL",
-      "BLOOD",
       "AFFINITY"
     ],
     "tags": [],
@@ -6199,8 +6150,7 @@
     "personB": "b",
     "categories": [
       "ADOPTION",
-      "AFFINITY",
-      "BLOOD"
+      "AFFINITY"
     ],
     "tags": [],
     "title": "Усыновлённый и падчерица усыновителя",
@@ -6478,8 +6428,7 @@
     "personA": "s",
     "personB": "m",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [
       "APPENDIX",
@@ -6531,8 +6480,7 @@
     "personA": "son",
     "personB": "g",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [
       "APPENDIX",
@@ -6593,8 +6541,7 @@
     "personA": "bro",
     "personB": "g",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [
       "APPENDIX",
@@ -6646,8 +6593,7 @@
     "personA": "s",
     "personB": "d",
     "categories": [
-      "SPIRITUAL",
-      "BLOOD"
+      "SPIRITUAL"
     ],
     "tags": [
       "APPENDIX",

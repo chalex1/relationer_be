@@ -5,7 +5,7 @@ import { catalogGraph } from '../src/domain/catalog'
 import { layoutCatalog, compactNode } from '../src/domain/catalogLayout'
 import { RelationType as R } from '../src/api/generated/models/RelationType'
 import type { SearchRequest } from '../src/api/generated/models/SearchRequest'
-const catalog: (SearchRequest & { id: string })[] = catalogFixture()
+const catalog: (SearchRequest & { id: string })[] = catalogFixture(true)
 const parent = (from: string, to: string) => ({ from, to, type: R.BIOLOGICAL })
 const marriage = (from: string, to: string) => ({ from, to, type: R.MARRIAGE })
 function graph(ids: string[], relations: SearchRequest['relations']): SearchRequest {
@@ -94,4 +94,43 @@ it('routes a reversed marriage from the facing sides and keeps adoption ports di
   const edges = catalogGraph(input).edges
   expect(new Set(edges.map(e => e.sourceHandle)).size).toBe(3)
   expect(edges[2]!.markerEnd).toBeDefined()
+})
+
+it('keeps each spouse’s descendants below that spouse, including unequal branch lengths', () => {
+  for (const id of ['affinity-forbidden-05', 'affinity-forbidden-06', 'affinity-forbidden-07', 'affinity-forbidden-08',
+    'affinity-forbidden-14', 'affinity-forbidden-15', 'affinity-forbidden-33', 'affinity-allowed-06', 'affinity-allowed-07']) {
+    const input = catalog.find(r => r.id === id)!, p = valid(input)
+    for (const r of input.relations.filter(r => r.type === R.BIOLOGICAL)) {
+      expect(p[r.to]!.y - p[r.from]!.y, id).toBe(compactNode.height + 58)
+      expect(p[r.to]!.x, id).toBeCloseTo(p[r.from]!.x, 5)
+    }
+  }
+})
+
+it('places the godparent beside the biological parent without changing the original spiritual graph', () => {
+  const input = catalog.find(r => r.id === 'spiritual-allowed-01')!, p = valid(input)
+  expect(p.a!.y).toBe(p.parent!.y)
+  expect(p.a!.y).toBe(p.b!.y)
+  expect(p.child!.y - p.parent!.y).toBe(compactNode.height + 58)
+  expect(p.a!.y).toBeLessThan(p.child!.y)
+})
+
+it('aligns both families around a marriage even when only one family has a recorded grandparent', () => {
+  const p = valid(catalog.find(r => r.id === 'affinity-two-marriages-forbidden-03')!)
+  expect(p.brotherparent!.y).toBe(p.s1!.y)
+  expect(p.pavel!.y).toBe(p.petr!.y)
+  expect(p.petr!.y).toBe(p.maria!.y)
+  expect(p.petr!.y - p.brotherparent!.y).toBe(compactNode.height + 58)
+})
+
+it('keeps parents above children when ancestral paths imply conflicting generation distances', () => {
+  const input = graph(['a', 'b', 'c'], [parent('a', 'b'), parent('b', 'c'), parent('a', 'c')])
+  const p = valid(input)
+  for (const r of input.relations) expect(p[r.from]!.y).toBeLessThan(p[r.to]!.y)
+})
+
+it('does not align a godparent with a biological parent who is their descendant', () => {
+  const p = valid(graph(['a', 'b', 'c'], [parent('a', 'b'), parent('b', 'c'), { from: 'a', to: 'c', type: R.SPIRITUAL }]))
+  expect(p.a!.y).toBeLessThan(p.b!.y)
+  expect(p.b!.y).toBeLessThan(p.c!.y)
 })
