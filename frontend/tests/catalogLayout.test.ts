@@ -1,5 +1,4 @@
 import { catalogFixture } from './catalogFixture'
-import { readFileSync } from 'node:fs'
 import { expect, it } from 'vitest'
 import { catalogGraph } from '../src/domain/catalog'
 import { layoutCatalog, compactNode } from '../src/domain/catalogLayout'
@@ -61,11 +60,18 @@ it('keeps multiple parents above their child even with unequal ancestral paths',
   const p = valid(graph(['a','b','c','d'], [parent('a','b'),parent('b','d'),parent('c','d')]))
   expect(p.c!.y).toBe(p.b!.y); expect(p.d!.y).toBeGreaterThan(p.b!.y)
 })
-it('spiritual direction does not create a generation', () => {
+it('places godchildren below godparents with downward arrows like parent-child links', () => {
   const input = graph(['a','b','c'], [{ from:'a',to:'b',type:R.SPIRITUAL },{ from:'b',to:'c',type:R.SPIRITUAL }])
   const p = valid(input)
-  expect(new Set(Object.values(p).map(v => v.y)).size).toBe(1)
-  expect(layoutCatalog(input).levels).toBe(layoutCatalog({ ...input, relations: [] }).levels)
+  expect(p.b!.y - p.a!.y).toBe(compactNode.height + 58)
+  expect(p.c!.y - p.b!.y).toBe(compactNode.height + 58)
+  expect(p.a!.x).toBe(p.b!.x); expect(p.b!.x).toBe(p.c!.x)
+  expect(layoutCatalog(input).levels).toBe(3)
+  for (const edge of catalogGraph(input).edges) {
+    expect(edge.sourceHandle).toBe('spiritual-source')
+    expect(edge.targetHandle).toBe('spiritual-target')
+    expect(edge.markerEnd).toBeDefined()
+  }
   const mixed = valid(catalog.find(r => r.id === 'spiritual-forbidden-02')!)
   expect(mixed.mother!.y).toBeLessThan(mixed.godchild!.y)
 })
@@ -82,7 +88,7 @@ it('cycles and contradictory marriages retain every node and relation', () => {
 it('all real references retain original data and parent direction', () => {
   for (const reference of catalog) {
     const p = valid(reference)
-    for (const r of reference.relations.filter(r => r.type === R.BIOLOGICAL || r.type === R.ADOPTION))
+    for (const r of reference.relations.filter(r => r.type !== R.MARRIAGE))
       expect(p[r.from]!.y).toBeLessThan(p[r.to]!.y)
   }
 })
@@ -121,6 +127,17 @@ it('aligns both families around a marriage even when only one family has a recor
   expect(p.pavel!.y).toBe(p.petr!.y)
   expect(p.petr!.y).toBe(p.maria!.y)
   expect(p.petr!.y - p.brotherparent!.y).toBe(compactNode.height + 58)
+})
+
+it('keeps spouses in their families’ order so unrelated parent branches do not cross', () => {
+  for (const id of ['affinity-two-marriages-forbidden-01', 'affinity-two-marriages-forbidden-02', 'affinity-two-marriages-forbidden-03']) {
+    const input = catalog.find(r => r.id === id)!, p = valid(input)
+    const links = input.relations.filter(r => r.type === R.BIOLOGICAL)
+    for (const a of links) for (const b of links) {
+      if (a.from === b.from || a.to === b.to || p[a.from]!.y !== p[b.from]!.y || p[a.to]!.y !== p[b.to]!.y) continue
+      expect((p[a.from]!.x - p[b.from]!.x) * (p[a.to]!.x - p[b.to]!.x), id).toBeGreaterThanOrEqual(0)
+    }
+  }
 })
 
 it('keeps parents above children when ancestral paths imply conflicting generation distances', () => {

@@ -2,7 +2,7 @@
 import { ref, computed, watch, onBeforeUnmount } from 'vue'
 import type { ReferenceDetailDto } from '../api/generated/models/ReferenceDetailDto'
 import ReferenceGraph from './ReferenceGraph.vue'
-import { categoryLabels, verdictLabels } from '../domain/catalogLabels'
+import { categoryLabels, verdictLabels, tagLabels } from '../domain/catalogLabels'
 import { reviewLabels } from '../domain/review'
 import type { ReviewStatus } from '../domain/review'
 const props = defineProps<{ reference: ReferenceDetailDto; reviewStatus?: ReviewStatus }>()
@@ -23,7 +23,7 @@ onBeforeUnmount(() => imageDialog.value?.close())
   <article class="reference-card" :aria-label="reference.metadata.id">
     <header><div><h2>{{ reference.metadata.title || reference.metadata.id }}</h2><span>{{ reference.metadata.id }}</span></div><span class="verdict-badge catalog-verdict" :class="reference.metadata.verdict.toLowerCase()">{{ verdictLabels[reference.metadata.verdict] }}</span></header>
     <p class="muted">Вердикт исторического источника. {{ reviewLabels[reviewStatus || reference.metadata.reviewStatus || 'DRAFT'] }}; это не подтверждает вывод источника.</p>
-    <div class="reference-badges"><span v-for="category in reference.metadata.categories" :key="category">{{ categoryLabels[category] }}</span><span v-if="!reference.metadata.categories.size">Требует ручной классификации</span><span v-for="tag in reference.metadata.tags" :key="tag">#{{ tag }}</span></div>
+    <div class="reference-badges"><span v-for="category in reference.metadata.categories" :key="category">{{ categoryLabels[category] }}</span><span v-if="!reference.metadata.categories.size">Требует ручной классификации</span><span v-for="tag in reference.metadata.tags" :key="tag">{{ tagLabels[tag] || `#${tag}` }}</span></div>
     <p>{{ reference.metadata.description || 'Описание не указано.' }}</p>
     <slot />
     <div class="reference-visuals" :class="{ 'has-image': !!source.image }">

@@ -29,8 +29,9 @@ class ReferenceCatalogHttpTest {
     }
 
     @Test
-    fun `every detail preserves legacy persons links participants verdict and source`() {
+    fun `every detail preserves legacy persons links verdict and source with reviewed participant corrections`() {
         val legacy = ReferenceCatalogLoader().load("catalog/legacy-production.json")
+        val reviewedA = mapOf("affinity-allowed-01" to "georgiy", "affinity-allowed-02" to "georgiy", "affinity-allowed-03" to "foma")
         legacy.forEach { original ->
             val response = http.getForEntity("/api/v1/references/${original.id}", String::class.java)
             assertEquals(200, response.statusCode.value())
@@ -38,7 +39,7 @@ class ReferenceCatalogHttpTest {
             val graph = detail["graph"]
             assertEquals(original.graph.persons.map { it.id }, graph["persons"].map { it["id"].asText() })
             assertEquals(original.graph.persons.map { it.name }, graph["persons"].map { if (it["name"].isNull) null else it["name"].asText() })
-            assertEquals(original.graph.personA.id, graph["personA"].asText())
+            assertEquals(reviewedA[original.id] ?: original.graph.personA.id, graph["personA"].asText())
             assertEquals(original.graph.personB.id, graph["personB"].asText())
             val expected = original.graph.persons.flatMap { p ->
                 listOf("BIOLOGICAL" to p.children, "MARRIAGE" to p.spouses, "SPIRITUAL" to p.godchildren, "ADOPTION" to p.adoptedChildren)

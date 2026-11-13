@@ -32,9 +32,9 @@ class ReferenceSearchHttpTest {
         "blood-03, <BB>B>B>, blood-03;blood-05",
         "blood-04, <B<BB>B>, blood-04",
         "blood-05, <BB>B>B>B>, blood-05",
-        "affinity-allowed-01, M<BB>B>B>, affinity-allowed-01;affinity-allowed-03",
-        "affinity-allowed-02, M<B<BB>B>B>, affinity-allowed-02",
-        "affinity-allowed-03, M<BB>B>, affinity-allowed-03",
+        "affinity-allowed-01, <B<BM<BB>B>B>, affinity-allowed-01",
+        "affinity-allowed-02, <B<BM<B<BB>B>B>, affinity-allowed-02",
+        "affinity-allowed-03, <B<B<BM<BB>B>, affinity-allowed-03",
         "spiritual-forbidden-01, G>, spiritual-forbidden-01;spiritual-forbidden-02;spiritual-forbidden-03",
         "spiritual-forbidden-02, G><B, spiritual-forbidden-02",
         "spiritual-forbidden-03, <GG>, spiritual-forbidden-03",
@@ -120,8 +120,8 @@ class ReferenceSearchHttpTest {
         val match = success(request)["matches"].single { it["referenceId"].asText() == "affinity-allowed-03" }
         assertEquals("affinity-allowed-03", match["referenceId"].asText())
         assertEquals("ALLOWED", match["verdict"].asText())
-        assertEquals("M<BB>B>G>", match["userPathCode"].asText())
-        assertEquals("M<BB>B>", match["referencePathCode"].asText())
+        assertEquals("<B<B<BM<BB>B>G>", match["userPathCode"].asText())
+        assertEquals("<B<B<BM<BB>B>", match["referencePathCode"].asText())
     }
 
     @Test
@@ -138,10 +138,10 @@ class ReferenceSearchHttpTest {
                 {"type":"BIOLOGICAL","from":"c","to":"b"}],
             "personA":"a","personB":"b"} """)
         val matches = productionMatches(success(request))
-        assertEquals(7, matches.size)
+        assertEquals(5, matches.size)
         assertEquals(5, matches.count { it["verdict"].asText() == "FORBIDDEN" })
-        assertEquals(2, matches.count { it["verdict"].asText() == "ALLOWED" })
-        assertEquals(setOf("<BB>", "M<BB>B>B>"), matches.map { it["userPathCode"].asText() }.toSet())
+        assertEquals(0, matches.count { it["verdict"].asText() == "ALLOWED" })
+        assertEquals(setOf("<BB>"), matches.map { it["userPathCode"].asText() }.toSet())
     }
 
     @Test

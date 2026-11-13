@@ -12,7 +12,7 @@ class ReferenceMatchMatrixTest {
         "blood-03, 00101000000",
         "blood-04, 00010000000",
         "blood-05, 00001000000",
-        "affinity-allowed-01, 00000101000",
+        "affinity-allowed-01, 00000100000",
         "affinity-allowed-02, 00000010000",
         "affinity-allowed-03, 00000001000",
         "spiritual-forbidden-01, 00000000111",

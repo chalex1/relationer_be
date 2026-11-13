@@ -8,7 +8,7 @@ import { VerdictDto } from '../api/generated/models/VerdictDto'
 import ReferenceCard from '../components/ReferenceCard.vue'
 import { filterCatalog } from '../domain/catalog'
 import type { CatalogFilters } from '../domain/catalog'
-import { categoryLabels, verdictLabels } from '../domain/catalogLabels'
+import { categoryLabels, verdictLabels, tagLabels } from '../domain/catalogLabels'
 import DraftReview from '../components/DraftReview.vue'
 import { useDraftReviews } from '../composables/useDraftReviews'
 import { caseFingerprint, reviewFor, reviewLabels } from '../domain/review'
@@ -137,7 +137,7 @@ onBeforeUnmount(() => { alive = false; controller.abort(); observer?.disconnect(
         <label>Поиск по ID, названию, описанию и источникам<input v-model="filters.query" :disabled="initializing" type="search" /></label>
         <fieldset><legend>Категории (любая из выбранных)</legend><label v-for="category in RelationCategory" :key="category"><input v-model="filters.categories" :disabled="initializing" type="checkbox" :value="category" />{{ categoryLabels[category] }}</label></fieldset>
         <label>Вердикт<select aria-label="Вердикт" v-model="filters.verdict" :disabled="initializing"><option value="">Все вердикты</option><option v-for="verdict in VerdictDto" :key="verdict" :value="verdict">{{ verdictLabels[verdict] }}</option></select></label>
-        <fieldset v-if="tags.length"><legend>Теги (все выбранные)</legend><label v-for="tag in tags" :key="tag"><input v-model="filters.tags" type="checkbox" :value="tag" />{{ tag }}</label></fieldset>
+        <fieldset v-if="tags.length"><legend>Теги (все выбранные)</legend><label v-for="tag in tags" :key="tag"><input v-model="filters.tags" type="checkbox" :value="tag" />{{ tagLabels[tag] || tag }}</label></fieldset>
       </form>
       <p v-if="!initializing" role="status">Найдено: {{ matches.length }} · Показано: {{ cards.length }}</p>
       <section class="reference-feed" aria-label="Эталонные кейсы">

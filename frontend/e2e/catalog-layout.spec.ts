@@ -64,22 +64,38 @@ test('catalog verdict tags reuse red green and yellow palette', async ({ page })
   await expect(badges.nth(2)).toHaveCSS('background-color','rgb(255, 244, 207)')
 })
 
-for (const id of ['affinity-forbidden-05', 'affinity-forbidden-06', 'affinity-forbidden-07', 'affinity-forbidden-08',
+test('three-family affinity has a readable badge and filter label', async ({ page }) => {
+  await mock(page, 'three-family-allowed-01'); await page.goto('/references')
+  await expect(page.locator('.reference-badges').getByText('Трехродное свойство', { exact: true })).toBeVisible()
+  await expect(page.getByText('#трехродное свойство', { exact: true })).toHaveCount(0)
+  await page.getByLabel('Трехродное свойство', { exact: true }).check()
+  await expect(page.locator('.reference-card')).toHaveCount(1)
+})
+
+for (const id of ['affinity-allowed-01', 'affinity-allowed-02', 'affinity-allowed-03',
+  'affinity-forbidden-05', 'affinity-forbidden-06', 'affinity-forbidden-07', 'affinity-forbidden-08',
   'affinity-forbidden-14', 'affinity-forbidden-15', 'affinity-forbidden-33', 'affinity-allowed-06', 'affinity-allowed-07',
   'affinity-two-marriages-forbidden-01', 'affinity-two-marriages-forbidden-02', 'affinity-two-marriages-forbidden-03',
-  'spiritual-allowed-01', 'adoption-forbidden-01']) {
+  ...catalogFixture(true).filter((entry: { id: string }) => entry.id.startsWith('spiritual-') || entry.id.startsWith('appendix-spiritual-')).map((entry: { id: string }) => entry.id),
+  'adoption-forbidden-01']) {
   test(`${id}: reviewed layout fits desktop and mobile and keeps links clear of people`, async ({ page }) => {
     await mock(page, id); await page.goto('/references')
     const card = page.getByRole('article', { name: id, exact: true })
     const record = catalogFixture(true).find((r: { id: string }) => r.id === id)
     await expect(card.locator('.vue-flow__node')).toHaveCount(record.persons.length)
+    await expect(card.locator(`.vue-flow__node[data-id="${record.personA}"] .role-a`)).toHaveCount(1)
+    await expect(card.locator(`.vue-flow__node[data-id="${record.personB}"] .role-b`)).toHaveCount(1)
     await expect(card.locator('.vue-flow__edge-path')).toHaveCount(record.relations.length)
     await expect.poll(() => contained(page)).toBe(true)
-    const collisions = () => card.evaluate((element, relations) => {
+    const collisions = () => card.evaluate((element, relations: { type: string; from: string; to: string }[]) => {
       const nodes = [...element.querySelectorAll('.vue-flow__node')]
       const result: string[] = []
       for (const [index, relation] of relations.entries()) {
         const path = element.querySelector<SVGPathElement>(`.vue-flow__edge[data-id="relation-${index}"] .vue-flow__edge-path`)!
+        if (relation.type === 'SPIRITUAL') {
+          const start = path.getPointAtLength(0), end = path.getPointAtLength(path.getTotalLength())
+          if (end.y <= start.y || !path.getAttribute('marker-end')) result.push(`${relation.from} → ${relation.to} must have a downward baptism arrow`)
+        }
         const transform = path.getScreenCTM()!
         for (const node of nodes) {
           const id = node.getAttribute('data-id')!
@@ -90,6 +106,19 @@ for (const id of ['affinity-forbidden-05', 'affinity-forbidden-06', 'affinity-fo
             if (point.x > rect.left + 1 && point.x < rect.right - 1 && point.y > rect.top + 1 && point.y < rect.bottom - 1) {
               result.push(`${relation.from} → ${relation.to} crosses ${id}`); break
             }
+          }
+        }
+      }
+      // Unrelated parent branches must not cross or share a horizontal run.
+      // Sampling in SVG coordinates keeps this check independent of zoom.
+      const biological = relations.map((relation, index) => ({ relation, index })).filter(({ relation }) => relation.type === 'BIOLOGICAL')
+      for (const [i, a] of biological.entries()) for (const b of biological.slice(i + 1)) {
+        if (a.relation.from === b.relation.from || a.relation.to === b.relation.to || a.relation.from === b.relation.to || a.relation.to === b.relation.from) continue
+        const pathA = element.querySelector<SVGPathElement>(`.vue-flow__edge[data-id="relation-${a.index}"] .vue-flow__edge-path`)!
+        const pathB = element.querySelector<SVGPathElement>(`.vue-flow__edge[data-id="relation-${b.index}"] .vue-flow__edge-path`)!
+        for (let distance = 0; distance <= pathA.getTotalLength(); distance += 1) {
+          if (pathB.isPointInStroke(pathA.getPointAtLength(distance))) {
+            result.push(`${a.relation.from} → ${a.relation.to} intersects ${b.relation.from} → ${b.relation.to}`); break
           }
         }
       }

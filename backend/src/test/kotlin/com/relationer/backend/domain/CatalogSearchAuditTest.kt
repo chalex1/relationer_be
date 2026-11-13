@@ -107,13 +107,21 @@ class CatalogSearchAuditTest {
 
     @Test
     fun `known exact path conflicts are preserved rather than resolved by first match`() {
-        for ((left, right) in listOf("affinity-allowed-01" to "affinity-forbidden-24",
-            "affinity-allowed-02" to "affinity-forbidden-26", "affinity-allowed-03" to "affinity-forbidden-23",
-            "affinity-allowed-07" to "affinity-forbidden-15")) {
+        for ((left, right) in listOf("affinity-allowed-07" to "affinity-forbidden-15")) {
             assertEquals(code(ref(left).graph).map(::normalized), code(ref(right).graph).map(::normalized))
             val result = search.search(ref(left).graph, listOf(ref(left), ref(right)))
             assertEquals(setOf(Verdict.ALLOWED, Verdict.FORBIDDEN), result.map { it.verdict }.toSet(), left)
             assertEquals(result.map { it.referencePattern.id }.toSet(), search.search(ref(left).graph, listOf(ref(right), ref(left))).map { it.referencePattern.id }.toSet())
+        }
+    }
+
+    @Test
+    fun `reviewed allowed participants no longer share the former forbidden path`() {
+        for ((left, right) in listOf("affinity-allowed-01" to "affinity-forbidden-24",
+            "affinity-allowed-02" to "affinity-forbidden-26", "affinity-allowed-03" to "affinity-forbidden-23")) {
+            assertNotEquals(code(ref(left).graph).map(::normalized), code(ref(right).graph).map(::normalized))
+            val result = search.search(ref(right).graph, listOf(ref(left), ref(right)))
+            assertEquals(listOf(right), result.map { it.referencePattern.id }, left)
         }
     }
 
@@ -131,14 +139,17 @@ class CatalogSearchAuditTest {
     @Test
     fun `short forbidden fragment and longer allowed context are current semantics not exact graph equality`() {
         assertTrue(matcher.matches("B>", "<BB>", Verdict.FORBIDDEN), "blood-01 appears for a parent-child input")
-        assertTrue(matcher.matches("M<BB>B>", "M<BB>B>", Verdict.ALLOWED), "affinity-allowed-03 exact")
+        assertTrue(matcher.matches("M<BB>B>", "M<BB>B>", Verdict.ALLOWED), "synthetic exact allowed path")
         assertFalse(matcher.matches("M<BB>B>", "M<BB>", Verdict.FORBIDDEN), "affinity-forbidden-22 is not inherited by a longer user path")
         assertTrue(matcher.matches("M<BB>B>", "M<BB>", Verdict.ALLOWED), "first-source verdict changes inclusion direction")
         val allowed = code(ref("blood-13").graph).single()
         assertTrue(matcher.matches(allowed + "M", allowed, Verdict.ALLOWED), "appended spouse changes endpoints but retains allowed match")
         assertFalse(matcher.matches(allowed + "M", allowed, Verdict.FORBIDDEN))
         assertTrue(matcher.matches("G>", code(ref("spiritual-undetermined-01").graph).single(), Verdict.UNDETERMINED))
-        assertEquals(matches(ref("affinity-allowed-01").graph), matches(ref("affinity-forbidden-24").graph),
+        val originalSelection = ref("affinity-allowed-01").graph.let { graph ->
+            graph.copy(personA = graph.persons.single { it.id == "petr" })
+        }
+        assertEquals(matches(originalSelection), matches(ref("affinity-forbidden-24").graph),
             "Different off-path branches are invisible to current path matching")
     }
 

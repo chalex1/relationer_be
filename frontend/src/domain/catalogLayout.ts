@@ -7,12 +7,12 @@ import type { Point } from './editor'
 export const compactNode = { width: 132, height: 52 }
 const siblingGap = 38, partnerGap = siblingGap, generationGap = 58, padding = 24
 
-/** Only biological/adoptive edges constrain generations. Marriage and shared
- * parenthood align adults when doing so does not collapse an ancestor into a
- * descendant. Dagre orders branches and centres parents over descendants.
+/** Biological, adoptive and spiritual edges all point to a lower visual row.
+ * Marriage and shared parenthood align adults when doing so does not collapse
+ * a directed path. Dagre orders branches and centres adults over descendants.
  * All changes are confined to a fresh layout graph, including cycle reversal. */
 export function layoutCatalog(graph: SearchRequest) {
-  const parentLinks = graph.relations.filter(r => r.type === RelationType.BIOLOGICAL || r.type === RelationType.ADOPTION)
+  const parentLinks = graph.relations.filter(r => r.type === RelationType.BIOLOGICAL || r.type === RelationType.ADOPTION || r.type === RelationType.SPIRITUAL)
   const groupOf = new Map(graph.persons.map(p => [p.id, p.id]))
   function group(id: string): string {
     let current = id
@@ -34,16 +34,11 @@ export function layoutCatalog(graph: SearchRequest) {
     const from = group(a), to = group(b)
     if (from !== to && !reaches(from, to) && !reaches(to, from)) groupOf.set(to, from)
   }
-  // Co-parents share a generation, even if no marriage is recorded.
+  // Parents and godparents of the same child share a visual row.
   const coParents = new Map<string, string[]>()
   for (const r of parentLinks) coParents.set(r.to, [...(coParents.get(r.to) ?? []), r.from])
   for (const adults of coParents.values()) for (const adult of adults.slice(1)) align(adults[0]!, adult)
   for (const r of graph.relations) if (r.type === RelationType.MARRIAGE) align(r.from, r.to)
-  // A godparent can stand beside the child's parent. Spiritual links alone do
-  // not define generations, and align still rejects ancestor/descendant pairs.
-  for (const r of graph.relations) if (r.type === RelationType.SPIRITUAL) {
-    for (const adult of coParents.get(r.to) ?? []) align(adult, r.from)
-  }
 
   const groups = new Map<string, string[]>()
   for (const p of graph.persons) groups.set(group(p.id), [...(groups.get(group(p.id)) ?? []), p.id])
@@ -103,6 +98,16 @@ export function layoutCatalog(graph: SearchRequest) {
   }
 
   const memberOffset = new Map<string, number>()
+  // Match a couple's left-to-right order to their families above. Dagre orders
+  // the entire couple as one block and cannot order its individual spouses;
+  // using JSON order here can make the two families' parent links cross.
+  for (const members of groups.values()) if (members.length === 2) {
+    const familyX = members.map(id => {
+      const parents = parentLinks.filter(r => r.to === id).map(r => dag.node(group(r.from)).x!)
+      return parents.length ? parents.reduce((sum, x) => sum + x, 0) / parents.length : undefined
+    })
+    if (familyX[0] !== undefined && familyX[1] !== undefined && familyX[0] > familyX[1]) members.reverse()
+  }
   for (const members of groups.values()) members.forEach((id, index) => memberOffset.set(id, index * (compactNode.width + partnerGap)))
   const left = (id: string) => dag.node(id).x! - dag.node(id).width / 2
   const personX = (id: string) => left(group(id)) + memberOffset.get(id)!
