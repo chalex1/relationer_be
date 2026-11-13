@@ -24,9 +24,10 @@ class ReferenceCatalogLoaderTest {
     }
 
     @Test
-    fun `production catalog contains eleven prepared reference cases`() {
+    fun `production catalog contains only reviewed valid cases`() {
         val references = loader.load()
-        assertEquals((1..5).map { "blood-0$it" } + (1..3).map { "affinity-allowed-0$it" } + (1..3).map { "spiritual-forbidden-0$it" }, references.map { it.id })
+        assertTrue(references.size > 11)
+        assertTrue(loader.loadEntries().all { it.reviewStatus == GraphReviewStatus.REVIEWED })
         assertTrue(references.all { it.graph.validate().isEmpty() })
     }
 

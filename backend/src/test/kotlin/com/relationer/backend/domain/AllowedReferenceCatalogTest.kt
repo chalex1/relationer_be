@@ -15,7 +15,7 @@ class AllowedReferenceCatalogTest {
     fun `loads validates and encodes allowed cases`(
         id: String, code: String, ids: String, page: Int, example: String, personCount: Int,
     ) {
-        val reference = ReferenceCatalogLoader().load().single { it.id == id }
+        val reference = originalCatalog().single { it.id == id }
         assertEquals(Verdict.ALLOWED, reference.verdict)
         assertTrue(reference.graph.validate().isEmpty())
         assertEquals(personCount, reference.graph.persons.size)
@@ -52,7 +52,7 @@ class AllowedReferenceCatalogTest {
             }
         }
         val graph = PersonGraph(persons, persons.first(), persons.last())
-        val catalog = ReferenceCatalogLoader().load()
+        val catalog = originalCatalog()
         for (user in listOf(graph, graph.copy(personA = graph.personB, personB = graph.personA))) {
             val matches = ReferenceSearch().search(user, catalog)
             assertEquals(listOf(id), matches.map { it.referencePattern.id })

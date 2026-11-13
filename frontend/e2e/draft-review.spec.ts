@@ -6,7 +6,7 @@ import { mockCatalogImages } from './catalogImages'
 
 const originals = catalogFixture()
 const makeDrafts = () => originals.slice(0, 2).map((r: any, i: number) => ({
-  metadata: { ...r, id: `draft-${i + 1}`, hasImage: true },
+  metadata: { ...r, id: `draft-${i + 1}`, reviewStatus: 'DRAFT', hasImage: true },
   graph: { persons: r.persons, relations: r.relations, personA: r.personA, personB: r.personB },
 }))
 async function mock(page: Page, drafts: () => ReturnType<typeof makeDrafts>) {

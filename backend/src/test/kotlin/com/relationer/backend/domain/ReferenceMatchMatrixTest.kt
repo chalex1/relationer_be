@@ -20,7 +20,7 @@ class ReferenceMatchMatrixTest {
         "spiritual-forbidden-03, 00000000001",
     )
     fun `search matrix covers every reference in both directions`(userId: String, expected: String) {
-        val catalog = ReferenceCatalogLoader().load()
+        val catalog = originalCatalog()
         assertEquals(listOf("blood-01", "blood-02", "blood-03", "blood-04", "blood-05",
             "affinity-allowed-01", "affinity-allowed-02", "affinity-allowed-03",
             "spiritual-forbidden-01", "spiritual-forbidden-02", "spiritual-forbidden-03"), catalog.map { it.id })

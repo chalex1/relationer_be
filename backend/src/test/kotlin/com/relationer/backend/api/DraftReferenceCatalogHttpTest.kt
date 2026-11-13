@@ -21,26 +21,31 @@ class DraftReferenceCatalogHttpTest {
     fun `invalid drafts preserve production browsing and search with explicit warning`() {
         val broken = ReferenceCatalog("catalog/malformed.json")
         assertNotNull(broken.draftFailure)
-        assertEquals(11, broken.entries.size)
+        assertEquals(catalog.production.size, broken.entries.size)
         val service = ReferenceCatalogService(broken)
-        assertEquals(11, service.listReferences("production", null, null, null, null).body!!.size)
+        assertEquals(catalog.production.size, service.listReferences("production", null, null, null, null).body!!.size)
         val error = assertFailsWith<org.springframework.web.server.ResponseStatusException> {
             service.listReferences("draft", null, null, null, null)
         }
         assertEquals(503, error.statusCode.value())
         val request = service.getReference("blood-01").body!!.graph
         val result = ReferenceSearchService(SearchApiMapper(service), broken).search(request)
-        assertEquals(5, result.matches.size)
+        assertTrue(result.matches.isNotEmpty())
+        assertTrue(result.matches.all { match -> catalog.production.any { it.pattern.id == match.referenceId } })
         assertTrue(result.catalogWarning.orEmpty().isNotBlank())
     }
 
     @Test
-    fun `catalog has 94 drafts eleven production and 94 unique searchable cases`() {
-        assertEquals(94, catalog.drafts.size)
-        assertEquals(11, catalog.production.size)
+    fun `reviewed cases are promoted and only pending cases remain in drafts`() {
+        assertEquals(25, catalog.drafts.size)
+        assertEquals(69, catalog.production.size)
         assertEquals(94, catalog.entries.size)
+        val promotedIds = json.readTree(ClassPathResource("catalog/promoted-ids.json").inputStream).map { it.asText() }.toSet()
+        assertEquals(promotedIds, catalog.production.map { it.pattern.id }.toSet())
+        assertTrue(catalog.production.all { it.reviewStatus == GraphReviewStatus.REVIEWED })
+        assertTrue(catalog.drafts.none { it.pattern.id in promotedIds })
         assertTrue(catalog.drafts.all { it.reviewStatus == GraphReviewStatus.DRAFT && it.sources.size == 1 })
-        for ((query, size) in listOf("" to 94, "?catalog=draft" to 94, "?catalog=production" to 11)) {
+        for ((query, size) in listOf("" to 94, "?catalog=draft" to 25, "?catalog=production" to 69)) {
             val response = http.getForEntity("/api/v1/references$query", String::class.java)
             assertEquals(200, response.statusCode.value())
             assertEquals(size, json.readTree(response.body).size())
@@ -48,12 +53,12 @@ class DraftReferenceCatalogHttpTest {
     }
 
     @Test
-    fun `every draft graph source and PNG is readable by id`() {
-        catalog.drafts.forEach { entry ->
+    fun `every graph source review status and PNG is readable by id`() {
+        catalog.all.forEach { entry ->
             val id = entry.pattern.id
             val detail = json.readTree(http.getForObject("/api/v1/references/$id", String::class.java))
             assertEquals(id, detail["metadata"]["id"].asText())
-            assertEquals("DRAFT", detail["metadata"]["reviewStatus"].asText())
+            assertEquals(entry.reviewStatus.name, detail["metadata"]["reviewStatus"].asText())
             assertEquals(entry.sources.first().verdict.name, detail["metadata"]["sources"][0]["verdict"].asText())
             assertEquals(entry.pattern.graph.personA.id, detail["graph"]["personA"].asText())
             assertEquals(entry.pattern.graph.personB.id, detail["graph"]["personB"].asText())
@@ -76,7 +81,9 @@ class DraftReferenceCatalogHttpTest {
         val matches = json.readTree(response.body)["matches"]
         assertTrue(matches.any { it["referenceId"].asText() == draft.pattern.id })
         assertEquals(matches.size(), matches.map { listOf(it["referenceId"], it["userPathCode"], it["referencePathCode"]) }.toSet().size)
-        assertTrue(matches.all { it["reviewStatus"].asText() == "DRAFT" && it["sources"].size() == 1 })
+        assertTrue(matches.all { match ->
+            match["reviewStatus"].asText() == catalog.all.single { it.pattern.id == match["referenceId"].asText() }.reviewStatus.name && match["sources"].size() == 1
+        })
     }
 
     @Test
@@ -90,7 +97,7 @@ class DraftReferenceCatalogHttpTest {
         val byId = json.readTree(http.getForObject("/api/v1/references?search=${first.pattern.id}", String::class.java))
         assertTrue(byId.any { it["id"].asText() == first.pattern.id })
         val reviewed = json.readTree(http.getForObject("/api/v1/references?reviewStatus=REVIEWED", String::class.java))
-        assertEquals(0, reviewed.size())
+        assertEquals(69, reviewed.size())
         for (query in listOf("catalog=bad", "category=MIXED", "reviewStatus=APPROVED", "sort=bad"))
             assertEquals(400, http.getForEntity("/api/v1/references?$query", String::class.java).statusCode.value())
     }

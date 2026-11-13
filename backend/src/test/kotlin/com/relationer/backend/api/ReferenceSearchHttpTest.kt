@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.relationer.backend.domain.PersonGraph
-import com.relationer.backend.domain.ReferenceCatalogLoader
+import com.relationer.backend.domain.originalCatalog
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.ValueSource
@@ -44,7 +44,7 @@ class ReferenceSearchHttpTest {
         val reference = catalog.single { it.id == id }
         val body = success(request(reference.graph))
         val matches = body["matches"]
-        assertEquals(expected.split(';'), matches.filter { match -> ReferenceCatalogLoader().load().any { it.id == match["referenceId"].asText() } }.map { it["referenceId"].asText() })
+        assertEquals(expected.split(';'), matches.filter { match -> originalCatalog().any { it.id == match["referenceId"].asText() } }.map { it["referenceId"].asText() })
         assertEquals(setOf("matches", "catalogWarning"), body.fieldNames().asSequence().toSet())
         assertTrue(body["catalogWarning"].isNull)
         for (match in matches) {
@@ -83,7 +83,7 @@ class ReferenceSearchHttpTest {
 
     @Test
     fun `marriage can be supplied in either direction`() {
-        val graph = ReferenceCatalogLoader().load().single { it.id == "affinity-allowed-03" }.graph
+        val graph = originalCatalog().single { it.id == "affinity-allowed-03" }.graph
         val original = request(graph)
         val reversed = original.deepCopy()
         val marriage = reversed["relations"].single { it["type"].asText() == "MARRIAGE" } as ObjectNode
@@ -111,7 +111,7 @@ class ReferenceSearchHttpTest {
 
     @Test
     fun `allowed fragment remains a match inside a longer user path`() {
-        val graph = ReferenceCatalogLoader().load().single { it.id == "affinity-allowed-03" }.graph
+        val graph = originalCatalog().single { it.id == "affinity-allowed-03" }.graph
         val request = request(graph)
         request.withArray("persons").addObject().put("id", "extra")
         request.withArray("relations").addObject().put("type", "SPIRITUAL")
@@ -224,7 +224,7 @@ class ReferenceSearchHttpTest {
     }
 
     private fun productionMatches(response: JsonNode): List<JsonNode> {
-        val ids = ReferenceCatalogLoader().load().map { it.id }.toSet()
+        val ids = originalCatalog().map { it.id }.toSet()
         return response["matches"].filter { it["referenceId"].asText() in ids }
     }
 

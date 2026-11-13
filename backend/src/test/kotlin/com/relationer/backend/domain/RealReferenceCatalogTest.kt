@@ -35,7 +35,7 @@ class RealReferenceCatalogTest {
                 val targets = when (relation["type"].asText()) {
                     "BIOLOGICAL" -> from.children
                     "SPIRITUAL" -> from.godchildren
-                    "ADOPTION" -> from.adoptedChildren
+                    "ADOPTION", "ADOPTED" -> from.adoptedChildren
                     "MARRIAGE" -> from.spouses
                     else -> error("Unknown relationship")
                 }
@@ -58,7 +58,7 @@ class RealReferenceCatalogTest {
     fun `loads validates and encodes each real reference`(
         id: String, code: String, personIds: String, page: Int, example: String,
     ) {
-        val reference = loader.load().single { it.id == id }
+        val reference = originalCatalog().single { it.id == id }
         val graph = reference.graph
         assertTrue(graph.validate().isEmpty(), id)
         assertEquals(Verdict.FORBIDDEN, reference.verdict)
@@ -97,7 +97,7 @@ class RealReferenceCatalogTest {
         }
         val user = PersonGraph(persons, persons.first(), persons.last())
         assertTrue(user.validate().isEmpty())
-        val references = loader.load()
+        val references = originalCatalog()
         val matches = ReferenceSearch().search(user, references)
         assertEquals(expectedIds.split(';'), matches.map { it.referencePattern.id })
         assertTrue(matches.all { it.verdict == Verdict.FORBIDDEN && it.userPathCode == code })

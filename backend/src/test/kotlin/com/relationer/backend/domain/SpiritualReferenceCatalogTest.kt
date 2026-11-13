@@ -15,7 +15,7 @@ class SpiritualReferenceCatalogTest {
     fun `loads validates encodes and searches spiritual cases`(
         id: String, code: String, ids: String, page: Int, expectedMatches: String,
     ) {
-        val catalog = ReferenceCatalogLoader().load()
+        val catalog = originalCatalog()
         val reference = catalog.single { it.id == id }
         assertTrue(reference.graph.validate().isEmpty())
         assertEquals(Verdict.FORBIDDEN, reference.verdict)

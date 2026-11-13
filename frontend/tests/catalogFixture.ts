@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs'
 
-/** API-shaped fixture from the canonical backend catalog; no runtime data is stored in frontend. */
-export function catalogFixture(draft = false) {
-  const records = JSON.parse(readFileSync(`../backend/src/main/resources/reference-catalog/references${draft ? '-draft' : ''}.json`, 'utf8'))
-  return records.map((r: any) => {
+/** API-shaped fixtures: the original eleven regression cases, or the entire current catalog. */
+export function catalogFixture(all = false) {
+  const records = ['references.json', 'references-draft.json'].flatMap(name =>
+    JSON.parse(readFileSync(`../backend/src/main/resources/reference-catalog/${name}`, 'utf8')))
+  const ids = JSON.parse(readFileSync('../backend/src/test/resources/catalog/legacy-production.json', 'utf8')).map((record: { id: string }) => record.id)
+  const selected = all ? records : ids.map((id: string) => records.find((record: { id: string }) => record.id === id))
+  return selected.map((r: any) => {
     const sources = r.sources.map((s: any) => ({ ...s, image: `/api/v1/references/${r.id}/image?sourceId=${s.id}` }))
     const primary = sources[0]
     const relations = r.relations.map((relation: any) => ({

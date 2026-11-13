@@ -1,25 +1,36 @@
 import { expect, test } from '@playwright/test'
 import { mkdir } from 'node:fs/promises'
 test.skip(process.env.RUN_BACKEND_INTEGRATION !== '1', 'Requires a running backend')
-test('real API catalog shows all eleven references and filters mixed cases', async ({ page }) => {
+test('real API catalog shows promoted references and filters reviewed cases', async ({ page }) => {
+  const response = await page.request.get('/api/v1/references?catalog=production')
+  expect(response.ok()).toBe(true)
+  const records: { id: string; categories: string[]; verdict: string; reviewStatus: string }[] = await response.json()
+  expect(records.length).toBeGreaterThan(11)
+  expect(records.every(record => record.reviewStatus === 'REVIEWED')).toBe(true)
   await page.goto('/references')
   await expect(page.locator('.reference-card')).toHaveCount(10)
   await expect(page.locator('.reference-card').first()).toContainText('blood-01')
   await expect(page.locator('.reference-card').first().locator('.role-a')).toHaveCount(1)
   await expect(page.locator('.reference-card').first().locator('.role-b')).toHaveCount(1)
-  await page.locator('.feed-sentinel').scrollIntoViewIfNeeded()
-  await expect(page.locator('.reference-card')).toHaveCount(11)
+  for (let count = 10; count < records.length; count += 10) {
+    await page.locator('.feed-sentinel').scrollIntoViewIfNeeded()
+    await expect(page.locator('.reference-card')).toHaveCount(Math.min(count + 10, records.length))
+  }
   await expect(page.getByText('Конец списка.', { exact: true })).toBeVisible()
   await page.getByLabel('Свойство', { exact: true }).check()
-  await expect(page.locator('.reference-card')).toHaveCount(3)
+  const affinity = records.filter(record => record.categories.includes('AFFINITY'))
+  await expect(page.locator('.reference-card')).toHaveCount(Math.min(10, affinity.length))
   await page.getByLabel('Вердикт', { exact: true }).selectOption('ALLOWED')
-  await expect(page.locator('.reference-card')).toHaveCount(3)
+  await expect(page.locator('.reference-card')).toHaveCount(Math.min(10, affinity.filter(record => record.verdict === 'ALLOWED').length))
 })
 
-test('real draft catalog has 94 cases, backend images, review and mobile adoption graphs', async ({ page }) => {
+test('real draft catalog retains pending cases, backend images, review and mobile adoption graphs', async ({ page }) => {
+  const response = await page.request.get('/api/v1/references?catalog=draft')
+  expect(response.ok()).toBe(true)
+  const records = await response.json()
   await page.goto('/references')
   await page.getByLabel('На проверке', { exact: true }).check()
-  await expect(page.locator('.review-counts')).toContainText('Всего: 94')
+  await expect(page.locator('.review-counts')).toContainText(`Всего: ${records.length}`)
   await expect(page.locator('.reference-card')).toHaveCount(10)
   await page.getByLabel('Поиск по ID, названию, описанию и источникам').fill('adoption-forbidden-08')
   const card = page.getByRole('article', { name: 'adoption-forbidden-08', exact: true })
