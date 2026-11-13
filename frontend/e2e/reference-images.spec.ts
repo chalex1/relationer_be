@@ -1,6 +1,6 @@
 import { catalogFixture } from '../tests/catalogFixture'
 import { expect, test } from '@playwright/test'
-import { readFileSync } from 'node:fs'
+import { mockCatalogImages } from './catalogImages'
 
 const records = catalogFixture()
 
@@ -12,6 +12,7 @@ for (const width of [1440, 390]) {
       const record = records.find((r: any) => route.request().url().endsWith(r.id))
       return route.fulfill({ json: { metadata: { ...record, hasImage: true }, graph: record } })
     })
+    await mockCatalogImages(page)
     await page.goto('/references')
     await expect(page.locator('.reference-card')).toHaveCount(10)
     await page.locator('.feed-sentinel').scrollIntoViewIfNeeded()

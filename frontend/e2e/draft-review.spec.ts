@@ -2,6 +2,7 @@ import { catalogFixture } from '../tests/catalogFixture'
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { readFileSync } from 'node:fs'
+import { mockCatalogImages } from './catalogImages'
 
 const originals = catalogFixture()
 const makeDrafts = () => originals.slice(0, 2).map((r: any, i: number) => ({
@@ -9,6 +10,7 @@ const makeDrafts = () => originals.slice(0, 2).map((r: any, i: number) => ({
   graph: { persons: r.persons, relations: r.relations, personA: r.personA, personB: r.personB },
 }))
 async function mock(page: Page, drafts: () => ReturnType<typeof makeDrafts>) {
+  await mockCatalogImages(page)
   await page.route('**/api/v1/references/*', route => {
     const draft = drafts().find((d: any) => route.request().url().endsWith(d.metadata.id))
     if (draft) return route.fulfill({ json: draft })

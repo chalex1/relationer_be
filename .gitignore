@@ -11,8 +11,9 @@ out/
 __pycache__/
 *.pyc
 
-# Import bundles; extracted catalog resources are versioned separately
+# Import bundles and local catalog scans
 /relationer-*.zip
+/backend/src/main/resources/reference-catalog/images/
 
 # Local exports of browser review results
 /review-results*.json
